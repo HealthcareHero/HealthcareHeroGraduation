@@ -1,0 +1,28 @@
+.ant-dropdown {
+  z-index: 1200;
+}
+
+.ant-menu-item-active:hover {
+  cursor: default;
+}
+
+.ant-menu-item > a {
+  background-color: transparent;
+}
+
+.ant-menu-item:hover {
+  background-color: #F5F6F7;
+}
+
+.ant-menu-item:focus {
+  background-color: green;
+}
+
+.ant-menu-item-selected > a,
+.ant-menu-item-selected > a:hover {
+  color: #425A70;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: inherit;
+}

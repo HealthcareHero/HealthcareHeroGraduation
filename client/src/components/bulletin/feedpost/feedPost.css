@@ -1,0 +1,80 @@
+.feedpost {
+  width: 100%;
+  text-align: left;
+}
+
+.feedPost-media {
+  width: 100vw;
+  min-height: 50vw;
+  max-height: 100vw;
+}
+
+.feedPost-media .ant-carousel .slick-slide {
+	text-align: center;
+  max-width: 100vw;
+  max-height: 100vw;
+  overflow: hidden;
+}
+
+.feedPost-media .ant-carousel .slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+.feedPost-media .ant-carousel .slick-slide img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.ant-btn-icon-only {
+  background-color: white;
+  border-style: none;
+}
+
+.ant-btn:hover, .ant-btn:focus, .ant-btn:active {
+  color: inherit;
+  border-style: none;
+}
+
+[ant-click-animating-without-extra-node]:after {
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -o-animation: none !important;
+  -ms-animation: none !important;
+  animation: none !important;
+}
+
+.liked {
+  color:#EC4C47;
+  animation: blinkAnimation 0.675s;
+}
+
+@keyframes blinkAnimation {
+  0% {
+      transform: scale(1,1);
+  }
+  50% {
+      transform: scale(1.25, 1.25);
+  }
+  100% {
+      transform: scale(1,1);
+  }
+}
+
+.number-of-likes {
+  float: right;
+  padding-right: 8px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  padding: 0px 8px;
+}

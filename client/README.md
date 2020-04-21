@@ -11,7 +11,7 @@ Set up Firebase Hosting:
    <br>\> (x) Hosting: Configure and deploy Firebase Hosting sites
    <br>\> Use an existing project
    <br>\> Use 'public' as public directory
-   <br>\> Configure as a single-app app: No
+   <br>\> Configure as a single-app app: Yes
    <br>\> File public/index.html already exists. Overwrite? No
 <br>
 <br>
@@ -21,6 +21,7 @@ Developing the project:
 2. Install dependencies
    - Firebase: `npm install firebase`
    - Apollo Client: `npm install apollo-boost @apollo/react-hooks graphql`
+   - Routing: `npm install react-router-dom`
    - Ant Design: `npm install antd @ant-design/icons`
    - Material UI: `npm install @material-ui/core @material-ui/icons`
    - Moment: `npm install moment`
@@ -30,6 +31,17 @@ Developing the project:
 Using Apollo Client, writing GraphQL queries, connecting to Google Cloud Functions:
 1. Create new client and connect to endpoint in `index.js`
    uri is the endpoint from our GraphQL server (i.e. our Google Cloud Function)
+   ```javascript
+   /** Local Host **/
+   const client = new ApolloClient({
+     uri: 'http://localhost:4000/graphql'
+   });
+
+   /** Firebase **/
+   const client = new ApolloClient({
+     uri: [Check in Google Functions]
+   });
+   ```
 2. Create queries and mutations in `src/api/`
 3. Use client to help send request to server in `src/components/bulletin/new-post/NewPostPage.js`
    ```javascript
@@ -63,6 +75,15 @@ Connecting and Uploading to Google Cloud Storage:
      ```javascript
      let url = await storage.ref(folderName).child(file.uid).getDownloadURL();
      ```
+<br>
+<br>
+
+Serve and Deploy
+1. Run: `npm start`
+2. Deploy: `npm run deploy`
+   - In `firebase.json`, under 'hosting', change to `"public": "build"` 
+   - In `package.json`, under scripts, add
+     `"deploy": "npm run build && firebase deploy"`
 <br>
 <br>
 

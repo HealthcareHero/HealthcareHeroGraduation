@@ -11,8 +11,7 @@ function configureServer() {
 
 	const server = new ApolloServer({
 		typeDefs,
-		resolvers,
-		playground: true
+		resolvers
 	});
 
 	server.applyMiddleware({ app });

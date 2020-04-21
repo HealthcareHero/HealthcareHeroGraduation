@@ -1,0 +1,7 @@
+.comment-page {
+  min-height: 100vh;
+}
+
+.comment-page .comment-section {
+  padding: 0px 8px;
+}

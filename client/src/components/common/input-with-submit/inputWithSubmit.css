@@ -1,0 +1,12 @@
+textarea.ant-input:hover, textarea.ant-input:focus {
+  border-color: #C2C8D5;
+  -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+textarea.ant-input {
+  resize: none;
+  margin-right: 3px;
+  border-color: #C2C8D5;
+}

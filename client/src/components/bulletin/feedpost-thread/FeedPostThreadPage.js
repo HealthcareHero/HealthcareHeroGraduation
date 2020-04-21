@@ -4,6 +4,8 @@ import NavBar from '../../common/navbar/NavBar';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { FEED_POST } from '../../../api/queries';
 import { ADD_COMMENT } from '../../../api/mutations';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { mediaQuery } from '../../../utilities/mediaQuery';
 
 import FeedPost from '../feedpost/FeedPost';
 
@@ -13,10 +15,17 @@ import InputWithSubmit from '../../common/input-with-submit/InputWithSubmit';
 import { openNotification } from '../../../utilities/notificationSnackbar';
 import { FrownOutlined } from '@ant-design/icons';
 
+
 import './feedPostThreadPage.css';
 
 const errorNotificationStyle = {
   backgroundColor: "#EC4C47"
+}
+
+const wideScreenStyle = {
+  width: "50vw",
+  marginLeft: "auto",
+  marginRight: "auto"
 }
 
 function FeedPostThreadPage(props) {
@@ -49,11 +58,11 @@ function FeedPostThreadPage(props) {
   const [submitting, setSubmitting] = useState(false);
   const history = useHistory();
 
+  const isWideScreen = useMediaQuery(mediaQuery.minWidth.small);
+
   useEffect(() => {
     setLikeCount(initialLikeCount);
   }, [initialLikeCount])
-
-  console.log(data)
 
   const onSubmit = (author, message) => {
     setSubmitting(true);
@@ -84,7 +93,7 @@ function FeedPostThreadPage(props) {
       }
       {
         !loading && data && (
-          <>
+          <div style={isWideScreen ? wideScreenStyle : {}}>
             <FeedPost id={feedPostId} 
                         author={author} 
                         message={message} 
@@ -103,7 +112,7 @@ function FeedPostThreadPage(props) {
             <div style={{paddingLeft:"8px", paddingRight:"8px", marginTop: "8px", position:"sticky", bottom: "8px"}} >
               <InputWithSubmit loading={submitting} onSubmit={onSubmit} />
             </div>
-          </>
+          </div>
         )
       }
     </div>

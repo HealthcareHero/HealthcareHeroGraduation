@@ -4,7 +4,7 @@
 }
 
 .feedPost-media {
-  width: 100vw;
+  width: 100%;
   min-height: 50vw;
   max-height: 100vw;
 }

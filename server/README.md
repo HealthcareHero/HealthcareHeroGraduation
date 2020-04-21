@@ -24,7 +24,15 @@ Developing functions:
    `src/typeDefs.js` `src/resolvers.js`
 5. Set up server: `src/server.js`
 6. Expose API: `index.js`
-7. To run, type `node index.js` in `/functions/` folder
+<br>
+<br>
+
+Connecting to Firestore:
+1. Import firestore in `src/implementation.js`
+2. Reading from firestore
+   ```javascript
+   const feedPost = await firestore.collection('FeedPosts').doc(id).get();
+   ```
 <br>
 <br>
 
@@ -45,7 +53,8 @@ Testing GraphQL (LocalHost):
 		playground: true
 	});
 	```
-3. Go to `localhost:4000/graphql`
+3. To run, type `node index.js` in `/functions/` folder
+4. Go to `localhost:4000/graphql`
 <br>
 
 Testing GraphQL (Production):

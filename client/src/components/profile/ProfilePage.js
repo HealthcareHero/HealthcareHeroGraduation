@@ -6,7 +6,7 @@ import ProfileSelectorScroll from './profile-selector/ProfileSelectorScroll';
 function ProfilePage() {
   return (
     <div className="profile-page">
-      <NavBar title="Profile" enableMenu={true} />
+      <NavBar title="Heroes" enableMenu={true} />
       <ProfileSelectorScroll />
       Content ~~~
     </div>

@@ -1,4 +1,4 @@
-const profile = "/profile";
+const profile = "/heroes";
 const bulletin = "/congratulate-a-friend";
 
 export const feedPostThread = `${bulletin}/feedpost`;

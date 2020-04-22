@@ -23,10 +23,12 @@ function BulletinPage() {
 
   return (
     <div className="bulletin-page">
-      <NavBar title="Congratulate A Friend" enableMenu={true} />
+      <NavBar title="Thank you Healthcare Heroes" enableMenu={true} />
       <div className="bulletin-header">
-        Hello! Do write something to congratulate a friend or anyone. <br />
-        Give them some encouragement!
+        <b>Share a memory, Congratulate a person, Thank someone!</b><br />
+        Let us take this oppportunity to congratulate all our healthcare graduates and wish them all the best for their future endeavours.<br />
+        We would like to thank our professsors and mentors for all that they have done.<br />
+        Finally, a big thank you to all our healthcare heroes out there!
       </div>
       <div>
         { isLargeViewPort ? <div>Nothing here now. Use a mobile phone instead</div> : <SingleViewPanel /> }

@@ -1,7 +1,9 @@
 import React from 'react';
-
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { mediaQuery } from '../../utilities/mediaQuery';
 import MediaViewer from '../common/carousel-media/MediaViewer';
-import NavBar from '../common/navbar/NavBar'
+import NavBar from '../common/navbar/NavBar';
+import { bannerImages } from './bannerImages';
 
 import './homePage.css';
 
@@ -13,12 +15,12 @@ const mediaList = [
 ]
 
 function HomePage() {
+  const isLargeViewPort = useMediaQuery(mediaQuery.minWidth.small);
+
   return (
     <div className="home-page">
-
-      <MediaViewer autoplay mediaList={mediaList} />
+      <MediaViewer autoplay mediaList={ isLargeViewPort ? bannerImages.landscape : bannerImages.portrait } />
       <NavBar expand />
-
     </div>
   );
 }

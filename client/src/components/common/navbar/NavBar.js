@@ -14,7 +14,7 @@ const navItems = [
   },
   {
     to: path.profile.bernard,
-    title: "Profile"
+    title: "Heroes"
   },
   {
     to: path.bulletin,

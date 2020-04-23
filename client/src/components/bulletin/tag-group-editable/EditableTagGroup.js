@@ -37,9 +37,16 @@ function EditableTagGroup(props) {
   };
 
   const handleNewTagInputConfirm = () => {
-    if (newTagInputValue && tagList.indexOf(newTagInputValue) === indexNotFound) {
-      onUpdateList(tagList.concat(newTagInputValue)); 
+    if (newTagInputValue) {
+      let index = tagList.findIndex(tag => {
+        return tag.toLowerCase() === newTagInputValue.toLowerCase();
+      });
+      
+      if (index === indexNotFound) {
+        onUpdateList(tagList.concat(newTagInputValue)); 
+      }
     }
+    
     setNewTagInputVisible(false);
     setNewTagInputValue('');
   };
@@ -52,8 +59,14 @@ function EditableTagGroup(props) {
   const handleEditTagInputConfirm = () => {
     const newTagList = [...tagList];
     if (editTagInputValue) {
-      newTagList[editTagInputIndex] = editTagInputValue;
-      onUpdateList(newTagList);
+      let index = tagList.findIndex((tag, index) => {
+        return (index !== editTagInputIndex) && (tag.toLowerCase() === editTagInputValue.toLowerCase());
+      })
+
+      if (index === indexNotFound) {
+        newTagList[editTagInputIndex] = editTagInputValue;
+        onUpdateList(newTagList);
+      }
     }
 
     setEditTagInputIndex(indexNotFound);

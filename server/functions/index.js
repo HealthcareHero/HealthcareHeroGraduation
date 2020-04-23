@@ -4,5 +4,5 @@ const configureServer = require('./src/server');
 const server = configureServer();
 
 /** Connect to Google Cloud Function **/
-const api = functions.https.onRequest(server);
+const api = functions.region('asia-northeast1').https.onRequest(server);
 module.exports = { api };

@@ -61,7 +61,7 @@ Testing GraphQL (Production):
 1. In `index.js`:
    ```javascript
    /** Connect to Google Cloud Function **/
-   const api = functions.https.onRequest(server);
+   const api = functions.region('asia-northeast1').https.onRequest(server);
    module.exports = { api };
    ```
 2. Go to Firebase console and view under Functions

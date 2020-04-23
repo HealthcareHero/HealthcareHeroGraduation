@@ -64,7 +64,7 @@ Using Apollo Client, writing GraphQL queries, connecting to Google Cloud Functio
 <br>
 
 Connecting and Uploading to Google Cloud Storage:
-1. Get firebaseConfig file from Firebase Console
+1. Add [Firebase SDK and initialise Firebase](https://firebase.google.com/docs/hosting/reserved-urls) in `public/index.html`
 2. Add it to `firebase/index.js` and export `storage`
 3. Import into `src/components/bulletin/new-post/NewPostPage.js`
    - Upload to Google Cloud Storage
@@ -79,7 +79,9 @@ Connecting and Uploading to Google Cloud Storage:
 <br>
 
 Serve and Deploy
-1. Run: `npm start`
+1. Run: `npm run serve`
+   - In `package.json`, under scripts, add
+     `"serve": "npm run build && firebase serve"`
 2. Deploy: `npm run deploy`
    - In `firebase.json`, under 'hosting', change to `"public": "build"` 
    - In `package.json`, under scripts, add

@@ -1,10 +1,10 @@
 const profile = "/heroes";
-const bulletin = "/congratulate-a-friend";
+const bulletin = "/thank-you-healthcare-heroes";
 
 export const feedPostThread = `${bulletin}/feedpost`;
 
 export const path = {
-  root: "https://healthcare-heroes-graduation.web.app",
+  root: "https://healthcare-heroes.web.app",
   home: "/",
   bulletin,
   createNewFeedPost: `${bulletin}/create-a-new-post`,

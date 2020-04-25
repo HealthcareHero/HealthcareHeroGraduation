@@ -1,6 +1,5 @@
-const profile = "/heroes";
 const bulletin = "/thank-you-healthcare-heroes";
-
+const profile = "/hero";
 export const feedPostThread = `${bulletin}/feedpost`;
 
 export const path = {
@@ -9,9 +8,11 @@ export const path = {
   bulletin,
   createNewFeedPost: `${bulletin}/create-a-new-post`,
   feedPostThread: `${feedPostThread}/:feedPostId`,
+  profileRoot: profile,
+  profilePattern: `${profile}/:name`,
   profile: {
     bernard: `${profile}/bernard`,
     yanka: `${profile}/yanka`,
-    yiksiong: `${profile}/yiksiong`,
+    yiksiong: `${profile}/yik-siong`
   }
 }

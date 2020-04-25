@@ -13,12 +13,12 @@ const navItems = [
     title: "Home"
   },
   {
-    to: path.profile.bernard,
+    to: path.profileRoot,
     title: "Heroes"
   },
   {
     to: path.bulletin,
-    title:"Congratulate someone"
+    title:"Thank you Healthcare Heroes"
   }
 ];
 

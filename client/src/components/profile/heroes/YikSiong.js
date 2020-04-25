@@ -1,12 +1,9 @@
 import React from 'react';
 
-function YikSiong(props) {
-  // const heroName = props.match.params.name;
-  const heroName = props.name;
-
+function YikSiong() {
   return (
     <div>
-      YikSiong - { heroName }
+      YikSiong 
     </div>
   );
 }

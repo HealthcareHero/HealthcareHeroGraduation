@@ -1,12 +1,9 @@
 import React from 'react';
 
-function Yanka(props) {
-  // const heroName = props.match.params.name;
-  const heroName = props.name;
-
+function Yanka() {
   return (
     <div>
-      Yanka - { heroName }
+      Yanka 
     </div>
   );
 }

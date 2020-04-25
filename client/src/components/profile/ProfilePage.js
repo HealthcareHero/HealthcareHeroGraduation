@@ -21,8 +21,7 @@ function ProfilePage() {
     <div className="profile-page">
       <NavBar title="Heroes" enableMenu={true} />
       <ProfileSelectorScroll heroIndex={heroIndex} />
-      Content ~~~
-      {location.pathname}
+
       <Switch>
         {
           profile.map((item, index) => (

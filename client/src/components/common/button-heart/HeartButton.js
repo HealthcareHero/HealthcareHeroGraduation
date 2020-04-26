@@ -34,8 +34,8 @@ function HeartButton(props) {
   }
 
   return (
-      heartIsLit ? <IconButton icon={<HeartFilled className="liked" style={{ fontSize: '20px' }}/>} onClick={onLikeClick} />
-                 : <IconButton icon={<HeartOutlined style={{ fontSize: '20px' }} />} onClick={onLikeClick} />
+      heartIsLit ? <IconButton icon={<HeartFilled className="heart-button-icon-filled" />} onClick={onLikeClick} />
+                 : <IconButton icon={<HeartOutlined className="heart-button-icon" />} onClick={onLikeClick} />
   );
 }
 

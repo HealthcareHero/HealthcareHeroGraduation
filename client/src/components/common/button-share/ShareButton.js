@@ -41,7 +41,7 @@ function ShareButton(props) {
   }
 
   return (
-    <IconButton icon={<ShareAltOutlined style={{ fontSize: '20px' }} />} onClick={handleShare}/>
+    <IconButton icon={<ShareAltOutlined className="share-button-icon" />} onClick={handleShare}/>
   );
 }
 

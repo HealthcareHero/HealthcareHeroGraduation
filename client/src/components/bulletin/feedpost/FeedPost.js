@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import moment from 'moment';
 import MediaViewer from '../../common/carousel-media/MediaViewer';
 import ExpansionTextPanel from '../../common/expansion-text-panel/ExpansionTextPanel';
 import TagList from '../../common/tag-list/TagList';
-import IconButton from '../../common/button-icon/IconButton';
 import HeartButton from '../../common/button-heart/HeartButton';
+import CommentButton from '../../common/button-comment/CommentButton';
 import ShareButon from '../../common/button-share/ShareButton';
-
-import { CommentOutlined } from '@ant-design/icons';
 
 import 'antd/es/button/style/css';
 import './feedPost.css';
@@ -23,17 +20,13 @@ function FeedPost(props) {
   const [likeCount, setLikeCount] = useState(initialLikeCount);
 
   return (
-    <div className="feedpost">
+    <div className="feedPost">
       { media && <div className="feedPost-media"><MediaViewer mediaList={media} loading="lazy" /></div> }
       
       <div className="icon-buttons">
         <HeartButton feedPostId={id} likeCount={likeCount} setLikeCount={setLikeCount} />
 
-        {
-          commenting && <Link to={`${feedPostThread}/${id}` }>
-                          <IconButton icon={<CommentOutlined style={{ fontSize: '20px' }} />} />
-                        </Link>
-        }
+        { commenting && <CommentButton path={`${feedPostThread}/${id}`} /> }
         
         <ShareButon url={`${path.root}${feedPostThread}/${id}`}/>
 
@@ -41,14 +34,13 @@ function FeedPost(props) {
       </div>
 
       <div className="content">
-        <div className="author"><b>{author}</b></div>
+        <div><b>{author}</b></div>
 
-        {/* { message && <div className="message">{message}</div> } */}
         { message && <div className="message"><ExpansionTextPanel text={message} displayLength={messageDisplayLength} /></div> }
 
         { tags && <TagList tagList={tags} displayLength={tagDisplayLength} /> }
 
-        <div className="timestamp" style={{fontSize: "0.7em"}}>
+        <div style={{fontSize: "0.7em"}}>
           { moment(timestamp).fromNow() }
         </div>
       </div>     

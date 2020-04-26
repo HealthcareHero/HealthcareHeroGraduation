@@ -5,8 +5,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-import ProfileAvatarTab from './ProfileAvatarTab';
-import { profile } from '../profile';
+import ProfileAvatar from '../avatar/ProfileAvatar';
+import { profile } from '../../profile';
+
+import './profileSelectorScroll.css';
 
 function a11yProps(index) {
   return {
@@ -28,7 +30,7 @@ function ProfileSelectorScroll(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root + " profile-selector-scroll"}>
       <AppBar position="static" color="default">
         <Tabs
           value={heroIndex}
@@ -42,7 +44,7 @@ function ProfileSelectorScroll(props) {
             <Link to={hero.path}>
             <Tab key={id} 
                  label={hero.name} 
-                 icon={<ProfileAvatarTab imgName={hero.name} imgSrc={hero.img} />} 
+                 icon={<ProfileAvatar imgName={hero.name} imgSrc={hero.img} />} 
                  {...a11yProps(id)} />
             </Link>
           ))}

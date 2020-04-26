@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 import { Form, Input, Switch } from 'antd';
 
-import MediaUploader from '../upload-media/MediaUploader';
-import EditableTagGroup from '../tag-group-editable/EditableTagGroup';
+import MediaUploader from '../../upload-media/MediaUploader';
+import EditableTagGroup from '../../tag-group-editable/EditableTagGroup';
 
 import 'antd/es/form/style/css';
 import 'antd/es/input/style/css';
 import 'antd/es/switch/style/css';
+import './newPostForm.css';
 
 const { TextArea } = Input;
 
@@ -89,6 +90,7 @@ function NewPostForm(props) {
     <Form form={form}
           onFinish={onFinish}
           name="form_in_modal"
+          className="new-post-form"
           scrollToFirstError
           initialValues={{
             modifier: 'public',

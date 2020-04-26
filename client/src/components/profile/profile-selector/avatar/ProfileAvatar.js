@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProfileAvatarTab(props) {
+function ProfileAvatar(props) {
   const { imgName, imgSrc } = {...props};
   const classes = useStyles();
 
@@ -28,4 +28,4 @@ function ProfileAvatarTab(props) {
   );
 }
 
-export default ProfileAvatarTab;
+export default ProfileAvatar;

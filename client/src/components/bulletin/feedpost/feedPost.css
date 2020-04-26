@@ -1,6 +1,7 @@
-.feedpost {
+.feedPost {
   width: 100%;
   text-align: left;
+  --feedPostIconButtonFontSize: 20px;
 }
 
 .feedPost-media {
@@ -49,8 +50,13 @@
   animation: none !important;
 }
 
-.liked {
+.feedPost .comment-button-icon, .heart-button-icon, .share-button-icon {
+  font-size: var(--feedPostIconButtonFontSize);
+}
+
+.feedPost .heart-button-icon-filled {
   color:#EC4C47;
+  font-size: var(--feedPostIconButtonFontSize);
   animation: blinkAnimation 0.675s;
 }
 
@@ -66,7 +72,7 @@
   }
 }
 
-.number-of-likes {
+.feedPost .number-of-likes {
   float: right;
   padding-right: 8px;
   height: 32px;
@@ -75,6 +81,6 @@
   justify-content: center;
 }
 
-.content {
+.feedPost .content {
   padding: 0px 8px;
 }

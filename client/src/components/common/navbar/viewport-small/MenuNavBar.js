@@ -3,6 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar } from '@material-ui/core';
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { theme } from '../../../../utilities/theme';
 
 import 'antd/es/menu/style/css';
 import 'antd/es/dropdown/style/css';
@@ -30,7 +31,7 @@ function NavMenuItem(props) {
   };
 
   return (
-    <NavLink {...props} style={{ textDecoration: "none", userSelect: "none", color: "#425A70" }} activeStyle={activeStyle}>
+    <NavLink {...props} style={{ textDecoration: "none", userSelect: "none", color: theme.color.textPrimaryBlack }} activeStyle={activeStyle}>
       {props.children}
     </NavLink>
   );

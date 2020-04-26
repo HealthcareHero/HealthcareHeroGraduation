@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'antd';
-import NewPostForm from './NewPostForm';
+import NewPostForm from './form/NewPostForm';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_FEED_POST } from '../../../api/mutations';
 
 import { openNotification } from '../../../utilities/notificationSnackbar';
 import { SmileOutlined } from '@ant-design/icons';
 import { FrownOutlined } from '@ant-design/icons';
+import { theme } from '../../../utilities/theme';
 
 const successNotificationStyle = {
   backgroundColor: "#47B881"
@@ -84,9 +85,9 @@ function NewPostModal(props) {
         <Button key="back" onClick={handleCancel}>
           Cancel
              </Button>,
-        <Button key="submit" type="primary" loading={loading} disabled={disableSubmit} onClick={handleOk}>
+        <Button key="submit" style={{backgroundColor:theme.color.blue.primary, color:"white"}} loading={loading} disabled={disableSubmit} onClick={handleOk}>
           Submit
-             </Button>,
+             </Button>
       ]}
     >
       <NewPostForm loading={loading}

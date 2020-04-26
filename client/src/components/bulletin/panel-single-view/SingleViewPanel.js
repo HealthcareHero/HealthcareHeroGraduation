@@ -14,10 +14,6 @@ function SingleViewPanel() {
   // let error = "none";
   // let data = {};
 
-
-  console.log("loading: ", loading)
-  console.log("error: ", error)
-
   return (
     <div className="single-view-panel">
       {

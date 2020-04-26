@@ -2,6 +2,8 @@ import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import FabButton from '@material-ui/core/Fab';
 
+import { theme } from '../../../utilities/theme';
+
 const btnStyle = {
   margin: 0,
   top: 'auto',
@@ -10,7 +12,7 @@ const btnStyle = {
   left: 'auto',
   position: 'fixed',
   color: "white",
-  backgroundColor: "#1070CA"
+  backgroundColor: theme.color.blue.primary
 };
 
 function NewPostButton(props) {

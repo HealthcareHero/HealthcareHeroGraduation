@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 
 import NavBar from '../common/navbar/NavBar';
-import ProfileSelectorScroll from './profile-selector/ProfileSelectorScroll';
+import ProfileSelectorScroll from './profile-selector/scroll/ProfileSelectorScroll';
 
 import { profile } from './profile';
 

@@ -4,12 +4,11 @@ import { useMutation } from '@apollo/react-hooks';
 import { ADD_FEED_POST } from '../../../api/mutations';
 import { Button, Form } from 'antd';
 import NavBar from '../../../components/common/navbar/NavBar';
-import NewPostForm from './NewPostForm';
+import NewPostForm from './form/NewPostForm';
 import { storage } from '../../../firebase'
 
 import { path } from '../../../utilities/paths';
-
-import 'antd/es/button/style/css';
+import { theme } from '../../../utilities/theme';
 
 function NewPostPage(props) {
   const [loading, setLoading] = useState();
@@ -109,9 +108,9 @@ function NewPostPage(props) {
         />
 
         <div style={{float:"right", marginBottom: "15px"}}>
-        <Button key="submit" type="primary" loading={loading} disabled={disableSubmit} onClick={handleOk}>
-          Submit
-        </Button>
+          <Button key="submit" style={{backgroundColor:theme.color.blue.primary, color:"white"}} loading={loading} disabled={disableSubmit} onClick={handleOk}>
+            Submit
+          </Button>
         </div>
       </div>
     </div>

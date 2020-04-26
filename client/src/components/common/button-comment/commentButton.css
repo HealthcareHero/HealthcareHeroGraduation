@@ -1,0 +1,4 @@
+.comment-button-link > a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}

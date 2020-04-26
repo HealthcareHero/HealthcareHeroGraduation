@@ -15,7 +15,7 @@ function SingleViewPanel() {
   // let data = {};
 
   return (
-    <div className="single-view-panel">
+    <div className="single-view-panel" style={{paddingBottom: "24px"}}>
       {
         loading && (
           <LoadingOverlay size="24">

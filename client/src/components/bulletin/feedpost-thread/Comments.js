@@ -8,7 +8,9 @@ function Comment(props) {
     <div style={{display:"flex", flexDirection:"column"}}>
       <span>{author}</span>
       <span>{message}</span>
-      <span>{timestamp}</span>
+      <div style={{fontSize: "0.7em"}}>
+        { timestamp }
+      </div>
     </div>
   );
 }

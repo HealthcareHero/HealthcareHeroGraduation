@@ -7,11 +7,11 @@ import { ADD_COMMENT } from '../../../api/mutations';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { mediaQuery } from '../../../utilities/mediaQuery';
 
-import FeedPost from '../feedpost/FeedPost';
+import HorizontalView from './horizontal-view/HorizontalView';
+import VerticalView from './vertical-view/VerticalView';
 
 import LoadingOverlay from '../../common/loading/LoadingOverlay';
-import Comments from './Comments';
-import InputWithSubmit from '../../common/input-with-submit/InputWithSubmit';
+
 import { openNotification } from '../../../utilities/notificationSnackbar';
 import { FrownOutlined } from '@ant-design/icons';
 
@@ -42,16 +42,21 @@ function FeedPostThreadPage(props) {
   // let data = {
   //   feedPost: {
   //     author: "test author",
-  //     media: "test media",
+  //     media: ["https://www.thetalka.com/wp-content/uploads/2019/06/Thank-You-Messages-For-Nurses-.jpg", "https://image.freepik.com/free-vector/thank-you-doctors-nurses_23-2148498508.jpg", "https://www.thetalka.com/wp-content/uploads/2019/06/Thank-You-Messages-For-Nurses.jpg"],
   //     message: "test message",
   //     tags: ["test"],
-  //     timestamp: null,
-  //     comments: null,
-  //     likeCount: 0
+  //     timestamp: "26 april 2020",
+  //     comments: [
+  //       {author: "Guest",message: "FLFC",timestamp: "26 april 2020"},
+  //       {author: "Guest",message: "FLFC",timestamp: "26 april 2020"},
+  //       {author: "Guest",message: "FLFC",timestamp: "26 april 2020"},
+  //       {author: "Guest",message: "FLFC",timestamp: "26 april 2020"},
+  //     ],
+  //     likeCount: 1
   //   }
   // };
 
-  const { author, media, message, tags, timestamp, comments } = data ? {...data.feedPost} : {};
+  const { author, media, message, tags, timestamp, comments, commenting } = data ? {...data.feedPost} : {};
   const initialLikeCount = data ? data.feedPost.likeCount : 0;
   
   const [likeCount, setLikeCount] = useState(initialLikeCount);
@@ -92,8 +97,41 @@ function FeedPostThreadPage(props) {
         )
       }
       {
-        !loading && data && (
-          <div style={isWideScreen ? wideScreenStyle : {}}>
+        !loading && data && ( 
+          isWideScreen ? <HorizontalView feedPostId={feedPostId}
+                                         author={author}
+                                         message={message}
+                                         media={media}
+                                         tags={tags}
+                                         likeCount={likeCount}
+                                         timestamp={timestamp}
+                                         commenting={commenting}
+                                         comments={comments}
+                                         submitting={submitting}
+                                         onSubmit={onSubmit}
+                         /> 
+                        : <VerticalView feedPostId={feedPostId}
+                                        author={author}
+                                        message={message}
+                                        media={media}
+                                        tags={tags}
+                                        likeCount={likeCount}
+                                        timestamp={timestamp}
+                                        comments={comments}
+                                        submitting={submitting}
+                                        onSubmit={onSubmit}
+                          />
+          )
+      }
+    </div>
+  );
+}
+
+export default FeedPostThreadPage;
+
+
+
+{/* <div style={isWideScreen ? wideScreenStyle : {}}>
             <FeedPost id={feedPostId} 
                         author={author} 
                         message={message} 
@@ -112,11 +150,4 @@ function FeedPostThreadPage(props) {
             <div style={{paddingLeft:"8px", paddingRight:"8px", marginTop: "8px", position:"sticky", bottom: "8px"}} >
               <InputWithSubmit loading={submitting} onSubmit={onSubmit} />
             </div>
-          </div>
-        )
-      }
-    </div>
-  );
-}
-
-export default FeedPostThreadPage;
+          </div> */}

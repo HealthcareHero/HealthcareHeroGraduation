@@ -1,0 +1,48 @@
+.feedPost-horizontal-view {
+  display: flex;
+  --leftPanelWidth: 67vw;
+  --rightPanelWidth: 31vw;
+}
+
+.feedPost-horizontal-view .left {
+  background-color: black;
+  padding-bottom: 1vh;
+  width: var(--leftPanelWidth);
+  position: fixed;
+}
+
+.feedPost-horizontal-view .image-container {
+  display: flex !important;
+  align-items: center;
+  height: 80vh;
+  padding-bottom: 10vh;
+}
+
+.feedPost-horizontal-view .media .ant-carousel .slick-slide img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.feedPost-horizontal-view .slick-dots li, .feedPost-horizontal-view .slick-dots li:hover{
+  background-color: var(--textPrimaryBlack);
+}
+
+.feedPost-horizontal-view .slick-dots li.slick-active button {
+  background-color: var(--borderBlack);
+}
+
+.feedPost-horizontal-view .right {
+  padding: 8px;
+  width: var(--rightPanelWidth);
+  position: absolute;
+  left: var(--leftPanelWidth);
+}
+
+.feedPost-horizontal-view .middle {
+  width: 80vw;
+}

@@ -9,7 +9,7 @@ function MediaViewer(props) {
       {
         mediaList.map((item, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="image-container">
               <img src={item} alt={alt} loading={loading}/>
             </div>
           )

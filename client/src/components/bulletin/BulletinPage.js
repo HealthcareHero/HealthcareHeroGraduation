@@ -5,6 +5,7 @@ import { mediaQuery } from '../../utilities/mediaQuery';
 
 import NavBar from '../common/navbar/NavBar';
 import SingleViewPanel from './panel-single-view/SingleViewPanel';
+import MultiViewPanel from './panel-multi-view/MultiViewPanel';
 import NewPostModal from './new-post/NewPostModal';
 import NewPostButton from './button-new-post/NewPostButton';
 
@@ -31,7 +32,7 @@ function BulletinPage() {
         Finally, a big thank you to all our healthcare heroes out there!
       </div>
       <div>
-        { isLargeViewPort ? <div>Nothing here now. Use a mobile phone instead</div> : <SingleViewPanel /> }
+        { isLargeViewPort ? <MultiViewPanel /> : <SingleViewPanel /> }
       </div>
 
       { 

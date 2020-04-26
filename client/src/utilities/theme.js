@@ -4,6 +4,7 @@ export const theme = {
     textPrimaryBlack: "#595959",
     textSecondaryBlack: "#8C8C8C",
     borderBlack: "#D9D9D9",
+    hoverBackgroundBlack: "#F5F5F5",
     disable: "#BFBFBF",
     grey: {
       primary: "#5D7092",

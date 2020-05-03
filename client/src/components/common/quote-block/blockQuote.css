@@ -1,7 +1,7 @@
 blockquote {
   font-family: Georgia, serif;
   position: relative;
-  padding: 0.5em 2em 0.5em 3em;
+  padding: 0.5em 2em 0.5em 3.5em;
 }
 
 blockquote:before {
@@ -12,22 +12,26 @@ blockquote:before {
   top: 0;
   left: 0;
   content: "\201C";
+  margin-left: 8px;
 }
+
 blockquote:after {
   font-family: Georgia, serif;
   position: absolute;
- /* display: block; don't use this, it raised the quote too high from the bottom - defeated line-height? */
   float:right;
   font-size:6em;
   line-height: 1;
   right:0;
   bottom:-0.5em;
   content: "\201D";
+  margin-right: 8px;
 }
+
 blockquote footer {
   padding: 0 2em 0 0;
   text-align:right;
 }
+
 blockquote cite:before {
   content: "\2013";
 }

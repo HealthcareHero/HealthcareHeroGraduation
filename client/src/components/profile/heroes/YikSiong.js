@@ -2,7 +2,7 @@ import React from 'react';
 
 function YikSiong() {
   return (
-    <div>
+    <div className="hero-yik-siong">
       YikSiong 
     </div>
   );

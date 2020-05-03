@@ -2,7 +2,7 @@ import React from 'react';
 
 function Yanka() {
   return (
-    <div>
+    <div className="hero-yanka">
       Yanka 
     </div>
   );

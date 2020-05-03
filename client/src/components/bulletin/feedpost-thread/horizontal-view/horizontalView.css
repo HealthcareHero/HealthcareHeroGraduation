@@ -4,7 +4,7 @@
 }
 
 .feedPost-horizontal-view .header {
-  width: 100vw;
+  max-width: 100vw;
   height: 70vh;
   background-color: black;
   --img-max-height: 67.5vh;

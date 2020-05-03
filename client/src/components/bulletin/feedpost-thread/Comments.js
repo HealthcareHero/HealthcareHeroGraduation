@@ -6,9 +6,9 @@ function Comment(props) {
   const { author, message, timestamp }= {...props};
   return (
     <div style={{display:"flex", flexDirection:"column"}}>
-      <span>{author}</span>
+      <span><b>{author}</b></span>
       <span>{message}</span>
-      <div style={{fontSize: "0.7em"}}>
+      <div style={{fontSize: "0.7em", marginTop:"1em"}}>
         { timestamp }
       </div>
     </div>

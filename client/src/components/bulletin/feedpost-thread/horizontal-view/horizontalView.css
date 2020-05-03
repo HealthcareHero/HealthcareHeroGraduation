@@ -1,48 +1,56 @@
 .feedPost-horizontal-view {
   display: flex;
-  --leftPanelWidth: 67vw;
-  --rightPanelWidth: 31vw;
+  flex-direction: column;
 }
 
-.feedPost-horizontal-view .left {
+.feedPost-horizontal-view .header {
+  width: 100vw;
+  height: 70vh;
   background-color: black;
-  padding-bottom: 1vh;
-  width: var(--leftPanelWidth);
-  position: fixed;
+  --img-max-height: 67.5vh;
 }
 
 .feedPost-horizontal-view .image-container {
   display: flex !important;
   align-items: center;
-  height: 80vh;
-  padding-bottom: 10vh;
+  max-height: var(--img-max-height);
 }
 
-.feedPost-horizontal-view .media .ant-carousel .slick-slide img {
+.feedPost-horizontal-view .ant-carousel .slick-slide img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   object-fit: cover;
   object-position: 50% 50%;
   max-width: 100%;
-  max-height: 100%;
+  max-height: var(--img-max-height);
 }
 
-.feedPost-horizontal-view .slick-dots li, .feedPost-horizontal-view .slick-dots li:hover{
-  background-color: var(--textPrimaryBlack);
+.feedPost-horizontal-view .ant-carousel .slick-dots-bottom {
+  bottom: -4vh;
 }
 
-.feedPost-horizontal-view .slick-dots li.slick-active button {
-  background-color: var(--borderBlack);
+.feedPost-horizontal-view .body {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  width: 75vw;
 }
 
-.feedPost-horizontal-view .right {
-  padding: 8px;
-  width: var(--rightPanelWidth);
-  position: absolute;
-  left: var(--leftPanelWidth);
+.feedPost-horizontal-view .body  .heart-button-icon-filled {
+  color:#EC4C47;
+  font-size: var(--feedPostIconButtonFontSize);
+  animation: blinkAnimation 0.675s;
 }
 
-.feedPost-horizontal-view .middle {
-  width: 80vw;
+@keyframes blinkAnimation {
+  0% {
+      transform: scale(1,1);
+  }
+  50% {
+      transform: scale(1.25, 1.25);
+  }
+  100% {
+      transform: scale(1,1);
+  }
 }

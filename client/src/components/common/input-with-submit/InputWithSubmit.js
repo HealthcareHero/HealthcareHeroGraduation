@@ -17,15 +17,14 @@ function SubmitButton(props) {
 }
 
 function InputWithSubmit(props) {
-  const { onSubmit, loading } = {...props};
-  const [text, setText] = useState("");
+  const { text, setText, onSubmit, loading } = {...props};
 
   const handleChange = ({ target: {value} }) => {
     setText(value);
   }
 
   const handleSubmit = () => {
-    onSubmit("no author", text);
+    onSubmit("Guest", text);
     setText("");
   }
 

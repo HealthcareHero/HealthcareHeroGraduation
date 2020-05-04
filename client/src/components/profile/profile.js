@@ -5,18 +5,18 @@ export const profile = [
     name: "Bernard",
     path: path.profile.bernard,
     img: require('../../assets/img/avatar_bernard.png'),
-    component: require('./heroes/Bernard').default
+    component: require('./heroes/bernard').default
   },
   {
     name: "Yanka",
     path: path.profile.yanka,
     img: require('../../assets/img/avatar_yanka.png'),
-    component: require('./heroes/Yanka').default
+    component: require('./heroes/yanka').default
   },
   {
     name: "Yik Siong",
     path: path.profile.yiksiong,
     img: require('../../assets/img/avatar_yiksiong.png'),
-    component: require('./heroes/YikSiong').default
+    component: require('./heroes/yik-siong').default
   }
 ];

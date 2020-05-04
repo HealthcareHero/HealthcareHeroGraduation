@@ -2,10 +2,10 @@ import React from 'react';
 import './blockQuote.css'
 
 function BlockQuote(props) {
-  const { text, cite } = {...props}
+  const { children, cite } = {...props}
   return (
     <blockquote>
-        {text}
+        {children}
       <footer>
           <cite>
               {cite}

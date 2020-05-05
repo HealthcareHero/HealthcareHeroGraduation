@@ -1,13 +1,13 @@
 import React from 'react';
 import moment from 'moment';
-import Comments from '../../Comments';
-import TagList from '../../../../common/tag-list/TagList';
-import InputWithSubmit from '../../../../common/input-with-submit/InputWithSubmit';
-import HeartButton from '../../../../common/button-heart/HeartButton';
-import ShareButon from '../../../../common/button-share/ShareButton';
+import Comments from '../../comment/Comments';
+import TagList from '../../../../../common/tag-list/TagList';
+import InputWithSubmit from '../../../../../common/input-with-submit/InputWithSubmit';
+import HeartButton from '../../../../../common/button-heart/HeartButton';
+import ShareButon from '../../../../../common/button-share/ShareButton';
 
-import { path, feedPostThread } from '../../../../../utilities/paths';
-import { useFeedPostThread } from '../../hook';
+import { path, feedPostThread } from '../../../../../../utilities/paths';
+import { useFeedPostThread } from '../../../hook';
 
 const tagDisplayLength = 15;
 

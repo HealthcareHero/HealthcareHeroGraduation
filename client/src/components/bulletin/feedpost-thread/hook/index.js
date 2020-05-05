@@ -17,8 +17,6 @@ export const useFeedPostThread = () => {
   const [ addComment ] = useMutation(ADD_COMMENT);
   const history = useHistory();
 
-  console.log("State In Hook: ", state)
-
   const updateLikeCount = (likeCount) => {
     dispatch({
       type: actionType.updateLikeCount,

@@ -1,9 +1,9 @@
 import React from 'react';
-import LoadingOverlay from '../../../common/loading/LoadingOverlay';
-import MediaViewer from '../../../common/carousel-media/MediaViewer';
+import LoadingOverlay from '../../../../common/loading/LoadingOverlay';
+import MediaViewer from '../../../../common/carousel-media/MediaViewer';
 import ContentPanel from './content-panel/ContentPanel';
 
-import { useFeedPostThread } from '../hook';
+import { useFeedPostThread } from '../../hook';
 
 import './horizontalView.css';
 

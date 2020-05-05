@@ -1,16 +1,16 @@
 import React from 'react';
 import moment from 'moment';
-import { useFeedPostThread } from '../hook';
-import InputWithSubmit from '../../../common/input-with-submit/InputWithSubmit';
-import LoadingOverlay from '../../../common/loading/LoadingOverlay';
-import MediaViewer from '../../../common/carousel-media/MediaViewer';
-import ExpansionTextPanel from '../../../common/expansion-text-panel/ExpansionTextPanel';
-import TagList from '../../../common/tag-list/TagList';
-import HeartButton from '../../../common/button-heart/HeartButton';
-import ShareButon from '../../../common/button-share/ShareButton';
-import Comments from '../Comments';
+import { useFeedPostThread } from '../../hook';
+import InputWithSubmit from '../../../../common/input-with-submit/InputWithSubmit';
+import LoadingOverlay from '../../../../common/loading/LoadingOverlay';
+import MediaViewer from '../../../../common/carousel-media/MediaViewer';
+import ExpansionTextPanel from '../../../../common/expansion-text-panel/ExpansionTextPanel';
+import TagList from '../../../../common/tag-list/TagList';
+import HeartButton from '../../../../common/button-heart/HeartButton';
+import ShareButon from '../../../../common/button-share/ShareButton';
+import Comments from '../comment/Comments';
 
-import { path, feedPostThread } from '../../../../utilities/paths';
+import { path, feedPostThread } from '../../../../../utilities/paths';
 
 import './verticalView.css';
 

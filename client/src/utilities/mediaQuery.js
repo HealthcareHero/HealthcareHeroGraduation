@@ -1,6 +1,6 @@
 import useMaterialUiMediaQuery from '@material-ui/core/useMediaQuery';
 
-export const mediaQuery = {
+const mediaQuery = {
   minWidth: {
     small: '(min-width:480px)',
     medium: '(min-width:768px)'

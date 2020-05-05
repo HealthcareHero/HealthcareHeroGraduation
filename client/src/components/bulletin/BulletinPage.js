@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { mediaQuery } from '../../utilities/mediaQuery';
+import { useMediaQuery } from '../../utilities/mediaQuery';
 
 import NavBar from '../common/navbar/NavBar';
 import SingleViewPanel from './panel-single-view/SingleViewPanel';
@@ -16,7 +15,7 @@ import './bulletinPage.css';
 
 function BulletinPage() {
   const [isModalVisible, setModalVisible] = useState(false);
-  const isLargeViewPort = useMediaQuery(mediaQuery.minWidth.small);
+  const { isSmallScreen } = useMediaQuery();
 
   const showModal = () => {
     setModalVisible(true);
@@ -32,14 +31,14 @@ function BulletinPage() {
         Finally, a big thank you to all our healthcare heroes out there!
       </div>
       <div>
-        { isLargeViewPort ? <MultiViewPanel /> : <SingleViewPanel /> }
+        { isSmallScreen ? <SingleViewPanel /> : <MultiViewPanel /> }
       </div>
 
       { 
-        isLargeViewPort ? <NewPostButton onClick={showModal} /> 
-                        : <Link to={path.createNewFeedPost}>
-                            <NewPostButton />
-                          </Link>
+        isSmallScreen ? <Link to={path.createNewFeedPost}>
+                          <NewPostButton />
+                        </Link>
+                      : <NewPostButton onClick={showModal} /> 
       }
 
       <NewPostModal visible={isModalVisible} setVisible={setModalVisible} />

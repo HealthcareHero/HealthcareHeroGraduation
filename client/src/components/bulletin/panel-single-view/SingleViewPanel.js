@@ -10,9 +10,6 @@ import 'antd/es/divider/style/css';
 
 function SingleViewPanel() {
   const { loading, error, data } = useQuery(FEED_POSTS);
-  // let loading = true;
-  // let error = "none";
-  // let data = {};
 
   return (
     <div className="single-view-panel" style={{paddingBottom: "24px"}}>

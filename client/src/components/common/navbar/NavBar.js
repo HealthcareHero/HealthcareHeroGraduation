@@ -1,9 +1,7 @@
 import React from 'react';
 import MenuNavBar from './viewport-small/MenuNavBar';
 import TabNavBar from './viewport-large/TabNavBar';
-
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { mediaQuery } from '../../../utilities/mediaQuery';
+import { useMediaQuery } from '../../../utilities/mediaQuery';
 import { path } from '../../../utilities/paths';
 
 const navItems = [
@@ -24,11 +22,11 @@ const navItems = [
 
 function NavBar(props) {
   const { title, enableBackButton, enableMenu, expand } = {...props};
-  const isLargeViewPort = useMediaQuery(mediaQuery.minWidth.small);
+  const { isSmallScreen } = useMediaQuery();
   return (
-    isLargeViewPort ? <TabNavBar navItems={navItems} /> 
-                    : expand ? <TabNavBar navItems={navItems} /> 
-                             : <MenuNavBar navItems={navItems} title={title} enableBackButton={enableBackButton} enableMenu={enableMenu} />
+    !isSmallScreen ? <TabNavBar navItems={navItems} /> 
+                   : expand ? <TabNavBar navItems={navItems} /> 
+                            : <MenuNavBar navItems={navItems} title={title} enableBackButton={enableBackButton} enableMenu={enableMenu} />
   );
 }
 

@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     "**/node_modules": true,
+    "**/build": true,
     "**/.eslintrc.json": true,
     "**/package-lock.json": true,
     "**/.gitignore": true,

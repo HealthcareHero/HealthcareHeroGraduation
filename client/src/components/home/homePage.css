@@ -1,17 +1,21 @@
-.home-page > .ant-carousel .slick-slide {
-  min-height: 100vh;
-  max-height: 100vh;
-	line-height: 160px;
+.home-page .ant-carousel .slick-slide {
 	text-align: center;
-  background: #364d79;
+  max-width: 100vw;
+  max-height: 100vh;
   overflow: hidden;
 }
 
-.home-page > .ant-carousel .slick-slide img {
+.home-page .ant-carousel .slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+.home-page .ant-carousel .slick-slide img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   object-fit: cover;
+  object-position: 50% 50%;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }

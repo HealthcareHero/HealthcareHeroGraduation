@@ -25,7 +25,7 @@ const sectionLarge = {
 const sectionHeader = { 
   fontSize: "1.5em",
   fontWeight: "600",
-  color: theme.color.yellow.primary
+  color: "#fa8c16"
 };
 
 const mediaSectionHeaderSmall = {

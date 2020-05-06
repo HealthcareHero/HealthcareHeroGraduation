@@ -7,7 +7,7 @@ import involvementImg from '../../../../assets/img/hero-bernard/involvement.png'
 // const quote = "You need to accept the fact that you’re not the best and have all the will to strive to be better than anyone you face.";
 
 function Bernard() {
-  const { section, sectionHeader, mediaSection, mediaSectionImage, mediaSectionText, blockQuoteSection, blockQuoteImage, blockQuoteOffsetBackground, blockQuote } = useStyle();
+  const { section, sectionHeader, mediaSection, mediaSectionHeader, mediaSectionImage, mediaSectionText, blockQuoteSection, blockQuoteImage, blockQuoteOffsetBackground, blockQuote } = useStyle();
 
   return (
     <div className="hero-bernard" style={{ paddingTop: "8px" }}>
@@ -37,7 +37,7 @@ function Bernard() {
       </div>
 
       <div style={mediaSection}>
-        <div style={sectionHeader}>
+        <div style={mediaSectionHeader}>
           Contributing to society
         </div>
         <img src={involvementImg} alt="involvement" style={mediaSectionImage} />

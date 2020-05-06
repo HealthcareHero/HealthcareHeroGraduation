@@ -1,4 +1,5 @@
 import { useMediaQuery } from '../../../../utilities/mediaQuery';
+import { theme } from '../../../../utilities/theme';
 
 const paddingSide = "8px";
 const marginSection = "1.5em";
@@ -19,6 +20,21 @@ const sectionLarge = {
   marginRight: "auto",
   marginBottom: marginSection,
   textAlign: "justify"
+}
+
+const sectionHeader = { 
+  fontSize: "1.5em",
+  fontWeight: "600",
+  color: theme.color.yellow.primary
+};
+
+const mediaSectionHeaderSmall = {
+  ...sectionHeader,
+  paddingLeft: paddingSide
+}
+
+const mediaSectionHeaderLarge = {
+  ...sectionHeader,
 }
 
 const mediaSectionSmall = {
@@ -73,7 +89,7 @@ const blockQuoteImage = {
 }
 
 const blockQuoteOffsetBackground = {
-  backgroundColor: "#FBE5A2",
+  backgroundColor: theme.color.yellow.secondary,
   paddingTop: paddingBlockQuote,
   paddingBottom: "35px"
 }
@@ -95,7 +111,7 @@ export const useStyle = () => {
 
   const section = isLargeScreen ? sectionLarge : sectionSmall;
 
-  const sectionHeader = { fontSize: "1.5em", fontWeight: "600" };
+  const mediaSectionHeader = isSmallScreen ? mediaSectionHeaderSmall : mediaSectionHeaderLarge;
 
   const mediaSection = isLargeScreen ? mediaSectionLarge : isMediumScreen ? mediaSectionMedium : mediaSectionSmall;
 
@@ -109,6 +125,7 @@ export const useStyle = () => {
     section,
     sectionHeader,
     mediaSection,
+    mediaSectionHeader,
     mediaSectionImage,
     mediaSectionText,
     blockQuoteSection,

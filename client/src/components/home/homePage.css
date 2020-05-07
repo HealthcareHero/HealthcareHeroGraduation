@@ -1,21 +1,5 @@
-.home-page .ant-carousel .slick-slide {
-	text-align: center;
-  max-width: 100vw;
-  max-height: 100vh;
-  overflow: hidden;
-}
-
-.home-page .ant-carousel .slick-track {
-  display: flex !important;
-  align-items: center;
-}
-
 .home-page .ant-carousel .slick-slide img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   object-fit: cover;
-  object-position: 50% 50%;
   height: 100vh;
   width: 100%;
 }

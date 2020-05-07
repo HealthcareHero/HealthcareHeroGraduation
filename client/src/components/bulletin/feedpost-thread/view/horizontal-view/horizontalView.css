@@ -3,31 +3,8 @@
   flex-direction: column;
 }
 
-.feedPost-horizontal-view .header {
-  max-width: 100vw;
-  height: 70vh;
-  background-color: black;
-  --img-max-height: 67.5vh;
-}
-
-.feedPost-horizontal-view .image-container {
-  display: flex !important;
-  align-items: center;
-  max-height: var(--img-max-height);
-}
-
 .feedPost-horizontal-view .ant-carousel .slick-slide img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  object-fit: cover;
-  object-position: 50% 50%;
-  max-width: 100%;
-  max-height: var(--img-max-height);
-}
-
-.feedPost-horizontal-view .ant-carousel .slick-dots-bottom {
-  bottom: -4vh;
+  max-height: 67.5vh;
 }
 
 .feedPost-horizontal-view .body {
@@ -35,6 +12,10 @@
   margin-right: auto;
   margin-top: 1em;
   width: 75vw;
+}
+
+.feedPost-horizontal-view .icon-buttons button {
+  background-color: inherit;
 }
 
 .feedPost-horizontal-view .body  .heart-button-icon-filled {

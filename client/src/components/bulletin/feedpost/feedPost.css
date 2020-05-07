@@ -4,32 +4,8 @@
   --feedPostIconButtonFontSize: 20px;
 }
 
-.feedPost-media {
-  width: 100%;
-  min-height: 50vw;
+.feedPost .ant-carousel .slick-slide img {
   max-height: 100vw;
-}
-
-.feedPost-media .ant-carousel .slick-slide {
-	text-align: center;
-  max-width: 100vw;
-  max-height: 100vw;
-  overflow: hidden;
-}
-
-.feedPost-media .ant-carousel .slick-track {
-  display: flex !important;
-  align-items: center;
-}
-
-.feedPost-media .ant-carousel .slick-slide img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  object-fit: cover;
-  object-position: 50% 50%;
-  height: 100%;
-  width: 100%;
 }
 
 .ant-btn-icon-only {
@@ -48,6 +24,10 @@
   -o-animation: none !important;
   -ms-animation: none !important;
   animation: none !important;
+}
+
+.feedPost .icon-buttons button {
+  background-color: inherit;
 }
 
 .feedPost .comment-button-icon, .heart-button-icon, .share-button-icon {

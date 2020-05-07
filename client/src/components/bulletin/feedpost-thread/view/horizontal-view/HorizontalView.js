@@ -9,7 +9,7 @@ import './horizontalView.css';
 
 function HorizontalView(props) {
   const { loading, error, media } = useFeedPostThread();
-
+  
   return (
     <div className="feedPost-horizontal-view">
       {
@@ -22,13 +22,7 @@ function HorizontalView(props) {
       {
         !loading && !error && (
           <>
-            {
-              media && (
-                <div className="header">
-                  <MediaViewer mediaList={media} />
-                </div>
-              )
-            }
+            { media && <MediaViewer mediaList={media} /> }
             <div className="body">
               <ContentPanel />
             </div>

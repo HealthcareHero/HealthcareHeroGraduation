@@ -21,7 +21,7 @@ function FeedPost(props) {
 
   return (
     <div className="feedPost">
-      { media && <div className="feedPost-media"><MediaViewer mediaList={media} loading="lazy" /></div> }
+      { media && <MediaViewer mediaList={media} loading="lazy" /> }
       
       <div className="icon-buttons">
         <HeartButton feedPostId={id} likeCount={likeCount} setLikeCount={setLikeCount} />

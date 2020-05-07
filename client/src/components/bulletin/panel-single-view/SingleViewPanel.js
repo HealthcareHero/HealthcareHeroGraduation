@@ -6,7 +6,7 @@ import { Divider } from 'antd';
 import LoadingOverlay from '../../common/loading/LoadingOverlay';
 import FeedPost from '../feedpost/FeedPost';
 
-import 'antd/es/divider/style/css'; 
+import 'antd/es/divider/style/css';
 
 function SingleViewPanel() {
   const { loading, error, data } = useQuery(FEED_POSTS);

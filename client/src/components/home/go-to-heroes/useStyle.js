@@ -3,16 +3,18 @@ import { theme } from '../../../utilities/theme';
 
 const container = {
   backgroundColor: theme.color.pink.secondary,
-  height: "100vh"
+  display: "table",
+  minHeight: "calc(100vh - 64px)",
+  width: "100%"
 }
 
 const sectionSmall = {
   height: "100%",
-  paddingLeft: "15px",
-  paddingRight: "15px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center"
+  paddingLeft: "8px",
+  paddingRight: "8px",
+  display:"table-cell",
+  verticalAlign:"middle",
+  textAlign: "center"
 }
 
 const sectionLarge = {
@@ -41,6 +43,11 @@ const sectionTextLarge = {
   fontSize: "1.25em"
 }
 
+const hand = {
+  maxHeight: "30vh",
+  maxWidth: "45vw"
+}
+
 export const useStyle = () => {
   const { isLargeScreen } = useMediaQuery();
 
@@ -53,6 +60,7 @@ export const useStyle = () => {
     container,
     section,
     sectionQuote,
-    sectionText
+    sectionText,
+    hand
   };
 }

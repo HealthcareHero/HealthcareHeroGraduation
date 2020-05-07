@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useMutation } from '@apollo/react-hooks';
+import { useMediaQuery } from '../../../utilities/mediaQuery';
 import { ADD_FEED_POST } from '../../../api/mutations';
 import { Button, Form } from 'antd';
 import NavBar from '../../../components/common/navbar/NavBar';
@@ -11,6 +12,7 @@ import { path } from '../../../utilities/paths';
 import { theme } from '../../../utilities/theme';
 
 function NewPostPage(props) {
+  const { isSmallScreen } = useMediaQuery();
   const [loading, setLoading] = useState();
   const [disableSubmit, setDisableSubmit] = useState(false);
   const [addFeedPost, responseAfterSubmit] = useMutation(ADD_FEED_POST);
@@ -94,7 +96,7 @@ function NewPostPage(props) {
     <div className="new-post-page">
       <NavBar title="Create a new post" enableBackButton={true} />
 
-      <div style={{padding: "15px"}}>
+      <div style={isSmallScreen ? {padding: "15px"} : {width:"70vw", marginLeft:"auto", marginRight:"auto", paddingTop:"7vh"}}>
         <NewPostForm loading={loading}
                     form={form}
                     shouldValidateForm={shouldValidateForm}

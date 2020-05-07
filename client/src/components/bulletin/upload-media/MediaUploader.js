@@ -7,7 +7,7 @@ import 'antd/es/modal/style/css';
 import 'antd/es/message/style/css';
 import './mediaUploader.css';
 
-const mediaListUpperLimit = 2;
+const mediaListUpperLimit = 3;
 
 message.config({
   top: 60,

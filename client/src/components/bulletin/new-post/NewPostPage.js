@@ -55,8 +55,6 @@ function NewPostPage(props) {
   } 
 
   const submitForm = async (values) => {
-    console.log("Values: ", values);
-
     setLoading(true);
     
     const { author, message, mediaList, tagList, allowCommenting } = { ...values };

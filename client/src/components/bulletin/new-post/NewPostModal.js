@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'antd';
 import NewPostForm from './form/NewPostForm';
+import { storage } from '../../../firebase'
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_FEED_POST } from '../../../api/mutations';
 
@@ -27,6 +28,30 @@ function NewPostModal(props) {
   const [shouldValidateForm, setValidateForm] = useState(false);
   const [clearForm, setClearForm] = useState(false);
 
+  const uploadFile = async (file) => {
+    const folderName = "uploads";
+    return new Promise((resolve, reject) => {
+      const task = storage.ref(`${folderName}/${file.uid}`).put(file.originFileObj);
+      task.on(
+        "state_changed",  // 'state_changed' observer
+        snapshot => {},   // Observe state change event such as progress, pause and resume
+        error => {
+          console.log(error);
+        },
+        async () => {
+          let url = await storage.ref(folderName).child(file.uid).getDownloadURL();
+          return resolve(url);
+        }
+      );
+    })
+  }
+
+  const getMediaSources = async mediaList => { 
+    return await Promise.all(mediaList.map(item => {
+      return uploadFile(item);
+    }));
+  }
+
   const handleCancel = () => {
     setVisible(false);
   }
@@ -43,15 +68,19 @@ function NewPostModal(props) {
   }
 
   const submitForm = async (values) => {
+    setLoading(true);
     console.log("Values: ", values);
     
     const { author, message, mediaList, tagList, allowCommenting } = { ...values };
+    
+    const media = await getMediaSources(mediaList);
+    
     addFeedPost({
       variables: {
         author,
         message,
         tagList,
-        media: "test photo",
+        media,
         allowCommenting
       }
     }).then(response => {

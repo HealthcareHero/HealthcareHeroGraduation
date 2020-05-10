@@ -6,7 +6,7 @@ const container = {
   width: "100%",
 }
 
-const sectionSmall = {
+const section = {
   height: "100%",
   paddingLeft: "8px",
   paddingRight: "8px",
@@ -18,24 +18,51 @@ const sectionSmall = {
 const headerTextSmall = {
   fontWeight: "bold",
   fontSize: "2em",
-  textAlign: "center",
+}
+
+const headerTextLarge = {
+  fontWeight: "bold",
+  fontSize: "5vw",
+}
+
+const contentTextContainer = {
+  marginTop: "2vh",
+  marginBottom: "7vh"
+}
+
+const contentTextSmall = {
+  fontSize: "1em"
+}
+
+const contentTextLarge = {
+  fontSize: "1.75vw"
 }
 
 const nurse = {
   maxHeight: "30vh",
-  maxWidth: "45vw"
+  maxWidth: "30vw"
+}
+
+const heart = {
+  maxHeight: "20vh",
+  maxWidth: "15vw",
+  paddingBottom: "10vh"
 }
 
 export const useStyle = () => {
-  const { isLargeScreen } = useMediaQuery();
+  const { isSmallScreen, isLargeScreen } = useMediaQuery();
 
-  const section = isLargeScreen ? {} : sectionSmall;
-  const headerText = isLargeScreen ? {} : headerTextSmall;
+  const headerText = isLargeScreen ? headerTextLarge : headerTextSmall;
+  const contentText = isLargeScreen ? contentTextLarge : contentTextSmall;
 
   return {
+    isSmallScreen,
     container,
     section,
     headerText,
-    nurse
+    contentTextContainer,
+    contentText,
+    nurse,
+    heart
   };
 }

@@ -4,11 +4,11 @@ import { theme } from '../../../utilities/theme';
 const container = {
   backgroundColor: theme.color.pink.secondary,
   display: "table",
-  minHeight: "calc(100vh - 64px)",
+  minHeight: "100vh",
   width: "100%"
 }
 
-const sectionSmall = {
+const section = {
   height: "100%",
   paddingLeft: "8px",
   paddingRight: "8px",
@@ -17,30 +17,29 @@ const sectionSmall = {
   textAlign: "center"
 }
 
-const sectionLarge = {
-  width: "70vw",
-  marginLeft: "auto",
-  marginRight: "auto",
-}
-
-const sectionQuoteSmall = {
-  fontWeight: "bold",
-  fontSize: "2em",
-  textAlign: "center"
-}
-
-const sectionQuoteLarge = {
+const headerTextSmall = {
   fontWeight: "bold",
   fontSize: "2em"
 }
 
-const sectionTextSmall = {
-  fontSize: "1.25em",
-  textAlign: "center"
+const headerTextLarge = {
+  fontWeight: "bold",
+  fontSize: "3vw"
 }
 
-const sectionTextLarge = {
-  fontSize: "1.25em"
+const contentTextContainer = {
+  marginTop: "7vh",
+  marginBottom: "5vh"
+}
+
+const contentTextSmall = {
+  fontSize: "1.25em",
+  marginBottom: "7vh"
+}
+
+const contentTextLarge = {
+  fontSize: "1.75vw",
+  marginBottom: "7vh"
 }
 
 const hand = {
@@ -51,16 +50,16 @@ const hand = {
 export const useStyle = () => {
   const { isLargeScreen } = useMediaQuery();
 
-  const section = isLargeScreen ? sectionLarge : sectionSmall;
-  const sectionQuote = isLargeScreen ? sectionQuoteLarge : sectionQuoteSmall;
-  const sectionText = isLargeScreen ? sectionTextLarge : sectionTextSmall;
+  const headerText = isLargeScreen ? headerTextLarge : headerTextSmall;
+  const contentText = isLargeScreen ? contentTextLarge : contentTextSmall;
 
   return {
     isLargeScreen,
     container,
     section,
-    sectionQuote,
-    sectionText,
+    headerText,
+    contentTextContainer,
+    contentText,
     hand
   };
 }

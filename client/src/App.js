@@ -10,6 +10,7 @@ import Bernard from './components/profile/heroes/bernard';
 import BulletinPage from './components/bulletin/BulletinPage';
 import NewPostPage from './components/bulletin/new-post/NewPostPage';
 import FeedPostThreadPage from './components/bulletin/feedpost-thread/FeedPostThreadPage';
+import PageNotFound from './components/page-not-found/PageNotFound';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path={path.createNewFeedPost} component={NewPostPage} />
           <Route path={path.feedPostThread} component={FeedPostThreadPage} />
           <Route path={path.bulletin} component={BulletinPage} />
+          <Route path="*" component={PageNotFound} />
       </Switch>
     </ScrollToTop>
   );

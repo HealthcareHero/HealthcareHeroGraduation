@@ -7,6 +7,10 @@
   --feedPostIconButtonFontSize: 16px;
 }
 
+.feedPost-card img {
+  cursor: default;
+}
+
 .feedPost-card .ant-card-actions li {
   margin-top: 0;
   margin-bottom: 0;

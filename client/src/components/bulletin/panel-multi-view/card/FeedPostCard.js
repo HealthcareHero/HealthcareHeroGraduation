@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import HeartButton from '../../../common/button-heart/HeartButton';
 import CommentButton from '../../../common/button-comment/CommentButton';
@@ -41,19 +42,23 @@ function FeedPostContent(props) {
 function FeedPostCard(props) {
   const { feedPostId, author, message, media, tags, commenting, initialLikeCount , timestamp } = {...props};
   const [likeCount, setLikeCount] = useState(initialLikeCount);
+  let pathToDetails = `${feedPostThread}/${feedPostId}`;
   return (
     <Card className="feedPost-card"
+          hoverable
           cover={ media ? <img src={media[0]} alt="media" /> : false }
           actions={getActionButtons(
             <HeartButton feedPostId={feedPostId} likeCount={likeCount} setLikeCount={setLikeCount} key="button-like" />,
-            commenting && <CommentButton path={`${feedPostThread}/${feedPostId}`} key="button-comment"/>,
-            <ShareButon url={`${path.root}${feedPostThread}/${feedPostId}`} key="button-share"/>
+            commenting && <CommentButton path={pathToDetails} key="button-comment"/>,
+            <ShareButon url={`${path.root}${pathToDetails}`} key="button-share"/>
           )}
     >
-      <Meta
-        title={author}
-        description={<FeedPostContent message={message} tags={tags} timestamp={timestamp} likeCount={likeCount}/>}
-      />
+      <Link to={pathToDetails}>
+        <Meta
+          title={author}
+          description={<FeedPostContent message={message} tags={tags} timestamp={timestamp} likeCount={likeCount}/>}
+        />
+      </Link>
     </Card>
   );
 }

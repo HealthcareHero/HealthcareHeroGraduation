@@ -22,7 +22,7 @@ const getActionButtons = (likeBtn, commentBtn, shareBtn) => {
 }
 
 function FeedPostContent(props) {
-  const { message, tags, timestamp } = {...props};
+  const { message, tags, timestamp, likeCount } = {...props};
   const messageDisplayLength = 125;
   const tagDisplayLength = 15;
 
@@ -30,8 +30,9 @@ function FeedPostContent(props) {
     <div>
       { message && (message.length > messageDisplayLength ? `${message.slice(0, messageDisplayLength)}...` : message) }
       { tags && <TagList tagList={tags} displayLength={tagDisplayLength}/> }
-      <div style={{fontSize: "0.7em"}}>
-          { moment(timestamp).fromNow() }
+      <div style={{fontSize: "0.7em", display:"flex", justifyContent:"space-between"}}>
+          <span>{ moment(timestamp).fromNow() }</span>
+          { (likeCount > 0) && <span>{likeCount} {likeCount === 1 ? "Like" : "Likes"}</span> }
       </div>
     </div>
   );
@@ -51,7 +52,7 @@ function FeedPostCard(props) {
     >
       <Meta
         title={author}
-        description={<FeedPostContent message={message} tags={tags} timestamp={timestamp}/>}
+        description={<FeedPostContent message={message} tags={tags} timestamp={timestamp} likeCount={likeCount}/>}
       />
     </Card>
   );

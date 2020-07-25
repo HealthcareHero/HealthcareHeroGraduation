@@ -8,6 +8,12 @@ export const profile = [
     component: require('./heroes/bernard').default
   },
   {
+    name: "Jeanie",
+    path: path.profile.jeanie,
+    img: require("../../assets/img/profile-avatar/avatar_jeanie.png"),
+    component: require('./heroes/jeanie').default
+  },
+  {
     name: "Yanka",
     path: path.profile.yanka,
     img: require('../../assets/img/profile-avatar/avatar_yanka.png'),

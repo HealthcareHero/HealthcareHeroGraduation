@@ -12,6 +12,7 @@ export const path = {
   profilePattern: `${profile}/:name`,
   profile: {
     bernard: `${profile}/bernard`,
+    jeanie: `${profile}/jeanie`,
     yanka: `${profile}/yanka`,
     yiksiong: `${profile}/yik-siong`
   }

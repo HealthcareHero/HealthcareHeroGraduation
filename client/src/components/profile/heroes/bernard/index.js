@@ -7,10 +7,22 @@ import involvementImg from '../../../../assets/img/hero-bernard/involvement.png'
 // const quote = "You need to accept the fact that you’re not the best and have all the will to strive to be better than anyone you face.";
 
 function Bernard() {
-  const { section, sectionHeader, mediaSection, mediaSectionHeader, mediaSectionImage, mediaSectionText, blockQuoteSection, blockQuoteImage, blockQuoteOffsetBackground, blockQuote } = useStyle();
+  const { 
+    page, 
+    section, 
+    sectionHeader, 
+    mediaSection, 
+    mediaSectionHeader, 
+    mediaSectionImage, 
+    mediaSectionText, 
+    blockQuoteSection, 
+    blockQuoteImage, 
+    blockQuoteOffsetBackground, 
+    blockQuote 
+  } = useStyle();
 
   return (
-    <div className="hero-bernard" style={{ paddingTop: "8px" }}>
+    <div style={page}>
       <div style={section}>
         <div style={sectionHeader}>
           A True Calling
@@ -38,7 +50,7 @@ function Bernard() {
 
       <div style={mediaSection}>
         <div style={mediaSectionHeader}>
-          Contributing to society
+          Contributing To Society
         </div>
         <img src={involvementImg} alt="involvement" style={mediaSectionImage} />
         <div style={mediaSectionText}>
@@ -52,7 +64,7 @@ function Bernard() {
 
       <div style={section}>
         <div style={sectionHeader}>
-          Learning through experience
+          Learning Through Experience
         </div>
         <div>
           Tutorials and lectures do not spark joy for a kinaesthetic learner like Bernard.
@@ -66,7 +78,7 @@ function Bernard() {
 
       <div style={section}>
         <div style={sectionHeader}>
-          To all aspiring nurses
+          To All Aspiring Nurses
         </div>
         <div>
           Bernard would like to offer some advice to prospective nurses.

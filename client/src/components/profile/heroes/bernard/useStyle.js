@@ -7,6 +7,10 @@ const heightImage = "200px";
 const paddingBlockQuote = "53px"
 const offsetBlockQuote = `-${paddingBlockQuote}`;
 
+const page = {
+  paddingTop: paddingSide
+}
+
 const sectionSmall = {
   paddingLeft: paddingSide,
   paddingRight: paddingSide,
@@ -122,6 +126,7 @@ export const useStyle = () => {
   const blockQuote = isLargeScreen ? blockQuoteLarge : isMediumScreen ? blockQuoteMedium : {};
 
   return {
+    page,
     section,
     sectionHeader,
     mediaSection,

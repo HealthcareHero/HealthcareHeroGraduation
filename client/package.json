@@ -16,14 +16,16 @@
     "graphql": "^15.0.0",
     "moment": "^2.24.0",
     "react": "^16.13.1",
+    "react-confetti": "^6.0.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-use": "^15.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-	"serve": "npm run build && firebase serve",
+    "serve": "npm run build && firebase serve",
     "deploy": "npm run build && firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

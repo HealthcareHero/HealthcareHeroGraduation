@@ -1,4 +1,5 @@
 import useMaterialUiMediaQuery from '@material-ui/core/useMediaQuery';
+import useWindowSize from 'react-use/lib/useWindowSize';
 
 const mediaQuery = {
   minWidth: {
@@ -8,6 +9,7 @@ const mediaQuery = {
 }
 
 export const useMediaQuery = () => {
+  const { width, height } = useWindowSize();
   const isMinSmall = useMaterialUiMediaQuery(mediaQuery.minWidth.small);
   const isMinMedium = useMaterialUiMediaQuery(mediaQuery.minWidth.medium);
   
@@ -16,6 +18,8 @@ export const useMediaQuery = () => {
   const isLargeScreen = isMinMedium;
   
   return {
+    width, 
+    height,
     isSmallScreen,
     isMediumScreen,
     isLargeScreen

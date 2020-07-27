@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { AppBar, Toolbar } from '@material-ui/core';
+import { theme } from '../../../../utilities/theme';
 
 function NavBarTab(props) {
   const activeStyle = {
-    color: "orange",
+    color: theme.color.brand.secondary,
     pointerEvents: "none"
   };
 
@@ -18,7 +19,7 @@ function NavBarTab(props) {
 function TabNavBar(props) {
   const { navItems } = { ...props };
   return (
-    <AppBar position="sticky" style={{ display: "flex", flexDirection: "row", backgroundColor: "#234361" }}>
+    <AppBar position="sticky" style={{ display: "flex", flexDirection: "row", backgroundColor: theme.color.brand.primary }}>
       {
         navItems.map((item, index) => {
           return (

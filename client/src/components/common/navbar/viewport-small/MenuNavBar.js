@@ -59,7 +59,7 @@ function NavMenu(props) {
 function MenuNavBar(props) {
   const { navItems, title, enableBackButton, enableMenu } = {...props}
   return (
-    <AppBar position="sticky" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", backgroundColor: "#234361" }}>
+    <AppBar position="sticky" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", backgroundColor: theme.color.brand.primary }}>
       {/* <Toolbar style={ enableBackButton ? {cursor: "pointer"} : {} }>
         { enableBackButton && <ArrowLeftOutlined /> }
       </Toolbar> */}

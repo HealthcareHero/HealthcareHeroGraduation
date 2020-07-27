@@ -16,7 +16,7 @@ const navItems = [
   },
   {
     to: path.bulletin,
-    title:"Thank you Healthcare Heroes"
+    title:"Post it!"
   }
 ];
 

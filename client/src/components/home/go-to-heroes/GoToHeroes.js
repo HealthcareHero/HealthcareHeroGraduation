@@ -6,8 +6,8 @@ import leftHand from '../../../assets/svg/left-hand.svg';
 import rightHand from '../../../assets/svg/right-hand.svg';
 import { path } from '../../../utilities/paths';
 
-const quote = "When you are a nurse, you know that everyday you will touch a life or a life will touch yours.";
-const text = "Let us hear from some of these heroes without cape.";
+const quote = "When you are a nurse, you know that everyday you will touch a life or a life will touch yours";
+const text = "Let us hear from some of these heroes";
 
 function GoToHeroes() {
   const { container, section, headerText, contentTextContainer, contentText, hand } = useStyle();

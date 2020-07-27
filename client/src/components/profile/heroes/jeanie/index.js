@@ -12,7 +12,7 @@ function Jeanie() {
     <div style={page}>
       <div style={section}>
         <div style={sectionHeader}>
-          Living the moment
+          Living The Moment
         </div>
         <div>
           Working in the healthcare industry gives Jeanie a sense of belonging.

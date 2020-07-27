@@ -96,3 +96,9 @@ Tutorials:
 - [Walkaround for Ant Design's Upload Component action requirement](https://levelup.gitconnected.com/managing-file-uploads-with-ant-design-6d78e592f2c4)
 - [Upload image to Firebase Storage](https://www.youtube.com/watch?v=8r1Pb6Ja90o)
 - [Share links like a native app, WebShare](https://css-tricks.com/how-to-use-the-web-share-api/)
+
+<br>
+<br>
+
+Resouces:
+- [2D art](https://vecta.io/)

@@ -1,5 +1,9 @@
 export const theme = {
   color: {
+    brand: {
+      primary: "#20232A",
+      secondary: "#FF9D4D",
+    },
     textTitleBlack: "#262626",
     textPrimaryBlack: "#595959",
     textSecondaryBlack: "#8C8C8C",

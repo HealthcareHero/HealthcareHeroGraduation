@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-
+import { page } from '../../utilities/pages';
 import NavBar from '../common/navbar/NavBar';
 import ProfileSelectorScroll from './profile-selector/scroll/ProfileSelectorScroll';
 
@@ -19,7 +19,7 @@ function ProfilePage() {
 
   return (
     <div className="profile-page">
-      <NavBar title="Heroes" enableMenu={true} />
+      <NavBar title={page.profile.title} />
       <ProfileSelectorScroll heroIndex={heroIndex} />
 
       <Switch>

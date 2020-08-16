@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { page } from '../../utilities/pages';
 import { useMediaQuery } from '../../utilities/mediaQuery';
 
 import NavBar from '../common/navbar/NavBar';
@@ -9,7 +10,6 @@ import NewPostModal from './new-post/NewPostModal';
 import NewPostButton from './button-new-post/NewPostButton';
 
 import { path } from '../../utilities/paths';
-
 
 import './bulletinPage.css';
 
@@ -23,7 +23,7 @@ function BulletinPage() {
 
   return (
     <div className="bulletin-page">
-      <NavBar title="Thank you Healthcare Heroes" enableMenu={true} />
+      <NavBar title={page.bulletin.title} />
       <div className="bulletin-header">
         <b>Share a memory, Congratulate a person, Thank someone!</b><br />
         Let us take this oppportunity to congratulate all our healthcare graduates and wish them all the best for their future endeavours.<br />

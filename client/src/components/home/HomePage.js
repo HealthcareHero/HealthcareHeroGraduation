@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from '../../utilities/mediaQuery';
+import { page } from '../../utilities/pages';
 import MediaViewer from '../common/carousel-media/MediaViewer';
 import Confetti from '../common/confetti';
 import NavBar from '../common/navbar/NavBar';
@@ -17,7 +18,7 @@ function HomePage() {
     <div className="home-page" style={{overflow:"hidden"}}>
       <Confetti width={width*0.95} height={height} duration={4000} />
       {/* <MediaViewer autoplay mediaList={ isSmallScreen ? bannerImages.portrait : bannerImages.landscape } /> */}
-      <NavBar expand />
+      <NavBar title={page.home.title} />
       <CommendationSection />
       <GoToHeroes />
       <GoToBulletin />

@@ -1,32 +1,21 @@
 import React from 'react';
-import MenuNavBar from './viewport-small/MenuNavBar';
+import DrawerNavBar from './viewport-small/DrawerNavBar';
 import TabNavBar from './viewport-large/TabNavBar';
 import { useMediaQuery } from '../../../utilities/mediaQuery';
-import { path } from '../../../utilities/paths';
+import { page } from '../../../utilities/pages';
 
 const navItems = [
-  {
-    exact: true,
-    to: path.home,
-    title: "Home"
-  },
-  {
-    to: path.profileRoot,
-    title: "Heroes"
-  },
-  {
-    to: path.bulletin,
-    title:"Post it!"
-  }
+  page.home, 
+  page.profile, 
+  page.bulletin
 ];
 
 function NavBar(props) {
-  const { title, enableBackButton, enableMenu, expand } = {...props};
+  const { title } = {...props};
   const { isSmallScreen } = useMediaQuery();
   return (
-    !isSmallScreen ? <TabNavBar navItems={navItems} /> 
-                   : expand ? <TabNavBar navItems={navItems} /> 
-                            : <MenuNavBar navItems={navItems} title={title} enableBackButton={enableBackButton} enableMenu={enableMenu} />
+    isSmallScreen ? <DrawerNavBar navItems={navItems} title={title} /> 
+                  : <TabNavBar navItems={navItems} />
   );
 }
 

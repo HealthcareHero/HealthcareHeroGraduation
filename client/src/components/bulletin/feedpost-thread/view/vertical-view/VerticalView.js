@@ -48,7 +48,22 @@ function VerticalView(props) {
         !loading && !error && (
           <>
             <div className="feedPost">
-              {media && <div className="feedPost-media"><MediaViewer mediaList={media} loading="lazy" /></div>}
+              {media && media.length>0 && <div className="feedPost-media"><MediaViewer mediaList={media} loading="lazy" /></div>}
+
+              <div className="content">
+                <div className="header">
+                  <div className="author">
+                    <b>{author}</b>
+                  </div>
+                  <div className="timestamp">
+                    { moment(timestamp).fromNow() }
+                  </div>
+                </div>
+
+                {message && <div className="message"><ExpansionTextPanel text={message} displayLength={messageDisplayLength} /></div>}
+
+                {tags && tags.length>0 && <TagList tagList={tags} displayLength={tagDisplayLength} />}
+              </div>
 
               <div className="icon-buttons">
                 <HeartButton feedPostId={feedPostId} likeCount={likeCount} setLikeCount={updateLikeCount} />
@@ -57,19 +72,8 @@ function VerticalView(props) {
 
                 {(likeCount > 0) && <div className="number-of-likes">{likeCount} {likeCount === 1 ? "Like" : "Likes"}</div>}
               </div>
-
-              <div className="content">
-                <div><b>{author}</b></div>
-
-                {message && <div className="message"><ExpansionTextPanel text={message} displayLength={messageDisplayLength} /></div>}
-
-                {tags && <TagList tagList={tags} displayLength={tagDisplayLength} />}
-
-                <div style={{ fontSize: "0.7em" }}>
-                  {moment(timestamp).fromNow()}
-                </div>
-              </div>
             </div>
+
             {
               comments && <div style={{ paddingLeft: "8px", paddingRight: "8px" }}>
                 <Comments comments={comments} />

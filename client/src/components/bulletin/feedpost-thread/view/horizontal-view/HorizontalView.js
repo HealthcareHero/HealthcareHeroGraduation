@@ -22,7 +22,7 @@ function HorizontalView(props) {
       {
         !loading && !error && (
           <>
-            { media && <MediaViewer mediaList={media} /> }
+            { media && media.length>0 && <MediaViewer mediaList={media} /> }
             <div className="body">
               <ContentPanel />
             </div>

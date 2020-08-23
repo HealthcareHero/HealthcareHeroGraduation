@@ -84,3 +84,17 @@
 .feedPost-vertical-view .feedPost .content {
   padding: 0px 8px;
 }
+
+.feedPost-vertical-view .feedPost .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedPost-vertical-view .feedPost .content .header .author {
+  font-size: 1.1em;
+}
+
+.feedPost-vertical-view .feedPost .content .header .timestamp {
+  font-size: 0.7em;
+}

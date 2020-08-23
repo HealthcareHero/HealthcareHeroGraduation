@@ -46,7 +46,7 @@ function FeedPostCard(props) {
   return (
     <Card className="feedPost-card"
           hoverable
-          cover={ media ? <img src={media[0]} alt="media" /> : false }
+          cover={ (media && media.length > 0) ? <img src={media[0]} alt="media" /> : false }
           actions={getActionButtons(
             <HeartButton feedPostId={feedPostId} likeCount={likeCount} setLikeCount={setLikeCount} key="button-like" />,
             commenting && <CommentButton path={pathToDetails} key="button-comment"/>,

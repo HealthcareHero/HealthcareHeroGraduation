@@ -26,6 +26,10 @@
   animation: none !important;
 }
 
+.feedPost .icon-buttons {
+  margin-top: 8px;
+}
+
 .feedPost .icon-buttons button {
   background-color: inherit;
 }
@@ -63,4 +67,19 @@
 
 .feedPost .content {
   padding: 0px 8px;
+  margin-top: 1px;
+}
+
+.feedPost .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedPost .content .header .author {
+  font-size: 1.1em;
+}
+
+.feedPost .content .header .timestamp {
+  font-size: 0.7em;
 }

@@ -2,29 +2,46 @@
   "files.exclude": {
     "**/node_modules": true,
     "**/build": true,
+    "**/out": true,
     "**/.eslintrc.json": true,
     "**/package-lock.json": true,
-    "**/.gitignore": true,
-    "**/.firebaserc": true,
     "**/.firebase": true,
-    "**/firebase.json": true,
-    "**/README.md": true,
     "LICENSE": true,
     "**/serviceWorker.js": true,
     "**/setupTests.js": true,
-    "client/public/favicon.ico": true,
-    "client/public/*.png": true,
-    "client/public/manifest.json": true,
-    "client/public/browserconfig.xml": true
+    "**/public/favicon.ico": true,
+    "**/public/*.png": true,
+    "**/public/manifest.json": true,
+    "**/public/browserconfig.xml": true,
+    "**/.next": true
   },
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
   },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
   "[css]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
-  }
+  },
+  "[svg]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "svg.preview.background": "transparent"
 }

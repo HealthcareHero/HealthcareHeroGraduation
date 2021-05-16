@@ -16,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 firebase login
 ```
 2. Deploy to preview channel or production
-```shell
+```bash
 # Deploy to preview channel
 npm run preview
 

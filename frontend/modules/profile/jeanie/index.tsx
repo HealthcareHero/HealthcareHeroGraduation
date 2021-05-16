@@ -1,11 +1,11 @@
-import { classNames as styles } from '../common/styles/index.style'
+import { styles, styleMethods } from '../common/styles/index.style'
 import ProfileSelection from '../common/layout'
 import { jeanie } from '../common/models/index'
 
 export default function Jeanie() {
   return (
     <ProfileSelection name={jeanie.pageTitle} description={jeanie.pageDescription}>
-      <div className={styles.getTextSection()}>
+      <div className={styleMethods.getTextSection()}>
         <div className={styles.textSectionTitle}>
           Living The Moment
         </div>
@@ -17,7 +17,7 @@ export default function Jeanie() {
         </div>
       </div>
 
-      <div className={styles.getTextSection()}>
+      <div className={styleMethods.getTextSection()}>
         <div className={styles.textSectionTitle}>
           A Will To Serve
         </div>
@@ -29,7 +29,7 @@ export default function Jeanie() {
         </div>
       </div>
 
-      <div className={styles.getTextSection()}>
+      <div className={styleMethods.getTextSection()}>
         <div className={styles.textSectionTitle}>
           A Memorable Experience
         </div>
@@ -40,7 +40,7 @@ export default function Jeanie() {
         </div>
       </div>
 
-      <div className={styles.getTextSection()}>
+      <div className={styleMethods.getTextSection()}>
         <div className={styles.textSectionTitle}>
           Rising To The Challenge
         </div>
@@ -52,7 +52,7 @@ export default function Jeanie() {
         </div>
       </div>
 
-      <div className={styles.getTextSection()}>
+      <div className={styleMethods.getTextSection()}>
         <div className={styles.textSectionTitle}>
           To All Aspiring Nurses
         </div>

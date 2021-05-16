@@ -1,0 +1,2 @@
+export const MESSAGE_DISPLAY_LENGTH = 125;
+export const TAG_DISPLAY_LENGTH = 15;

@@ -1,5 +1,5 @@
 
-import { classNames as styles } from '../common/styles/index.style'
+import { styles, styleMethods } from '../common/styles/index.style'
 import ProfileSelection from '../common/layout'
 import { bernard } from '../common/models/index'
 
@@ -7,7 +7,7 @@ export default function Bernard() {
   return (
     <ProfileSelection name={bernard.pageTitle} description={bernard.pageDescription}>
       <div>
-        <div className={styles.getTextSection()}>
+        <div className={styleMethods.getTextSection()}>
           <div className={styles.textSectionTitle}>
             A True Calling
           </div>
@@ -19,7 +19,7 @@ export default function Bernard() {
           </div>
         </div>
         
-        <div className={styles.getTextSection()}>
+        <div className={styleMethods.getTextSection()}>
           <div className={styles.textSectionTitle}>
             Fighting Stereotype
           </div>
@@ -32,7 +32,7 @@ export default function Bernard() {
           </div>
         </div>
 
-        <div className={styles.getTextSection()}>
+        <div className={styleMethods.getTextSection()}>
           <div className={styles.textSectionTitle}>
             Contributing To Society
           </div>
@@ -46,7 +46,7 @@ export default function Bernard() {
           </div>
         </div>
 
-        <div className={styles.getTextSection()}>
+        <div className={styleMethods.getTextSection()}>
           <div className={styles.textSectionTitle}>
             Learning Through Experience
           </div>
@@ -60,7 +60,7 @@ export default function Bernard() {
           </div>
         </div>
 
-        <div className={styles.getTextSection()}>
+        <div className={styleMethods.getTextSection()}>
           <div className={styles.textSectionTitle}>
             To All Aspiring Nurses
           </div>

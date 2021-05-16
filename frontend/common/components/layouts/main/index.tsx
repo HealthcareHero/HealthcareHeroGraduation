@@ -1,5 +1,5 @@
-import { classNames as styles } from './index.style'
-import { LayoutMainProps } from './index.type'
+import { styles } from './styles/index.style'
+import { LayoutMainProps } from './types/index.type'
 import { Layout } from 'antd'
 import NavigationMenu from 'common/components/navigation-menu'
 

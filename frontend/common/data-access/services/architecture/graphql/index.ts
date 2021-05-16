@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { request } from 'graphql-request'
-import { RequestDocument } from 'graphql-request/dist/types'
-import { UseGraphQLResponse } from './index.type'
+import { UseGraphQLRequest, UseGraphQLResponse } from './index.type'
 
-export const useGraphQL = (url: string, graphqlRequest: RequestDocument): UseGraphQLResponse => {
+export const useGraphQL = (url: string, graphqlRequest: UseGraphQLRequest): UseGraphQLResponse => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   useEffect(() => {

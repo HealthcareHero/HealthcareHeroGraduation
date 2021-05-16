@@ -11,10 +11,16 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Deployment
-
-Run
-
+1. Login to firebase
 ```
+firebase login
+```
+2. Deploy to preview channel or production
+```shell
+# Deploy to preview channel
+npm run preview
+
+# Deploy to production
 npm run deploy
 ```
 

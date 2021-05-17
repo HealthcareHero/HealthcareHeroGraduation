@@ -2,7 +2,8 @@ import { styleMethods } from '../../styles/index.style'
 import { styles } from './styles/index.style'
 import { FeedPostProps } from '../../../common/types/index.type'
 import ExpandableText from 'common/components/expandable-text'
-import { MESSAGE_DISPLAY_LENGTH } from './constants'
+import Tags from 'common/components/tags'
+import { MESSAGE_DISPLAY_LENGTH, TAG_TEXT_DISPLAY_LENGTH } from './constants'
 
 export default function FeedPost({
   id,
@@ -31,8 +32,7 @@ export default function FeedPost({
         </div>
 
         { message && <div><ExpandableText text={message} displayLength={MESSAGE_DISPLAY_LENGTH} /></div> }
-        <p>tags</p>
-        {/* { tags && tags.length>0 && <TagList tagList={tags} displayLength={tagDisplayLength} /> } */}
+        { tags?.length > 0 && <Tags texts={tags} textDisplayLength={TAG_TEXT_DISPLAY_LENGTH} /> }
       </div>
 
       {/* <div className="icon-buttons">

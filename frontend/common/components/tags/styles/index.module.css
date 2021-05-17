@@ -1,0 +1,6 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  padding-top: 7px;
+}

@@ -1,6 +1,6 @@
-import { styleMethods } from '../../styles/index.style'
+import { styleMethods } from '../../../../styles/index.style'
 import { styles } from './styles/index.style'
-import { FeedPostProps } from '../../../common/types/index.type'
+import { FeedPostProps } from '../../../../../common/types/index.type'
 import ExpandableText from 'common/components/expandable-text'
 import Tags from 'common/components/tags'
 import { MESSAGE_DISPLAY_LENGTH, TAG_TEXT_DISPLAY_LENGTH } from './constants'

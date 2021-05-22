@@ -1,23 +1,14 @@
-import { styleMethods } from './styles/index.style'
-import { LandingProps } from "../common/types/index.type"
-import { Fragment } from "react";
-import LoadingSkeleton from './components/loading-skeleton'
-import FeedPost from "./components/feed-post";
+import { LandingProps } from '../common/types/index.type'
+import LoadingSkeletons from './components/loading-skeletons'
+import FeedPosts from './components/feed-posts'
+import { LOADING_SKELETON_COUNT } from './constants'
 
-export default function Narrow({data, isLoading, isError}: LandingProps) {
+export default function Narrow({ data, isLoading, isError }: LandingProps) {
   return (
-    <>
-      <div>
-      {isLoading && <LoadingSkeleton />}
+    <div>
+      {isLoading && <LoadingSkeletons count={LOADING_SKELETON_COUNT}/>}
 
-      {!isLoading &&
-        !isError &&
-        data.map((item, index) => (
-          <Fragment key={index}>
-            <FeedPost {...item}/>
-          </Fragment>
-        ))}
+      {!isLoading && !isError && <FeedPosts data={data} />}
     </div>
-    </>
   );
 }

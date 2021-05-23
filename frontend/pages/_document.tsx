@@ -9,7 +9,7 @@ class MyDocument extends Document {
             httpEquiv="Content-Security-Policy"
             content="
               script-src 'self' ;
-              img-src 'self' data: https://asia-northeast1-healthcare-heroes.cloudfunctions.net ;
+              img-src 'self' data: https://asia-northeast1-healthcare-heroes.cloudfunctions.net https://www.nme.com https://blog.playstation.com https://console.kr-asia.com https://i.pinimg.com ;
               style-src 'self' 'unsafe-inline' ;
               font-src 'self' ;
               connect-src 'self' https://asia-northeast1-healthcare-heroes.cloudfunctions.net https://api.spacex.land ;

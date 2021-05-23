@@ -33,7 +33,7 @@ const mapData = (data) => {
         timestamp: x.first_flight,
       };
     });
-    return [...result, dragon3, dragon4];
+    return [...result, dragon3, dragon4, dragon5];
   }
   return null;
 };
@@ -63,12 +63,25 @@ const dragon3 = {
 };
 
 const dragon4 = {
-  id: 3,
+  id: 4,
   author: "Dragon 4",
   message: "This dragon has 2 images",
   media: [
     "https://blog.playstation.com/tachyon/2020/11/Featured-Image-Genshin-Impact-update-out-tomorrow.jpg?fit=1024,720",
     "https://console.kr-asia.com/wp-content/uploads/2020/10/WechatIMG3274.png",
+  ],
+  tags: ["#Tag1", "#Tag2", "#aVeryLongTag123456789012345"],
+  commenting: true,
+  likeCount: 25,
+  timestamp: "",
+};
+
+const dragon5 = {
+  id: 5,
+  author: "Dragon 5",
+  message: "This dragon has a vertically long image",
+  media: [
+    "https://i.pinimg.com/236x/f6/16/d0/f616d044c7937dde2e8ec2b4f3e6f79c--france-travel-winding-road.jpg"
   ],
   tags: ["#Tag1", "#Tag2", "#aVeryLongTag123456789012345"],
   commenting: true,

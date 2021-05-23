@@ -8,8 +8,8 @@ export default function Carousel({ media, autoplay, loading }: CarouselProps) {
       {
         media.map((item, index) => {
           return (
-            <div className={styles.container}>
-              <img src={item} alt={item} loading={loading} key={index} className={styles.img}/>
+            <div className={styles.container} key={index}>
+              <img src={item} alt={item} loading={loading} className={styles.img}/>
             </div>
           )
         })

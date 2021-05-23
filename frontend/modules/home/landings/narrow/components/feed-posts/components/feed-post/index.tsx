@@ -1,8 +1,11 @@
 import { styleMethods } from '../../../../styles/index.style'
 import { styles } from './styles/index.style'
 import { FeedPostProps } from '../../../../../common/types/index.type'
+import MediaVisualViewer from './components/media-visual-viewer'
+import TextVisualViewer from './components/text-visual-viewer'
 import ExpandableText from 'common/components/expandable-text'
 import Tags from 'common/components/tags'
+import { enableMediaVisualViewer } from './helpers'
 import { MESSAGE_DISPLAY_LENGTH, TAG_TEXT_DISPLAY_LENGTH } from './constants'
 
 export default function FeedPost({
@@ -18,7 +21,7 @@ export default function FeedPost({
 }: FeedPostProps) {
   return (
     <div>
-      {/* { media && media.length>0 && <MediaViewer mediaList={media} loading="lazy" /> } */}
+      { enableMediaVisualViewer(media) ? <MediaVisualViewer media={media} /> : <TextVisualViewer text={message} />}
 
       <div className={styleMethods.getContentSection()}>
         <div className={styles.header}>

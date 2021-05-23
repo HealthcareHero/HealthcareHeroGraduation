@@ -5,4 +5,6 @@ export const styles: Css = {
   header: css.header,
   author: css.author,
   timestamp: css.timestamp,
+  footer: css.footer,
+  buttons: css.buttons,
 }

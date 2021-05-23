@@ -11,3 +11,12 @@
 .timestamp {
   font-size: 0.7em;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+}

@@ -6,8 +6,10 @@ import TextVisualViewer from './components/text-visual-viewer'
 import ExpandableText from 'common/components/expandable-text'
 import Tags from 'common/components/tags'
 import LikeButton from 'common/components/buttons/like-button'
-import { enableMediaVisualViewer } from './helpers'
-import { MESSAGE_DISPLAY_LENGTH, TAG_TEXT_DISPLAY_LENGTH } from './constants'
+import CommentButton from 'common/components/buttons/comment-button'
+import ShareButton from 'common/components/buttons/share-button'
+import { enableMediaVisualViewer, getShareUrl, onShareSuccess, onShareError } from './helpers'
+import { MESSAGE_DISPLAY_LENGTH, TAG_TEXT_DISPLAY_LENGTH, SHARE_DESCRIPTION } from './constants'
 
 export default function FeedPost({
   id,
@@ -42,8 +44,8 @@ export default function FeedPost({
       <div className={[styleMethods.getContentSection(), styles.footer].join(" ")}>
         <div className={styles.buttons}>
           <LikeButton />
-          <LikeButton />
-          <LikeButton />
+          <CommentButton />
+          <ShareButton url={getShareUrl()} title={document.title} description={SHARE_DESCRIPTION} onSuccess={onShareSuccess} onError={onShareError}/>
         </div>
         
 

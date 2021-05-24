@@ -1,6 +1,6 @@
-import { styles, styleMethods } from '../common/styles/index.style'
-import ProfileSelection from '../common/layout'
-import { jeanie } from '../common/models/index'
+import { styles, styleMethods } from '../../common/styles/index.style'
+import ProfileSelection from '../../common/layout'
+import { jeanie } from '../../common/models/index'
 
 export default function Jeanie() {
   return (

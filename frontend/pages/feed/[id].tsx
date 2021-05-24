@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import FeedDetail from 'modules/home/feed-detail'
 
-export default function FeedPost() {
+export default function Feed() {
   const router = useRouter();
 
   return (

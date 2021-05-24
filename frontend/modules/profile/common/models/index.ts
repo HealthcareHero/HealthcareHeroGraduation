@@ -1,36 +1,39 @@
-import { Profile } from '../types/profile.type'
-import { routes } from 'common/utils/navigation/routes'
-
-const avatarBasePath = "/assets/img/profile-avatar";
+import { Profile } from './index.type'
+import { getProfileRouteTitle } from '../helpers'
+import { AVATAR_BASE_PATH } from '../constants'
+import Bernard from '../../components/bernard'
+import Jeanie from '../../components/jeanie'
 
 export const bernard: Profile = {
   name: "Bernard",
-  avatar: `${avatarBasePath}/avatar_bernard`,
-  pagePath: routes.profiles.bernard.path,
-  pageTitle: routes.profiles.bernard.pageTitle,
-  pageDescription: routes.profiles.bernard.pageDescription
+  avatar: `${AVATAR_BASE_PATH}/avatar_bernard.png`,
+  pageComponent: Bernard,
+  pagePathSuffix: "bernard",
+  pageTitle: getProfileRouteTitle("Bernard"),
+  pageDescription: "A Medical Hero",
 }
 
 export const jeanie: Profile = {
   name: "Jeanie",
-  avatar: `${avatarBasePath}/avatar_jeanie`,
-  pagePath: routes.profiles.jeanie.path,
-  pageTitle: routes.profiles.jeanie.pageTitle,
-  pageDescription: routes.profiles.jeanie.pageDescription
+  avatar: `${AVATAR_BASE_PATH}/avatar_jeanie.png`,
+  pageComponent: Jeanie,
+  pagePathSuffix: "jeanie",
+  pageTitle: getProfileRouteTitle("Jeanie"),
+  pageDescription: "A Medical Hero",
 }
 
 export const yanka: Profile = {
   name: "Yanka",
-  avatar: `${avatarBasePath}/avatar_yanka`,
-  pagePath: routes.profiles.yanka.path,
-  pageTitle: routes.profiles.yanka.pageTitle,
-  pageDescription: routes.profiles.yanka.pageDescription
+  avatar: `${AVATAR_BASE_PATH}/avatar_yanka.png`,
+  pagePathSuffix: "yanka",
+  pageTitle: getProfileRouteTitle("Yanka"),
+  pageDescription: "A Medical Hero",
 }
 
 export const yikSiong: Profile = {
   name: "Yik Siong",
-  avatar: `${avatarBasePath}/avatar_yik-siong`,
-  pagePath: routes.profiles.yikSiong.path,
-  pageTitle: routes.profiles.yikSiong.pageTitle,
-  pageDescription: routes.profiles.yikSiong.pageDescription
+  avatar: `${AVATAR_BASE_PATH}/avatar_yik-siong.png`,
+  pagePathSuffix: "yik-siong",
+  pageTitle: getProfileRouteTitle("Yik Siong"),
+  pageDescription: "A Medical Hero",
 }

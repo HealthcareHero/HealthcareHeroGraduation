@@ -1,10 +1,7 @@
-import { Routes } from "./routes.type";
+import { Routes } from './routes.type'
+import { bernard, jeanie, yanka, yikSiong } from 'modules/profile/common/models'
 
 const profileRouteRoot = "/profile";
-
-const getProfileRouteTitle = (title: string): string => {
-  return `${title} | Profile`;
-};
 
 export const routes: Routes = {
   home: {
@@ -22,24 +19,24 @@ export const routes: Routes = {
     path: profileRouteRoot,
     navTabTitle: "Profiles",
     bernard: {
-      path: `${profileRouteRoot}/bernard`,
-      pageTitle: getProfileRouteTitle("Bernard"),
-      pageDescription: "A Hero",
+      path: `${profileRouteRoot}/${bernard.pagePathSuffix}`,
+      pageTitle: bernard.pageTitle,
+      pageDescription: bernard.pageDescription,
     },
     jeanie: {
-      path: `${profileRouteRoot}/jeanie`,
-      pageTitle: getProfileRouteTitle("Jeanie"),
-      pageDescription: "A Hero",
+      path: `${profileRouteRoot}/${jeanie.pagePathSuffix}`,
+      pageTitle: jeanie.pageTitle,
+      pageDescription: jeanie.pageDescription,
     },
     yanka: {
-      path: `${profileRouteRoot}/yanka`,
-      pageTitle: getProfileRouteTitle("Yanka"),
-      pageDescription: "A Hero",
+      path: `${profileRouteRoot}/${yanka.pagePathSuffix}`,
+      pageTitle: yanka.pageTitle,
+      pageDescription: yanka.pageDescription,
     },
     yikSiong: {
-      path: `${profileRouteRoot}/yik-siong`,
-      pageTitle: getProfileRouteTitle("Yik Siong"),
-      pageDescription: "A Hero",
+      path: `${profileRouteRoot}/${yikSiong.pagePathSuffix}`,
+      pageTitle: yikSiong.pageTitle,
+      pageDescription: yikSiong.pageDescription,
     },
   },
 };

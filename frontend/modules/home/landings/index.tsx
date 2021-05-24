@@ -7,13 +7,13 @@ import { useTestDragons } from "common/data-access/services/space-land-for-test-
 
 export default function HomeLanding() {
   const { isMdOrLarger } = useMediaQuery();
-  const testDragonResponse = useTestDragons();
+  const response = useTestDragons();
 
   return (
     <div>
       <HtmlHead title={routes.home.pageTitle} description={routes.home.pageDescription} />
 
-      { isMdOrLarger ? <Wide /> : <Narrow {...testDragonResponse}/> }
+      { isMdOrLarger ? <Wide /> : <Narrow {...response}/> }
     </div>
   );
 }

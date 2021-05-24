@@ -7,3 +7,7 @@ export interface UseGraphQLResponse {
   isLoading: boolean,
   isError: boolean,
 }
+
+export interface UseGraphQLVariables {
+  [key: string]: any;
+}

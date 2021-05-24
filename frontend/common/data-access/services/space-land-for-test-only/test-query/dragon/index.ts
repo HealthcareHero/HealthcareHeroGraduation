@@ -1,15 +1,15 @@
 import { gql } from "graphql-request";
 import { useGraphQL } from "common/data-access/services/architecture/graphql";
+import { QueryVariables } from './index.type'
 
 const URL = "https://api.spacex.land/graphql/";
 
 const query = gql`
-  {
-    dragons(limit: 10) {
+  query getDragon ($id: ID!) {
+    dragon(id: $id) {
       id
       name
       description
-      wikipedia
       type
       active
       crew_capacity
@@ -18,30 +18,33 @@ const query = gql`
   }
 `;
 
-const mapData = (data) => {
-  if (data) {
-    // data.dragons.push(dragon3);
-    const result = data.dragons.map((x) => {
-      return {
-        id: x.id,
-        author: x.name,
-        message: x.description,
-        media: [],
-        tags: [x.type],
-        commenting: x.active,
-        likeCount: x.crew_capacity,
-        timestamp: x.first_flight,
-      };
-    });
-    return [...result, dragon3, dragon4, dragon5];
-  }
-  return null;
-};
+// const mapData = (data) => {
+//   if (data) {
+//     const result = data.dragon.map((x) => {
+//       return {
+//         id: x.id,
+//         author: x.name,
+//         message: x.description,
+//         media: [],
+//         tags: [x.type],
+//         commenting: x.active,
+//         likeCount: x.crew_capacity,
+//         timestamp: x.first_flight,
+//       };
+//     });
+//     return [...result, dragon3, dragon4, dragon5];
+//   }
+//   return null;
+// };
 
-export const useTestDragons = () => {
-  const { data, isLoading, isError } = useGraphQL(URL, query);
+export const useTestDragon = (id: string) => {
+  const variables: QueryVariables = {
+    id
+  };
+
+  const { data, isLoading, isError } = useGraphQL(URL, query, variables);
   return {
-    data: mapData(data),
+    data: (data),
     isLoading: isLoading,
     isError: isError,
   };

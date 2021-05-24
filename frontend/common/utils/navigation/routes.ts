@@ -13,6 +13,11 @@ export const routes: Routes = {
     pageTitle: "Healthcare Heroes Graduation",
     pageDescription: "Happy Graduation! Thank you healthcare heroes!",
   },
+  feed: {
+    path: "/feed",
+    pageTitle: "Feed",
+    pageDescription: "Write a comment and share!",
+  },
   profiles: {
     path: profileRouteRoot,
     navTabTitle: "Profiles",

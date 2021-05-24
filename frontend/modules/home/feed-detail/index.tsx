@@ -1,13 +1,20 @@
-import { useRouter } from 'next/router'
-import FeedDetailOnLoad from './components/feed-detail-on-load'
+import { useMediaQuery } from 'common/utils/media-query'
+import { useTestDragon } from 'common/data-access/services/space-land-for-test-only/test-query/dragon'
+import { FeedDetailProps } from './types/index.type'
+import HtmlHead from 'common/components/html-head'
+import Narrow from './components/narrow'
+import Wide from './components/wide'
+import { routes } from 'common/utils/navigation/routes'
 
-// This is a HOC because unable to perform api call conditonally such that only call when router is ready
-export default function FeedDetail() {
-  const router = useRouter();
-  
+export default function FeedDetail({ id }: FeedDetailProps) {
+  const { isMdOrLarger } = useMediaQuery();
+  const response = useTestDragon(id);
+
   return (
     <div>
-      { router.isReady &&  <FeedDetailOnLoad id={router.query.id as string} />}
+      <HtmlHead title={routes.feed.pageTitle} description={routes.feed.pageDescription} />
+
+      { isMdOrLarger ? <Wide /> : <Narrow /> }
     </div>
   );
 }

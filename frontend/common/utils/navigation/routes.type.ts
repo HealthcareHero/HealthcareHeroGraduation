@@ -1,5 +1,6 @@
 export interface Routes {
   home: RouteMeta,
+  feed: RouteMeta,
   profiles: ProfilesRouteMeta
 }
 

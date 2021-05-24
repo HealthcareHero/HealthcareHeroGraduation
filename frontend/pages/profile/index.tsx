@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
+import Bernard from 'modules/profile/components/bernard'
 import { useEffect } from 'react';
 import { routes } from 'common/utils/navigation/routes'
-import Bernard from 'modules/profile/components/bernard'
 
 export default function ProfileRoot() {
   const router = useRouter();

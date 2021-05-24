@@ -1,3 +1,3 @@
-export interface styleMethods {
+export interface StyleMethods {
   getContentSection: () => string;
 }

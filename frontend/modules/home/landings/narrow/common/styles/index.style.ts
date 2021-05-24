@@ -1,4 +1,5 @@
 import css from './index.module.css'
+import { StyleMethods } from './index.type'
 import { GLOBAL_PADDING_XS, GLOBAL_PADDING_SM } from 'common/styles/constant'
 import { useMediaQuery } from 'common/utils/media-query'
 
@@ -11,6 +12,6 @@ const getContentSection = (): string => {
   }
 };
 
-export const styleMethods = {
+export const styleMethods: StyleMethods = {
   getContentSection
 }

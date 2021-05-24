@@ -1,5 +1,5 @@
-import { styleMethods } from '../../../../styles/index.style'
 import { styles } from './styles/index.style'
+import { styleMethods } from '../../../../common/styles/index.style'
 import { FeedPostProps } from '../../../../../common/types/index.type'
 import MediaVisualViewer from './components/media-visual-viewer'
 import TextVisualViewer from './components/text-visual-viewer'

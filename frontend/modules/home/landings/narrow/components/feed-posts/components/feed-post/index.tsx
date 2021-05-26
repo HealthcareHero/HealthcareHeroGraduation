@@ -8,7 +8,7 @@ import LikeButton from 'common/components/buttons/like-button'
 import CommentButton from 'common/components/buttons/comment-button'
 import ShareButton from 'common/components/buttons/share-button'
 import { enableMediaVisualViewer, getShareUrl, onShareSuccess, onShareError } from './helpers'
-import { MESSAGE_DISPLAY_LENGTH, TAG_TEXT_DISPLAY_LENGTH, SHARE_DESCRIPTION } from './constants'
+import { MESSAGE_DISPLAY_LENGTH, NARROW_TAG_TEXT_DISPLAY_LENGTH, SHARE_DESCRIPTION } from './constants'
 
 export default function FeedPost({
   id,
@@ -39,7 +39,7 @@ export default function FeedPost({
         </div>
 
         { message && <div><ExpandableText text={message} displayLength={MESSAGE_DISPLAY_LENGTH} /></div> }
-        { tags?.length > 0 && <Tags texts={tags} textDisplayLength={TAG_TEXT_DISPLAY_LENGTH} /> }
+        { tags?.length > 0 && <Tags texts={tags} textDisplayLength={NARROW_TAG_TEXT_DISPLAY_LENGTH} /> }
       </div>
 
       <div className={[styleContentSection, styles.footer].join(" ")}>

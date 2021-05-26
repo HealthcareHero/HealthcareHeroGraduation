@@ -1,6 +1,15 @@
-export const MESSAGE_DISPLAY_LENGTH = 125;
-export const TAG_TEXT_DISPLAY_LENGTH = 15;
+import {
+  NARROW_TAG_TEXT_DISPLAY_LENGTH,
+  SHARE_DESCRIPTION,
+  SHARE_SUCCESS_MESSAGE,
+  SHARE_ERROR_MESSAGE,
+} from 'common/constants'
 
-export const SHARE_DESCRIPTION = "Let's congratulate and support the healthcare heros!\n";
-export const SHARE_SUCCESS_MESSAGE = "Thank you for sharing!";
-export const SHARE_ERROR_MESSAGE = "Error while sharing. Please try again."
+export const MESSAGE_DISPLAY_LENGTH = 125;
+
+export {
+  NARROW_TAG_TEXT_DISPLAY_LENGTH,
+  SHARE_DESCRIPTION,
+  SHARE_SUCCESS_MESSAGE,
+  SHARE_ERROR_MESSAGE,
+}

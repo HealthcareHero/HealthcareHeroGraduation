@@ -1,8 +1,9 @@
+import { styles } from './styles/index.style'
 import { MediaVisualViewerProps } from './types/index.type'
-import Carousel from './components/carousel'
+import MediaViewer from 'common/components/media-visual-viewer'
 
 export default function MediaVisualViewer({ media }: MediaVisualViewerProps ) {
   return (
-    <Carousel media={media} autoplay={true} loading="eager" />
+    <MediaViewer media={media} styles={styles} />
   );
 }

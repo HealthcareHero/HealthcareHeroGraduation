@@ -28,17 +28,17 @@ const mapData = (id, data): Dragon => {
   if (id==="dragon5")
     return dragon5;
 
-  if (data) {
+  if (data?.dragon) {
     return {
-      id:data.id,
-      author: data.name,
+      id: data.dragon.id,
+      author: data.dragon.name,
       recipient: "ALL",
-      message: data.description,
+      message: data.dragon.description,
       media: [],
-      tags: [data.type],
-      enableComment: data.active,
-      likeCount: data.crew_capacity,
-      timestamp: data.first_flight,
+      tags: [data.dragon.type],
+      enableComment: data.dragon.active,
+      likeCount: data.dragon.crew_capacity,
+      timestamp: data.dragon.first_flight,
     };
   }
 

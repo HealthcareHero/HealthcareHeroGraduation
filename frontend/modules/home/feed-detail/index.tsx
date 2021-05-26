@@ -14,12 +14,7 @@ export default function FeedDetail({ id }: FeedDetailProps) {
     <div>
       <HtmlHead title={routes.feed.pageTitle} description={routes.feed.pageDescription} />
 
-      {response.isLoading && <div>LOADING</div>}
-      {response.isError && <div>HAS ERROR</div> && console.log("HAS ERROR:", response.data)}
-      {!response.isLoading && !response.isError && response.data && <div>HAS DATA</div> && console.log("DATA:", response.data)}
-
-
-      { isMdOrLarger ? <Wide /> : <Narrow /> }
+      { isMdOrLarger ? <Wide /> : <Narrow {...response}/> }
     </div>
   );
 }

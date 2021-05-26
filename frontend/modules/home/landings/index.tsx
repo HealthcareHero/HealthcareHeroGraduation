@@ -3,11 +3,11 @@ import { useMediaQuery } from 'common/utils/media-query'
 import HtmlHead from 'common/components/html-head'
 import Narrow from './narrow'
 import Wide from './wide'
-import { useTestDragons } from "common/data-access/services/space-land-for-test-only/test-query/dragons";
+import { useGetFeeds } from "api/execute/feed/getFeeds";
 
 export default function HomeLanding() {
   const { isMdOrLarger } = useMediaQuery();
-  const response = useTestDragons();
+  const response = useGetFeeds();
 
   return (
     <div>

@@ -19,7 +19,7 @@ export default function FeedPost({
   media,
   tags,
   enableComment,
-  initialLikeCount,
+  likeCount,
   timestamp,
 }: FeedPostProps) {
   return (

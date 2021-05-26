@@ -1,17 +1,5 @@
-export interface LandingProps {
-  data: FeedPostProps[];
-  isLoading: boolean;
-  isError: boolean;
-}
+import { GetFeedsResponse, FeedDetail  } from 'api/execute/feed/getFeeds/index.type'
 
-export interface FeedPostProps {
-  id: string;
-  author: string;
-  recipient: string;
-  message: string | null;
-  media: string[] | null;
-  tags: string[] | null;
-  enableComment: boolean;
-  initialLikeCount: Int16Array;
-  timestamp: string;
-}
+export type LandingProps = GetFeedsResponse;
+
+export type FeedPostProps = FeedDetail;

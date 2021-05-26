@@ -1,17 +1,7 @@
 import css from './index.module.css'
-import { StyleMethods } from './index.type'
-import { GLOBAL_PADDING_XS, GLOBAL_PADDING_SM } from 'common/styles/constant'
-import { useMediaQuery } from 'common/utils/media-query'
+import { useGlobalStyleSidePadding } from 'common/styles/index.style'
 
-const getContentSection = (): string => {
-  const { isXsOrSmaller } = useMediaQuery();
-  if (isXsOrSmaller) {
-    return [GLOBAL_PADDING_XS, css.content].join(" ");
-  } else {
-    return [GLOBAL_PADDING_SM, css.content].join(" ");
-  }
+export const useStyleContentSection = (): string => {
+  const sidePadding = useGlobalStyleSidePadding();
+  return [sidePadding, css.content].join(" ");
 };
-
-export const styleMethods: StyleMethods = {
-  getContentSection
-}

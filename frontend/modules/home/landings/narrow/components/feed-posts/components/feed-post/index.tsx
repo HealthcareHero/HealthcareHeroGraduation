@@ -1,5 +1,4 @@
-import { styles } from './styles/index.style'
-import { styleMethods } from '../../../../common/styles/index.style'
+import { styles, useStyleContentSection } from './styles/index.style'
 import { FeedPostProps } from '../../../../../common/types/index.type'
 import MediaVisualViewer from './components/media-visual-viewer'
 import TextVisualViewer from './components/text-visual-viewer'
@@ -22,11 +21,13 @@ export default function FeedPost({
   likeCount,
   timestamp,
 }: FeedPostProps) {
+  const styleContentSection = useStyleContentSection();
+
   return (
     <div>
       { enableMediaVisualViewer(media) ? <MediaVisualViewer media={media} /> : <TextVisualViewer text={message} />}
 
-      <div className={styleMethods.getContentSection()}>
+      <div className={styleContentSection}>
         <div className={styles.header}>
           <div className={styles.author}>
             <b>{author}</b>
@@ -41,7 +42,7 @@ export default function FeedPost({
         { tags?.length > 0 && <Tags texts={tags} textDisplayLength={TAG_TEXT_DISPLAY_LENGTH} /> }
       </div>
 
-      <div className={[styleMethods.getContentSection(), styles.footer].join(" ")}>
+      <div className={[styleContentSection, styles.footer].join(" ")}>
         <div className={styles.buttons}>
           <LikeButton />
           <CommentButton />

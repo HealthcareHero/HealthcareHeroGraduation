@@ -2,11 +2,17 @@ import { styles, useGlobalStyleSidePadding } from './styles/index.style'
 import { NarrowProps } from './types/index.type'
 import PageNotFound from 'modules/page-not-found'
 import MediaViewer from './components/media-viewer'
+import Skeletons from 'common/components/skeletons'
 import Tags from 'common/components/tags'
 import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'common/constants'
+import { SKELETON_PARAGRAPH_ROWS } from './constants'
 import { enableMediaVisualViewer } from './helpers'
 
 export default function Narrow({ data, isLoading, isError }: NarrowProps) {
+  if (!data || !data.id) {
+    return <PageNotFound />
+  };
+
   const {
     id,
     author,
@@ -23,6 +29,12 @@ export default function Narrow({ data, isLoading, isError }: NarrowProps) {
 
   return (
     <>
+      {
+        isLoading && <Skeletons count={1} paragraphRows={SKELETON_PARAGRAPH_ROWS} />
+      }
+      {
+        // TODO: If error, show error message
+      }
       {
         !isLoading && !isError && data.id && (
           <div>
@@ -74,19 +86,6 @@ export default function Narrow({ data, isLoading, isError }: NarrowProps) {
             } */}
           </div>
         )
-      }
-      {
-        // isLoading && (
-        //   <LoadingOverlay size="24">
-        //     <div style={{ height: "100vh" }}></div>
-        //   </LoadingOverlay>
-        // )
-      }
-      {
-        // TODO: If error, show error message
-      }
-      {
-        !isLoading && !isError && (!data || !data?.id) && <PageNotFound />
       }
     </>
   );

@@ -16,7 +16,7 @@ export default function NavigationMenu() {
         </Link>
       </Menu.Item>
       <Menu.Item key={navigationKey.profile}>
-        <Link href={routes.profiles.bernard.path}>
+        <Link href={routes.profiles.path}>
           {routes.profiles.navTabTitle} 
         </Link>
       </Menu.Item>

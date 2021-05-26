@@ -5,14 +5,14 @@ export default function MediaVisualViewer({
   media,
   autoplay,
   loadingType,
-  styles,
+  style,
 }: MediaVisualViewerProps) {
   return (
     <Carousel
       media={media}
       autoplay={autoplay}
-      loading={loadingType}
-      customStyles={styles}
+      loadingType={loadingType}
+      style={style}
     />
   );
 }

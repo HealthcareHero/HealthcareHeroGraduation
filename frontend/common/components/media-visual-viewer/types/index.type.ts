@@ -1,11 +1,3 @@
-export interface MediaVisualViewerProps {
-  media: string[];
-  loadingType?: "eager" | "lazy";
-  autoplay?: boolean;
-  styles?: MediaVisualViewerStyles;
-}
+import { CarouselProps } from '../common/types/index.type'
 
-export interface MediaVisualViewerStyles {
-  container: string;
-  img: string;
-}
+export type MediaVisualViewerProps = CarouselProps;

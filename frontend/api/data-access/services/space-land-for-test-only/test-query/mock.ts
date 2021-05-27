@@ -1,7 +1,7 @@
 import { Dragon } from './mock.type'
 
 export const dragon3 = <Dragon>{
-  id: "3",
+  id: "dragon3",
   author: "Dragon 3",
   recipient: "BERNARD",
   message: "This dragon has 1 image",
@@ -15,7 +15,7 @@ export const dragon3 = <Dragon>{
 };
 
 export const dragon4 = <Dragon>{
-  id: "4",
+  id: "dragon4",
   author: "Dragon 4",
   recipient: "JEANIE",
   message: "This dragon has 2 images",
@@ -30,7 +30,7 @@ export const dragon4 = <Dragon>{
 };
 
 export const dragon5 = <Dragon>{
-  id: "5",
+  id: "dragon5",
   author: "Dragon 5",
   recipient: "ALL",
   message: "This dragon has a vertically long image",

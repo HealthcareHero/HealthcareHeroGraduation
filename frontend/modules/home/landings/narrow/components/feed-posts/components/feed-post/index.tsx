@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { styles, useStyleContentSection } from './styles/index.style'
 import { FeedPostProps } from '../../../../../common/types/index.type'
 import MediaVisualViewer from './components/media-visual-viewer'
@@ -7,7 +8,7 @@ import Tags from 'common/components/tags'
 import LikeButton from 'common/components/buttons/like-button'
 import CommentButton from 'common/components/buttons/comment-button'
 import ShareButton from 'common/components/buttons/share-button'
-import { enableMediaVisualViewer, getShareUrl, onShareSuccess, onShareError } from './helpers'
+import { enableMediaVisualViewer, getFeedUrl, onShareSuccess, onShareError } from './helpers'
 import { MESSAGE_DISPLAY_LENGTH, NARROW_TAG_TEXT_DISPLAY_LENGTH, SHARE_DESCRIPTION } from './constants'
 
 export default function FeedPost({
@@ -22,6 +23,11 @@ export default function FeedPost({
   timestamp,
 }: FeedPostProps) {
   const styleContentSection = useStyleContentSection();
+  const [numLikes, setNumLikes] = useState(likeCount);
+
+  const handleLike = (count: number): void => {
+    setNumLikes(count);
+  }
 
   return (
     <div>
@@ -44,9 +50,9 @@ export default function FeedPost({
 
       <div className={[styleContentSection, styles.footer].join(" ")}>
         <div className={styles.buttons}>
-          <LikeButton />
-          <CommentButton />
-          <ShareButton url={getShareUrl()} title={document.title} description={SHARE_DESCRIPTION} onSuccess={onShareSuccess} onError={onShareError}/>
+          <LikeButton count={numLikes} onClick={handleLike}/>
+          <CommentButton url={getFeedUrl(id)} />
+          <ShareButton url={getFeedUrl(id)} title={document.title} description={SHARE_DESCRIPTION} onSuccess={onShareSuccess} onError={onShareError}/>
         </div>
         
 
@@ -55,7 +61,7 @@ export default function FeedPost({
         <ShareButon url={`${path.root}${feedPostThread}/${id}`}/>
 
         { (likeCount > 0) && <div className="number-of-likes">{likeCount} {likeCount === 1 ? "Like" : "Likes"}</div> } */}
-        <div>5 likes {/* like-count section */}</div>
+        <div>{numLikes} {numLikes === 1 ? "Like" : "Likes"}</div>
       </div>     
     </div>
   );

@@ -21,11 +21,11 @@ const query = gql`
 `;
 
 const mapData = (id, data): Dragon => {
-  if (id==="dragon3")
+  if (id===dragon3.id)
     return dragon3;
-  if (id==="dragon4")
+  if (id===dragon4.id)
     return dragon4;
-  if (id==="dragon5")
+  if (id===dragon5.id)
     return dragon5;
 
   if (data?.dragon) {

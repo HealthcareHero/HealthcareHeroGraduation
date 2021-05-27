@@ -1,10 +1,14 @@
+import { styles } from './styles/index.style'
+import Link from 'next/link'
+import { CommentButtonProps } from './types/index.type'
 import { CommentOutlined } from '@ant-design/icons';
-import IconButton from '../icon-button'
 
-export default function CommentButton() {
+export default function CommentButton({ url }: CommentButtonProps) {
   return (
-    <div>
-      <IconButton icon={<CommentOutlined />} onClick={()=>{}} />
+    <div className={styles.button}>
+      <Link href={url}>
+        <CommentOutlined />
+      </Link>
     </div>
   )
 }

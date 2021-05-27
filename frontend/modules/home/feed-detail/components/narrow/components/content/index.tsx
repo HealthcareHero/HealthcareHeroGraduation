@@ -3,7 +3,7 @@ import { ContentProps } from './types/index.type'
 import MediaViewer from '../../components/media-viewer'
 import Tags from 'common/components/tags'
 import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'common/constants'
-import { enableMediaVisualViewer } from '../../helpers'
+import { enableMediaVisualViewer } from 'modules/home/common/helpers'
 
 export default function Content({ id,
   author,

@@ -1,9 +1,18 @@
-import { styles, useGlobalStyleSidePadding } from '../../styles/index.style'
+import { useState } from 'react'
+import { styles, useGlobalStyleSidePadding } from './styles/index.style'
 import { ContentProps } from './types/index.type'
 import MediaViewer from '../../components/media-viewer'
 import Tags from 'common/components/tags'
+import LikeButton from 'common/components/buttons/like-button'
+import ShareButton from 'common/components/buttons/share-button'
 import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'common/constants'
-import { enableMediaVisualViewer } from 'modules/home/common/helpers'
+import { 
+  enableMediaVisualViewer, 
+  getFeedUrl, 
+  getShareDescription, 
+  onShareSuccess, 
+  onShareError,
+} from 'modules/home/common/helpers'
 
 export default function Content({ id,
   author,
@@ -14,7 +23,7 @@ export default function Content({ id,
   enableComment,
   likeCount,
   timestamp }: ContentProps) {
-
+  const [numLikes, setNumLikes] = useState(likeCount);
   const styleMainSection = useGlobalStyleSidePadding();
 
   return (
@@ -31,11 +40,18 @@ export default function Content({ id,
             TIME
           </div>
         </div>
-
         { message && <div>{message}</div> }
-
         { tags?.length > 0 && <Tags texts={tags} textDisplayLength={NARROW_TAG_TEXT_DISPLAY_LENGTH} /> }
+        <div className={styles.footer}>
+          <div className={styles.buttons}>
+            <LikeButton count={numLikes} onClick={setNumLikes}/>
+            <ShareButton url={getFeedUrl(id)} title={document.title} description={getShareDescription()} onSuccess={onShareSuccess} onError={onShareError}/>
+          </div>
+          <div>{numLikes} {numLikes === 1 ? "Like" : "Likes"}</div>
+        </div>
       </div>
+
+           
 
       
 

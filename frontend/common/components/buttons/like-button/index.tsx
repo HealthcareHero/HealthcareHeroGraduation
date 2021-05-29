@@ -16,7 +16,7 @@ export default function LikeButton({ count, onClick }: LikeButtonProps) {
   
   return (
     <div className={styles.button} onClick={handleClick}>
-      { isFilled ? <HeartFilled style={styles.filledStyle}/> : <HeartOutlined /> }
+      { isFilled ? <HeartFilled style={styles.inline.filled} /> : <HeartOutlined style={styles.inline.outlined} /> }
     </div>
   )
 }

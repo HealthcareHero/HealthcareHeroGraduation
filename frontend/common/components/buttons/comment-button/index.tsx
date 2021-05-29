@@ -7,7 +7,7 @@ export default function CommentButton({ url }: CommentButtonProps) {
   return (
     <div className={styles.button}>
       <Link href={url}>
-        <CommentOutlined />
+        <CommentOutlined style={styles.inline}/>
       </Link>
     </div>
   )

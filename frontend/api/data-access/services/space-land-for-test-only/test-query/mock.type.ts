@@ -6,6 +6,13 @@ export interface Dragon {
   media: string[] | null;
   tags: string[] | null;
   enableComment: boolean,
+  comments: Comment[] | null;
   likeCount: number;
   timestamp: string;
+}
+
+export interface Comment {
+  author: string;
+  message: string;
+  timestamp: string; 
 }

@@ -1,28 +1,30 @@
 import { useState } from 'react'
 import { styles, useGlobalStyleSidePadding } from './styles/index.style'
-import { ContentProps } from './types/index.type'
-import MediaViewer from '../../components/media-viewer'
+import { FeedDetailContentProps } from 'modules/home/feed-detail/common/types/index.type'
 import Tags from 'common/components/tags'
 import LikeButton from 'common/components/buttons/like-button'
 import ShareButton from 'common/components/buttons/share-button'
+import MediaViewer from '../../components/media-viewer'
+import Comments from '../comments'
 import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'common/constants'
 import { 
-  enableMediaVisualViewer, 
-  getFeedUrl, 
-  getShareDescription, 
-  onShareSuccess, 
+  enableMediaVisualViewer,
+  getFeedUrl,
+  getShareDescription,
+  onShareSuccess,
   onShareError,
 } from 'modules/home/common/helpers'
+import { displayComments } from 'modules/home/feed-detail/common/helpers'
 
 export default function Content({ id,
   author,
-  recipient,
   message,
   media,
   tags,
   enableComment,
+  comments,
   likeCount,
-  timestamp }: ContentProps) {
+  timestamp }: FeedDetailContentProps) {
   const [numLikes, setNumLikes] = useState(likeCount);
   const styleMainSection = useGlobalStyleSidePadding();
 
@@ -49,31 +51,13 @@ export default function Content({ id,
           </div>
           <div>{numLikes} {numLikes === 1 ? "Like" : "Likes"}</div>
         </div>
+
+        { displayComments(enableComment, comments) && <Comments comments={comments} /> }
       </div>
-
-           
-
-      
 
 
       {/* 
-          {tags && tags.length>0 && <TagList tagList={tags} displayLength={tagDisplayLength} />}
-        </div>
 
-        <div className="icon-buttons">
-          <HeartButton feedPostId={feedPostId} likeCount={likeCount} setLikeCount={updateLikeCount} />
-
-          <ShareButon url={`${path.root}${feedPostThread}/${feedPostId}`} />
-
-          {(likeCount > 0) && <div className="number-of-likes">{likeCount} {likeCount === 1 ? "Like" : "Likes"}</div>}
-        </div>
-      </div>
-
-      {
-        comments && <div style={{ paddingLeft: "8px", paddingRight: "8px" }}>
-          <Comments comments={comments} />
-        </div>
-      }
       {
         commenting && (
           <div style={{ paddingLeft: "8px", paddingRight: "8px", marginTop: "24px", position: "sticky", bottom: "8px" }} >

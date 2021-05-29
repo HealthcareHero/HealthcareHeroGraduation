@@ -37,7 +37,7 @@ const mapData = (id, data): Dragon => {
       media: [],
       tags: [data.dragon.type],
       enableComment: data.dragon.active,
-      comments: null,
+      comments: [],
       likeCount: data.dragon.crew_capacity,
       timestamp: data.dragon.first_flight,
     };

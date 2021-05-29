@@ -5,7 +5,7 @@ import Tags from 'common/components/tags'
 import LikeButton from 'common/components/buttons/like-button'
 import ShareButton from 'common/components/buttons/share-button'
 import MediaViewer from '../../components/media-viewer'
-import Comments from '../comments'
+import CommentSection from '../comment-section'
 import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'common/constants'
 import { 
   enableMediaVisualViewer,
@@ -14,7 +14,6 @@ import {
   onShareSuccess,
   onShareError,
 } from 'modules/home/common/helpers'
-import { displayComments } from 'modules/home/feed-detail/common/helpers'
 
 export default function Content({ id,
   author,
@@ -52,7 +51,7 @@ export default function Content({ id,
           <div>{numLikes} {numLikes === 1 ? "Like" : "Likes"}</div>
         </div>
 
-        { displayComments(enableComment, comments) && <Comments comments={comments} /> }
+        <CommentSection enable={enableComment} comments={comments} />
       </div>
 
 

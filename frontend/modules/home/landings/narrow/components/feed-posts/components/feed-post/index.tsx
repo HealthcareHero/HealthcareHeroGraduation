@@ -47,16 +47,15 @@ export default function FeedPost({
         </div>
         { message && <div><ExpandableText text={message} displayLength={MESSAGE_DISPLAY_LENGTH} /></div> }
         { tags?.length > 0 && <Tags texts={tags} textDisplayLength={NARROW_TAG_TEXT_DISPLAY_LENGTH} /> }
+        <div className={styles.footer}>
+          <div className={styles.buttons}>
+            <LikeButton count={numLikes} onClick={setNumLikes}/>
+            <CommentButton url={getFeedUrl(id)} />
+            <ShareButton url={getFeedUrl(id)} title={document.title} description={getShareDescription()} onSuccess={onShareSuccess} onError={onShareError}/>
+          </div>
+          <div>{numLikes} {numLikes === 1 ? "Like" : "Likes"}</div>
+        </div> 
       </div>
-
-      <div className={[styleContentSection, styles.footer].join(" ")}>
-        <div className={styles.buttons}>
-          <LikeButton count={numLikes} onClick={setNumLikes}/>
-          <CommentButton url={getFeedUrl(id)} />
-          <ShareButton url={getFeedUrl(id)} title={document.title} description={getShareDescription()} onSuccess={onShareSuccess} onError={onShareError}/>
-        </div>
-        <div>{numLikes} {numLikes === 1 ? "Like" : "Likes"}</div>
-      </div>     
     </div>
   );
 }

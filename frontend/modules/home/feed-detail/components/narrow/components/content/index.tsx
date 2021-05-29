@@ -6,6 +6,7 @@ import LikeButton from 'common/components/buttons/like-button'
 import ShareButton from 'common/components/buttons/share-button'
 import MediaViewer from '../../components/media-viewer'
 import CommentSection from '../comment-section'
+import InputComments from '../../components/input-comment'
 import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'common/constants'
 import { 
   enableMediaVisualViewer,
@@ -53,6 +54,8 @@ export default function Content({ id,
 
         <CommentSection enable={enableComment} comments={comments} />
       </div>
+
+      { enableComment && <InputComments /> }
 
 
       {/* 

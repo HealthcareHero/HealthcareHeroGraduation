@@ -1,5 +1,5 @@
 import { useMediaQuery } from 'common/utils/media-query'
-import { useGetFeedDetail } from 'api/execute/feed/getFeedDetail'
+import { useGetFeedDetail } from 'data-access/execute/feed/getFeedDetail'
 import { FeedDetailProps } from './types/index.type'
 import HtmlHead from 'common/components/html-head'
 import Narrow from './components/narrow'

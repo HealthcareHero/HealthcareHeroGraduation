@@ -1,5 +1,5 @@
 import { gql } from "graphql-request";
-import { useGraphQL } from "api/data-access/architecture/graphql";
+import { useGraphQL } from "data-access/data-store/architecture/graphql";
 import { QueryVariables, UseDragonResponse } from './index.type'
 import { Dragon } from '../mock.type'
 import { dragon3, dragon4, dragon5 } from '../mock'

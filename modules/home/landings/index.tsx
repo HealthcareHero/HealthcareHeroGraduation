@@ -3,7 +3,7 @@ import { useMediaQuery } from 'common/utils/media-query'
 import HtmlHead from 'common/components/html-head'
 import Narrow from './narrow'
 import Wide from './wide'
-import { useGetFeeds } from "api/execute/feed/getFeeds";
+import { useGetFeeds } from "data-access/execute/feed/getFeeds";
 
 export default function HomeLanding() {
   const { isMdOrLarger } = useMediaQuery();

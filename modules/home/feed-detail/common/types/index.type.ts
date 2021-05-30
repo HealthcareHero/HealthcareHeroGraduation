@@ -1,4 +1,4 @@
-import { FeedDetail, Comment } from 'api/execute/feed/getFeedDetail/index.type'
+import { FeedDetail, Comment } from 'data-access/execute/feed/getFeedDetail/index.type'
 
 export type FeedDetailComment = Comment;
 

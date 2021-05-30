@@ -1,4 +1,4 @@
-import { GetFeedsResponse, FeedDetail  } from 'api/execute/feed/getFeeds/index.type'
+import { GetFeedsResponse, FeedDetail  } from 'data-access/execute/feed/getFeeds/index.type'
 
 export type LandingProps = GetFeedsResponse;
 

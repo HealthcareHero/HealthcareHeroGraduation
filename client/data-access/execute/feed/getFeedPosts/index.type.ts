@@ -4,10 +4,6 @@ export interface GetFeedPostsResponse extends CommonResponse {
   data: FeedDetail[] | null;
 }
 
-// export interface Data {
-//   feedPosts: FeedDetail[] | null;
-// }
-
 export interface FeedDetail {
   id: string;
   author: string;

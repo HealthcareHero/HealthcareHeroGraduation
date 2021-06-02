@@ -9,13 +9,13 @@ class MyDocument extends Document {
             httpEquiv="Content-Security-Policy"
             content="
               script-src 'self' ;
-              img-src 'self' data: https://asia-northeast1-healthcare-heroes.cloudfunctions.net https://www.nme.com https://blog.playstation.com https://console.kr-asia.com https://i.pinimg.com ;
+              img-src 'self' data: https://vitals.vercel-insights.com/v1/vitals https://www.nme.com https://blog.playstation.com https://console.kr-asia.com https://i.pinimg.com ;
               style-src 'self' 'unsafe-inline' ;
               font-src 'self' ;
-              connect-src 'self' https://asia-northeast1-healthcare-heroes.cloudfunctions.net https://api.spacex.land ;
+              connect-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ;
               manifest-src 'self' ; 
-              prefetch-src 'self' https://asia-northeast1-healthcare-heroes.cloudfunctions.net https://api.spacex.land ;
-              default-src 'self' https://asia-northeast1-healthcare-heroes.cloudfunctions.net https://api.spacex.land ; 
+              prefetch-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ;
+              default-src 'none' ; 
             "
           />
           <link rel="icon" href="/favicon.ico" />

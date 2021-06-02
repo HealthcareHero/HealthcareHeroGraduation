@@ -1,0 +1,7 @@
+import { GetFeedPostsResponse } from './index.type'
+import { useGetFeedPosts as useApi } from 'client/data-access/data-store/services/vercel/feeds/getFeedPosts'
+
+export const useGetFeedPosts = (): GetFeedPostsResponse => {
+  const response = useApi();
+  return response;
+};

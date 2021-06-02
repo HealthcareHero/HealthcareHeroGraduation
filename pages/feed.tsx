@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import FeedDetail from 'modules/home/feed-detail'
-import PageNotFound from 'modules/page-not-found'
+import FeedDetail from 'client/modules/home/feed-detail'
+import PageNotFound from 'client/modules/page-not-found'
 
 // Example Path: /feed?id=id_of_post
 export default function Feed() {

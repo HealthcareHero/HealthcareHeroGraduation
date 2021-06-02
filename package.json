@@ -5,16 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "next build",
-    "preview": "next build && next export && firebase hosting:channel:deploy preview-channel",
-    "deploy": "next build && next export && firebase deploy --only hosting"
+    "build": "next build"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.15.4",
+    "apollo-server-micro": "^2.25.0",
+    "firebase-admin": "^9.9.0",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
-    "next": "^10.2.0",
+    "graphql-tools": "^7.0.5",
+    "next": "^10.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },

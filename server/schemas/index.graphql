@@ -1,0 +1,6 @@
+# import FeedPost from "feed.graphql"
+
+type Query {
+  feedPost(id: ID!): FeedPost
+  feedPosts: [FeedPost]
+}

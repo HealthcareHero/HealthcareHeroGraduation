@@ -1,4 +1,4 @@
-import HomeLanding from 'modules/home/landings'
+import HomeLanding from 'client/modules/home/landings'
 
 export default function Index() {
   return (

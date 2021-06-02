@@ -38,6 +38,11 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
   },
+  "[graphql]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
   "[svg]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,

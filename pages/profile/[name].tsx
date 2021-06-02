@@ -1,5 +1,5 @@
-import ProfileLanding from 'modules/profile'
-import { bernard, jeanie } from 'modules/profile/common/models'
+import ProfileLanding from 'client/modules/profile'
+import { bernard, jeanie } from 'client/modules/profile/common/models'
 
 export default function Profile({ name }) {
   return <ProfileLanding name={name} />;

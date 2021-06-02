@@ -1,0 +1,5 @@
+import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'client/common/constants'
+
+const MESSAGE_DISPLAY_LENGTH = 125;
+
+export { NARROW_TAG_TEXT_DISPLAY_LENGTH, MESSAGE_DISPLAY_LENGTH };

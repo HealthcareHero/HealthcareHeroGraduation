@@ -1,12 +1,12 @@
 import { CommonResponse } from '../../common/types/index.type'
 
 export interface GetFeedPostsResponse extends CommonResponse {
-  data: Data;
+  data: FeedDetail[] | null;
 }
 
-export interface Data {
-  feedPosts: FeedDetail[] | null;
-}
+// export interface Data {
+//   feedPosts: FeedDetail[] | null;
+// }
 
 export interface FeedDetail {
   id: string;

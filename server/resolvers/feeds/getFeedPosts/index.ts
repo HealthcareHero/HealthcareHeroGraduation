@@ -5,7 +5,5 @@ import { mock_getFeedPosts as mockService} from 'server/data-access/firebase/moc
 
 export const getFeedPosts = async (): Promise<FeedPost[]> => {
   const result = execute(service(), mockService());
-  console.log(result)
-
   return result;
 }

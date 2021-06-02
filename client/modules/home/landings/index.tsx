@@ -7,13 +7,13 @@ import { useGetFeedPosts } from "client/data-access/execute/feed/getFeedPosts";
 
 export default function HomeLanding() {
   const { isMdOrLarger } = useMediaQuery();
-  const {data, isLoading, isError} = useGetFeedPosts();
+  const response = useGetFeedPosts();
 
   return (
     <div>
       <HtmlHead title={routes.home.pageTitle} description={routes.home.pageDescription} />
 
-      { isMdOrLarger ? <Wide /> : <Narrow data={data?.feedPosts} isLoading={isLoading} isError={isError} /> }
+      { isMdOrLarger ? <Wide /> : <Narrow {...response} /> }
     </div>
   );
 }

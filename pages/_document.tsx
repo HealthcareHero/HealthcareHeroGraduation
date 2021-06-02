@@ -15,7 +15,7 @@ class MyDocument extends Document {
               connect-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ;
               manifest-src 'self' ; 
               prefetch-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ;
-              default-src 'none' ; 
+              default-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ; 
             "
           />
           <link rel="icon" href="/favicon.ico" />

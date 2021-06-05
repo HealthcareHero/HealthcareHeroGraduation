@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  height: 75px;
+  padding: 0 8px;
+  margin-bottom: 24px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input {
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  color: #595959;
+}
+
+.input:hover {
+  background-color: #e6f7ff;
+}

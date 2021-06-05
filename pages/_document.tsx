@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <meta
+          <meta
             httpEquiv="Content-Security-Policy"
             content="
               script-src 'self' ;
@@ -17,7 +17,7 @@ class MyDocument extends Document {
               prefetch-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ;
               default-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ; 
             "
-          /> */}
+          />
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
         </Head>

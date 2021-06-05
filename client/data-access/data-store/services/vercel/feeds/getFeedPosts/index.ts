@@ -8,6 +8,7 @@ const query = gql`
     feedPosts {
       id, 
       author,
+      recipient,
       message,
       media,
       tags,

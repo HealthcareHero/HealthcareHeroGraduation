@@ -1,9 +1,12 @@
 import { ApolloServer } from 'apollo-server-micro'
 import { mergedSchema } from 'server'
 
-const API_PATH = "/api/graphql";
-
-const apolloServer = new ApolloServer({ schema: mergedSchema, playground: true, debug: true });
+const API_PATH = '/api/graphql'
+const apolloServer = new ApolloServer({
+  schema: mergedSchema,
+  playground: true,
+  debug: true,
+});
 
 export const config = {
   api: {

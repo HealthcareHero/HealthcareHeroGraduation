@@ -12,3 +12,7 @@ Lightest: #e6f7ff
 Darkest: `#002766
 
 Placeholder Text color: #595959
+
+Creating customised Ant Design Form item:
+https://ant.design/components/form/#components-form-demo-customized-form-controls
+

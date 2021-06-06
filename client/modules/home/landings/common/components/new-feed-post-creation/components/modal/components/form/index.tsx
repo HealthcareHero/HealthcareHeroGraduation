@@ -1,5 +1,7 @@
 import { FormProps } from './types/index.type'
 import { Form as AntdForm, Select, Input, Switch } from 'antd';
+import MediaUploader from 'client/common/components/media-uploader'
+import { useState } from 'react';
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -7,12 +9,14 @@ const { TextArea } = Input;
 const formFieldNames = {
   author: "author",
   recipient: "recipient",
+  media: "media",
   message: "message",
   enableComment: "enableComment"
 }
 
 // TODO: put these values in server:
 const messageLengthUpperLimit = 2000;
+const fileListUpperLimit = 3;
 
 const defaultValues = {
   [formFieldNames.enableComment]: true
@@ -33,6 +37,8 @@ const formFieldRules = {
 }
 
 export default function Form({ form }: FormProps) {
+  const [ isMediaUploading, setMediaUploading ] = useState<boolean>(false);
+
   return (
     <AntdForm
       form={form}
@@ -51,6 +57,10 @@ export default function Form({ form }: FormProps) {
           <Option value="BERNARD">Bernard</Option>
           <Option value="JEANIE">Jeanie</Option>
         </Select>
+      </AntdForm.Item>
+
+      <AntdForm.Item name={formFieldNames.media} label="Media">
+        <MediaUploader setIsUploading={setMediaUploading} fileListUpperLimit={fileListUpperLimit}/>
       </AntdForm.Item>
 
       <AntdForm.Item name={formFieldNames.message} label="Message" rules={formFieldRules.message}>

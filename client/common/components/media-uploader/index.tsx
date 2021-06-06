@@ -6,7 +6,7 @@ import UploadButton from './components/upload-button'
 import PreviewModal from './components/preview-modal'
 import { beforeUpload, getBase64, placeholderRequest, showUploadButton } from './helpers'
 
-export default function MediaUploader({ onChange, setIsUploading, fileListUpperLimit }: MediaUploaderProps) {
+export default function MediaUploader({ onChange, fileListUpperLimit }: MediaUploaderProps) {
   const [fileList, setFileList] = useState<UploadFile[]>([] as UploadFile[]);
   const [isPreviewVisible, setPreviewVisible] = useState<boolean>(false);
   const [previewFile, setPreviewFile] = useState<UploadFile>(null);
@@ -20,11 +20,6 @@ export default function MediaUploader({ onChange, setIsUploading, fileListUpperL
   const handleChange = ({ file, fileList }: UploadChangeParam<UploadFile<any>>): void => {
     if (file?.status) {
       triggerChange(fileList);
-      setIsUploading(true);
-  
-      if (file.status === 'done' || file.status ==='removed') {
-        setIsUploading(false);
-      }
     }
   }
 

@@ -1,50 +1,20 @@
+import { useState } from 'react';
 import { FormProps } from './types/index.type'
+import { formFieldNames, formFieldDefaultValues, formFieldRules } from '../../configurations'
+import { FEED_POST_FILE_LIST_MAX_LENGTH } from 'common/constants'
 import { Form as AntdForm, Select, Input, Switch } from 'antd';
 import MediaUploader from 'client/common/components/media-uploader'
-import { useState } from 'react';
 
 const { Option } = Select;
 const { TextArea } = Input;
 
-const formFieldNames = {
-  author: "author",
-  recipient: "recipient",
-  media: "media",
-  message: "message",
-  enableComment: "enableComment"
-}
-
-// TODO: put these values in server:
-const messageLengthUpperLimit = 2000;
-const fileListUpperLimit = 3;
-
-const defaultValues = {
-  [formFieldNames.enableComment]: true
-}
-
-const formFieldRules = {
-  [formFieldNames.recipient]: [{ required: true, message: 'Please select a recipient' }],
-  [formFieldNames.message]: [
-    { 
-      required: true,
-      message: 'Please provide a message'
-    }, 
-    {
-      max: messageLengthUpperLimit,
-      message: `Message cannot be longer than ${messageLengthUpperLimit} characters`
-    }
-  ]
-}
-
-export default function Form({ form }: FormProps) {
-  const [ isMediaUploading, setMediaUploading ] = useState<boolean>(false);
-
+export default function Form({ name, form }: FormProps) {
   return (
     <AntdForm
       form={form}
       layout="vertical"
-      name="new-feed-post-form"
-      initialValues={defaultValues}
+      name={name}
+      initialValues={formFieldDefaultValues}
       scrollToFirstError
     >
       <AntdForm.Item name={formFieldNames.author} label="From">
@@ -60,7 +30,7 @@ export default function Form({ form }: FormProps) {
       </AntdForm.Item>
 
       <AntdForm.Item name={formFieldNames.media} label="Media">
-        <MediaUploader setIsUploading={setMediaUploading} fileListUpperLimit={fileListUpperLimit}/>
+        <MediaUploader fileListUpperLimit={FEED_POST_FILE_LIST_MAX_LENGTH}/>
       </AntdForm.Item>
 
       <AntdForm.Item name={formFieldNames.message} label="Message" rules={formFieldRules.message}>

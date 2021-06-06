@@ -1,5 +1,5 @@
 import { NewFeedPostModalProps } from './types/index.type'
-import { Modal as AntdModal, Form as AntdForm, message} from 'antd';
+import { Modal as AntdModal, Form as AntdForm } from 'antd';
 import Form from './components/form'
 import { useState } from 'react';
 import { FORM_NAME, formFieldNames } from './configurations'
@@ -24,9 +24,7 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
       setLoading(false);
       setVisible(false);
     })
-    .catch((error => {
-      message.error("Unable to submit");
-    }))
+    .catch(error => {})
   }
 
   const handleFormChange = (name, { changedFields }) => {

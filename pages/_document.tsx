@@ -9,7 +9,7 @@ class MyDocument extends Document {
             httpEquiv="Content-Security-Policy"
             content="
               script-src 'self' ;
-              img-src 'self' data: https://vitals.vercel-insights.com/v1/vitals https://www.nme.com https://blog.playstation.com https://console.kr-asia.com https://i.pinimg.com blob: http://localhost:3000;
+              img-src 'self' data: https://vitals.vercel-insights.com/v1/vitals https://www.nme.com https://blog.playstation.com https://console.kr-asia.com https://i.pinimg.com blob: ;
               style-src 'self' 'unsafe-inline' ;
               font-src 'self' ;
               connect-src 'self' https://vitals.vercel-insights.com/v1/vitals https://api.spacex.land ;

@@ -4,6 +4,7 @@ import { formFieldNames, formFieldDefaultValues, formFieldRules } from '../../co
 import { FEED_POST_FILE_LIST_MAX_LENGTH } from 'common/constants'
 import { Form as AntdForm, Select, Input, Switch } from 'antd';
 import MediaUploader from 'client/common/components/media-uploader'
+import EditableTagGroup from 'client/common/components/tags/editable-tag-group'
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -35,6 +36,10 @@ export default function Form({ name, form }: FormProps) {
 
       <AntdForm.Item name={formFieldNames.message} label="Message" rules={formFieldRules.message}>
         <TextArea autoSize={{ minRows: 3, maxRows: 5 }} allowClear placeholder="Write your message here..." />
+      </AntdForm.Item>
+
+      <AntdForm.Item name={formFieldNames.tags} label="Tags">
+        <EditableTagGroup />
       </AntdForm.Item>
 
       <AntdForm.Item name={formFieldNames.enableComment} label="Enable Comments" valuePropName="checked">

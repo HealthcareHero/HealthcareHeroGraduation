@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { styles, useGlobalStyleSidePadding } from './styles/index.style'
 import { FeedDetailContentProps } from 'client/modules/home/feed-detail/common/types/index.type'
-import Tags from 'client/common/components/tags'
+import TagGroup from 'client/common/components/tags/tag-group'
 import LikeButton from 'client/common/components/buttons/like-button'
 import ShareButton from 'client/common/components/buttons/share-button'
 import MediaViewer from '../../components/media-viewer'
 import CommentSection from '../comment-section'
 import InputComments from '../../components/input-comment'
-import { NARROW_TAG_TEXT_DISPLAY_LENGTH } from 'client/common/constants'
 import { 
   enableMediaVisualViewer,
   getFeedUrl,
@@ -24,7 +23,7 @@ export default function Content({ id,
   enableComment,
   comments,
   likeCount,
-  timestamp }: FeedDetailContentProps) {
+  timestamp}: FeedDetailContentProps) {
   const [numLikes, setNumLikes] = useState(likeCount);
   const styleMainSection = useGlobalStyleSidePadding();
 
@@ -43,7 +42,7 @@ export default function Content({ id,
           </div>
         </div>
         { message && <div>{message}</div> }
-        { tags?.length > 0 && <Tags texts={tags} textDisplayLength={NARROW_TAG_TEXT_DISPLAY_LENGTH} /> }
+        { tags?.length > 0 && <TagGroup texts={tags} /> }
         <div className={styles.footer}>
           <div className={styles.buttons}>
             <LikeButton count={numLikes} onClick={setNumLikes}/>

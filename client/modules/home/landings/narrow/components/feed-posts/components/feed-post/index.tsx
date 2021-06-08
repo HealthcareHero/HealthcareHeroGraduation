@@ -4,11 +4,11 @@ import { FeedPostProps } from '../../../../../common/types/index.type'
 import MediaVisualViewer from './components/media-visual-viewer'
 import TextVisualViewer from './components/text-visual-viewer'
 import ExpandableText from 'client/common/components/expandable-text'
-import Tags from 'client/common/components/tags'
+import TagGroup from 'client/common/components/tags/tag-group'
 import LikeButton from 'client/common/components/buttons/like-button'
 import CommentButton from 'client/common/components/buttons/comment-button'
 import ShareButton from 'client/common/components/buttons/share-button'
-import { MESSAGE_DISPLAY_LENGTH, NARROW_TAG_TEXT_DISPLAY_LENGTH } from './constants'
+import { FEED_POST_MESSAGE_DISPLAY_LENGTH } from './constants'
 import { 
   enableMediaVisualViewer, 
   getFeedUrl, 
@@ -45,8 +45,8 @@ export default function FeedPost({
             TIME
           </div>
         </div>
-        { message && <div><ExpandableText text={message} displayLength={MESSAGE_DISPLAY_LENGTH} /></div> }
-        { tags?.length > 0 && <Tags texts={tags} textDisplayLength={NARROW_TAG_TEXT_DISPLAY_LENGTH} /> }
+        { message && <div><ExpandableText text={message} displayLength={FEED_POST_MESSAGE_DISPLAY_LENGTH} /></div> }
+        { tags?.length > 0 && <TagGroup texts={tags} /> }
         <div className={styles.footer}>
           <div className={styles.buttons}>
             <LikeButton count={numLikes} onClick={setNumLikes}/>

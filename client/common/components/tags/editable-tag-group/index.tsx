@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { styles } from './styles/index.style'
 import { EditableTagGroupProps } from './types/index.type'
 import { Input, Tag as AntdTag } from 'antd';
-// import { TweenOneGroup } from 'rc-tween-one';
 import { PlusOutlined } from '@ant-design/icons';
 import Tag from '../common/components/tag'
 import { allowAddTag, isUniqueTag, isTagLengthWithinLimit } from './helpers'
@@ -50,13 +50,13 @@ export default function EditableTagGroup({ onChange }: EditableTagGroupProps) {
                                 type="text"
                                 size="small"
                                 autoFocus
-                                style={{ width: 78 }}
+                                style={styles.inline.input}
                                 value={inputValue}
                                 onChange={handleEditChange}
                                 onBlur={handleAdd}
                                 onPressEnter={handleAdd}
                               />
-                        : <AntdTag className="site-tag-plus" onClick={enterEditMode}>
+                        : <AntdTag onClick={enterEditMode}>
                             <PlusOutlined /> New Tag
                           </AntdTag>
         : null

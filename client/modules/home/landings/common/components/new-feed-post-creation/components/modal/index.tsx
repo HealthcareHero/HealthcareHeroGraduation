@@ -1,30 +1,46 @@
+import { useEffect, useState } from 'react';
 import { NewFeedPostModalProps } from './types/index.type'
-import { Modal as AntdModal, Form as AntdForm } from 'antd';
+import { Modal as AntdModal, Form as AntdForm, message } from 'antd';
 import Form from './components/form'
-import { useState } from 'react';
+import Footer from './components/footer'
 import { FORM_NAME, formFieldNames } from './configurations'
 import { STATUS_UPLOADING } from 'client/common/components/media-uploader/constants'
+import { useCreateFeedPost } from 'client/data-access/execute/feed/createFeedPost'
 
 export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) {
   const [form] = AntdForm.useForm();
-  const [isLoading, setLoading] = useState<boolean>(false);
+  const [isSubmitting, setSubmitting] = useState<boolean>(false);
   const [disableSubmit, setDisableSubmit] = useState<boolean>(false);
+  const { execute, data, isError } = useCreateFeedPost(null);
+
+  useEffect(() => {
+    if (data) {
+      setSubmitting(false);
+      setVisible(false);
+      form.resetFields();
+      message.success("Thank you! We are sure to convey your message!")
+    } else if (isError) {
+      setSubmitting(false);
+      message.error("Sorry, there are many patients ahead of you. Please try again later.")
+    }
+  }, [data, isError])
+
+  const handleResetFields = (): void => {
+    form.resetFields();
+  }
 
   const handleCancel = (): void => {
     setVisible(false);
   }
 
-  const handleSubmit = () => {
-    form
-    .validateFields()
-    .then(values => {
-      form.resetFields();
-      setLoading(true);
-      console.log("SUBMIT VALUES", values) // TODO: call api to submit
-      setLoading(false);
-      setVisible(false);
-    })
-    .catch(error => {})
+  const handleSubmit = async (): Promise<void> => {
+    try {
+      setSubmitting(true);
+      const values = await form.validateFields();
+      const x = await execute(values);
+    } catch (error) {
+      setSubmitting(false);
+    }
   }
 
   const handleFormChange = (name, { changedFields }) => {
@@ -47,10 +63,18 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
     <AntdModal
       title="Write a message"
       visible={isVisible}
-      confirmLoading={isLoading}
-      okText="Submit"
-      onOk={handleSubmit}
+      // confirmLoading={isSubmitting}
+      // okText="Submit"
+      // onOk={handleSubmit}
       onCancel={handleCancel}
+      footer={
+        <Footer 
+          onReset={handleResetFields}
+          onCancel={handleCancel}
+          onSubmit={handleSubmit}
+          isSubmitting={isSubmitting}
+          disabled={disableSubmit}
+        />}
     >
       <AntdForm.Provider
         onFormChange={handleFormChange}

@@ -1,5 +1,0 @@
-type Comment {
-  author: String
-  message: String!
-  timestamp: String!
-}

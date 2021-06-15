@@ -6,9 +6,9 @@ import { LOADING_SKELETON_COUNT } from './constants'
 export default function Narrow({ data, isLoading, isError }: LandingProps) {
   return (
     <div>
-      {isLoading && <Skeletons count={LOADING_SKELETON_COUNT}/>}
+      {(isLoading || !data) && <Skeletons count={LOADING_SKELETON_COUNT}/>}
 
-      {!isLoading && !isError && <FeedPosts data={data} />}
+      {!isLoading && !isError && data && <FeedPosts data={data} />}
     </div>
   );
 }

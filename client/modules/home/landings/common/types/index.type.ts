@@ -1,4 +1,4 @@
-import { FeedDetail  } from 'client/data-access/execute/feed/getFeedPosts/index.type'
+import { FeedDetail  } from 'client/data-access/execute/feed/getFeedDetail/index.type'
 
 export interface LandingProps {
   data: FeedDetail[] | null;

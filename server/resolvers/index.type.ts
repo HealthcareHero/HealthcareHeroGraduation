@@ -1,6 +1,7 @@
 import { IResolvers } from 'graphql-tools'
 import { FeedPost } from '../models/feeds/index.type'
 import { GetFeedPostArgument } from './feeds/getFeedPost/index.type'
+import { CreateFeedPostArgument } from './feeds/createFeedPost/index.type'
 
 export interface GraphqlResolver extends IResolvers{
   Query: QueryResolver;
@@ -9,6 +10,10 @@ export interface GraphqlResolver extends IResolvers{
 export interface QueryResolver {
   feedPost: (_:any, args: GetFeedPostArgument) => Promise<FeedPost>;
   feedPosts: () => Promise<FeedPost[]>;
+}
+
+export interface MutationResolver {
+  createFeedPost: (request: CreateFeedPostArgument) => string;
 }
 
 

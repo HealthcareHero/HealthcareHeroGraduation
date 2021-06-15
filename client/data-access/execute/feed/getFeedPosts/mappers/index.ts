@@ -10,6 +10,6 @@ export const mapResponse = (raw: UseGetFeedPostsResponse):GetFeedPostsResponse =
   }
   return {
     ...raw,
-    data: raw.data.feedPosts,
+    // data: raw.data.feedPosts,
   };
 }

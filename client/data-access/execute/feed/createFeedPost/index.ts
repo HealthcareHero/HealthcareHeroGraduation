@@ -1,7 +1,21 @@
-import { useCreateFeedPost as useApi } from 'client/data-access/data-store/services/vercel/feeds/createFeedPost'
-import { CreateFeedPostRequest, CreateFeedPostResponse } from './index.type'
+import { API_URL } from 'client/data-access/common/constants'
+import { gql } from 'graphql-request'
+import { useGraphQL } from 'client/data-access/common/graphql'
+import { UseCreateFeedPostRequest, UseCreateFeedPostResponse } from './index.type'
 
-export const useCreateFeedPost = (request: CreateFeedPostRequest): CreateFeedPostResponse => {
-  const response = useApi(request);
-  return response;
+const mutation = gql`
+  mutation createFeedPost($author: String, $recipient: String!, $message: String!, $media: [MediaFile!], $tags: [String!], $enableComment: Boolean!) {
+    createFeedPost (
+      author: $author,
+      recipient: $recipient,
+      message: $message,
+      media: $media,
+      tags: $tags,
+      enableComment: $enableComment
+    )
+  }
+`;
+
+export const useCreateFeedPost = (request: UseCreateFeedPostRequest): UseCreateFeedPostResponse => {
+  return useGraphQL(API_URL, mutation, request, false);
 };

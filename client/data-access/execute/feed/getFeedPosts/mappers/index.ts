@@ -1,7 +1,7 @@
-import { UseGetFeedPostsResponse } from 'client/data-access/data-store/services/vercel/feeds/getFeedPosts/index.type'
-import { GetFeedPostsResponse } from '../index.type'
+import { UseGraphQLResponse } from 'client/data-access/common/graphql/index.type'
+import { UseGetFeedPostsResponse } from '../index.type'
 
-export const mapResponse = (raw: UseGetFeedPostsResponse):GetFeedPostsResponse => {
+export const mapResponse = (raw: UseGraphQLResponse): UseGetFeedPostsResponse => {
   if (raw.isLoading) {
     return {
       ...raw,

@@ -9,5 +9,7 @@ export const createFeedPost = async (parent: any, args: any): Promise<String> =>
   const { author, recipient, message, media, tags, enableComment } = args as CreateFeedPostArgument;
   console.log("MESSAGE: ", message)
   console.log("MEDIA: ", media);
+
+  throw new Error("TEST")
   return message; // TODO: Return ID
 }

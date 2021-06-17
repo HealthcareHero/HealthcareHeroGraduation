@@ -1,5 +1,5 @@
 import { useMediaQuery } from 'client/common/utils/media-query'
-import { useGetFeedDetail } from 'client/data-access/execute/feed/getFeedDetail'
+import { useGetFeedPost } from 'client/data-access/execute/feed/getFeedPost'
 import { FeedDetailProps } from './types/index.type'
 import HtmlHead from 'client/common/components/html-head'
 import Narrow from './components/narrow'
@@ -8,7 +8,7 @@ import { routes } from 'client/common/utils/navigation/routes'
 
 export default function FeedDetail({ id }: FeedDetailProps) {
   const { isMdOrLarger } = useMediaQuery();
-  const response = useGetFeedDetail({id});
+  const response = useGetFeedPost({id});
 
   return (
     <div>

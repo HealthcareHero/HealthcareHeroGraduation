@@ -1,3 +1,3 @@
-import { GetFeedDetailResponse } from 'client/data-access/execute/feed/getFeedDetail/index.type'
+import { UseGetFeedPostResponse } from 'client/data-access/execute/feed/getFeedPost/index.type'
 
-export type NarrowProps = GetFeedDetailResponse;
+export type NarrowProps = UseGetFeedPostResponse;

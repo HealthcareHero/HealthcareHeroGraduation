@@ -1,4 +1,10 @@
-import { CommonResponse } from '../../common/types/index.type'
-import { UseGetFeedPostsResponse } from 'client/data-access/data-store/services/vercel/feeds/getFeedPosts/index.type'
+import { UseGraphQLResponse } from 'client/data-access/common/graphql/index.type'
+import { FeedPost } from '../common/types/index.type'
 
-export interface GetFeedPostsResponse extends UseGetFeedPostsResponse, CommonResponse { }
+export interface UseGetFeedPostsResponse extends UseGraphQLResponse {
+  data: Data;
+ }
+
+export interface Data {
+  feedPosts: FeedPost[] | null;
+}

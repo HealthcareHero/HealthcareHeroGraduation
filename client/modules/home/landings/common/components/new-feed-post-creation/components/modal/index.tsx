@@ -11,7 +11,7 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
   const [form] = AntdForm.useForm();
   const [isSubmitting, setSubmitting] = useState<boolean>(false);
   const [disableSubmit, setDisableSubmit] = useState<boolean>(false);
-  const { execute, data, isError } = useCreateFeedPost(null);
+  const { execute, data, error } = useCreateFeedPost(null);
 
   useEffect(() => {
     if (data) {
@@ -19,11 +19,12 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
       setVisible(false);
       form.resetFields();
       message.success("Thank you! We are sure to convey your message!")
-    } else if (isError) {
+    } else if (error) {
       setSubmitting(false);
+      console.log(error)
       message.error("Sorry, there are many patients ahead of you. Please try again later.")
     }
-  }, [data, isError])
+  }, [data, error])
 
   const handleResetFields = (): void => {
     form.resetFields();

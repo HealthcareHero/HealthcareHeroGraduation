@@ -4,7 +4,7 @@ import Skeletons from 'client/common/components/skeletons'
 import { SKELETON_PARAGRAPH_ROWS } from './constants'
 import Content from './components/content'
 
-export default function Narrow({ data, isLoading, isError }: NarrowProps) {
+export default function Narrow({ data, isLoading, error }: NarrowProps) {
 
   return (
     <>
@@ -12,13 +12,13 @@ export default function Narrow({ data, isLoading, isError }: NarrowProps) {
         isLoading && <Skeletons count={1} paragraphRows={SKELETON_PARAGRAPH_ROWS} />
       }
       {
-        !isLoading && !isError && (!data || !data?.id) && <PageNotFound />
+        !isLoading && !error && (!data || !data?.id) && <PageNotFound />
       }
       {
         // TODO: If error, show error message
       }
       {
-        !isLoading && !isError && data?.id && (
+        !isLoading && !error && data?.id && (
           <>
             <Content {...data} />
           </>

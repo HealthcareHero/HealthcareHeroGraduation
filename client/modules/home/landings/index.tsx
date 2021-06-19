@@ -16,7 +16,7 @@ export default function HomeLanding() {
 
       <NewFeedPostCreation />
 
-      { isMdOrLarger ? <Wide /> : <Narrow data={response.data} isLoading={response.isLoading} error={!!response.error} /> }
+      { isMdOrLarger ? <Wide /> : <Narrow data={response.data} isLoading={response.isLoading} error={response.error} /> }
     </div>
   );
 }

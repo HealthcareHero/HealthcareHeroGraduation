@@ -1,8 +1,8 @@
 import { GetCommentsArgument } from './index.type'
 import { Comment } from 'server/models/comments/index.type'
-import { execute } from 'server/data-access'
-import { getComments as service} from 'server/data-access/firebase/services/comments/getComments'
-import { mock_getComments as mockService} from 'server/data-access/firebase/mock/services/comments/getComments'
+import { execute } from 'server/data-access/execute'
+import { getComments as service} from 'server/data-access/execute/services/comments/getComments'
+import { mock_getComments as mockService} from 'server/data-access/execute/mocks/services/comments/getComments'
 
 export const getComments = async (parent: any, args: any): Promise<Comment[] | null> => {
   // const { feedPostId } = args as GetCommentsArgument;

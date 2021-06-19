@@ -1,4 +1,4 @@
-import { GetCommentsRequest, GetCommentsResponse } from 'server/data-access/firebase/services/comments/getComments/index.type'
+import { GetCommentsRequest, GetCommentsResponse } from 'server/data-access/execute/services/comments/getComments/index.type'
 import { feed1, feed2, feed3, feed4, feed5 } from '../../../data/feeds'
 
 export const mock_getComments = (request: GetCommentsRequest): GetCommentsResponse => {

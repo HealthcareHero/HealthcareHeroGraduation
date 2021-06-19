@@ -1,7 +1,7 @@
-import { GraphQLRequest, UseGraphQLResponse } from 'client/data-access/common/graphql/index.type'
+import { GraphQLVariables, UseGraphQLResponse } from 'client/data-access/common/graphql/index.type'
 import { CommonRequest } from 'client/data-access/common/types/index.type'
 
-export type UseCreateFeedPostRequest = GraphQLRequest & CommonRequest & {
+export interface UseCreateFeedPostRequest extends GraphQLVariables, CommonRequest {
   author?: string | null;
   recipient: string;
   message: string;

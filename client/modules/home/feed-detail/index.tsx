@@ -8,7 +8,7 @@ import { routes } from 'client/common/utils/navigation/routes'
 
 export default function FeedDetail({ id }: FeedDetailProps) {
   const { isMdOrLarger } = useMediaQuery();
-  const response = useGetFeedPost({id});
+  const response = useGetFeedPost({ id });
 
   return (
     <div>

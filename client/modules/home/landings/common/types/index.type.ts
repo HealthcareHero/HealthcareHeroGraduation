@@ -1,8 +1,9 @@
-import { FeedPost  } from 'client/data-access/execute/feed/getFeedPost/index.type'
+import { FeedPost } from 'client/data-access/execute/feed/common/types/index.type'
+import { CommonError } from 'client/common/errors/index.type'
 
 export interface LandingProps {
   data: FeedPost[] | null;
-  error: boolean | null;
+  error: CommonError;
   isLoading: boolean;
 }
 

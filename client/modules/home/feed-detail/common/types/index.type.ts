@@ -1,4 +1,4 @@
-import { FeedPost, Comment } from 'client/data-access/execute/feed/getFeedPost/index.type'
+import { FeedPost, Comment } from 'client/data-access/execute/feed/common/types/index.type'
 
 export type FeedDetailComment = Comment;
 

@@ -1,4 +1,4 @@
-import { GetFeedPostRequest, GetFeedPostResponse } from 'server/data-access/firebase/services/feeds/getFeedPost/index.type'
+import { GetFeedPostRequest, GetFeedPostResponse } from 'server/data-access/execute/services/feeds/getFeedPost/index.type'
 import { feed1, feed2, feed3, feed4, feed5 } from '../../../data/feeds'
 
 export const mock_getFeedPost = (request: GetFeedPostRequest): GetFeedPostResponse => {

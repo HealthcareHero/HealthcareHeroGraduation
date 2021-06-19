@@ -1,4 +1,4 @@
-import { Comment } from 'server/data-access/firebase/common/types/comments/index.type'
+import { Comment } from 'server/data-access/execute/common/types/comments/index.type'
 
 export const comment1 = <Comment>{
   author: "Klee",

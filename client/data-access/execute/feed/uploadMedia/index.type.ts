@@ -1,7 +1,7 @@
-import { GraphQLRequest, UseGraphQLResponse } from 'client/data-access/common/graphql/index.type'
+import { GraphQLVariables, UseGraphQLResponse } from 'client/data-access/common/graphql/index.type'
 import { CommonRequest } from 'client/data-access/common/types/index.type'
 
-export type UseUploadMediaRequest = GraphQLRequest & CommonRequest & {
+export interface UseUploadMediaRequest extends GraphQLVariables, CommonRequest {
   base64String: string;
 }
 

@@ -44,14 +44,11 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
 
       const promiseMediaUrls = values.media.map(async (file) => {
         const base64String = await getBase64(file.originFileObj) as string;
-        console.log("BASE 64:", base64String.substr(base64String.length-10))
         const url = await uploadMedia.execute({base64String}) as string
-        console.log("URL:", url)
         return url;
       })
 
       const mediaUrls = await Promise.all(promiseMediaUrls)
-      console.log("MEDIAURL:", mediaUrls)
 
       await createFeedPost.execute({
           author: values.author,

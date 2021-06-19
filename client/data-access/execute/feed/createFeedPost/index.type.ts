@@ -5,8 +5,8 @@ export type UseCreateFeedPostRequest = UseGraphQLRequest & CommonRequest & {
   author?: string | null;
   recipient: string;
   message: string;
-  media: any;
-  tags: string[];
+  media: string[] | null;
+  tags: string[] | null;
   enableComment: boolean;
 }
 

@@ -13,7 +13,7 @@ export const Mutation = gql`
       author: String
       recipient: String!
       message: String!
-      media: [MediaFile!]
+      media: [String!]
       tags: [String!]
       enableComment: Boolean!
     ): ID

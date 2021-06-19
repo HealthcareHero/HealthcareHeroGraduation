@@ -1,19 +1,20 @@
-import { ValidationError, UserInputError } from 'apollo-server-micro'
 import { GraphQLError } from 'graphql'
 import { ERROR_PROPERTY } from './BaseError/constants'
 import { UnknownError } from './UnknownError'
 import { SystemError } from './SystemError'
-import { BAD_USER_INPUT, GRAPHQL_VALIDATION_FAILED } from './SystemError/constants'
+import { APOLLO_ERROR_CODES, GRAPHQL_PARSE_FAILED, GRAPHQL_VALIDATION_FAILED, BAD_USER_INPUT } from './SystemError/constants'
 
 const getSystemError = (error: GraphQLError) => {
-  if (error.originalError instanceof ValidationError) {
-    return new SystemError(GRAPHQL_VALIDATION_FAILED);
-  }
-  else if (error.originalError instanceof UserInputError) {
-    return new SystemError(BAD_USER_INPUT);
-  }
-  else {
-    return new UnknownError();
+  console.log(error)
+  switch (error.extensions?.code) {
+    case APOLLO_ERROR_CODES.GRAPHQL_PARSE_FAILED:
+      return new SystemError(GRAPHQL_PARSE_FAILED);
+    case APOLLO_ERROR_CODES.GRAPHQL_VALIDATION_FAILED:
+      return new SystemError(GRAPHQL_VALIDATION_FAILED);
+    case APOLLO_ERROR_CODES.BAD_USER_INPUT:
+      return new SystemError(BAD_USER_INPUT);
+    default:
+      return new UnknownError();
   }
 }
 

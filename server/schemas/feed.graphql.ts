@@ -15,12 +15,12 @@ export const FeedPost = gql`
   }
 `;
 
-export const MediaFileInput = gql`
-  input MediaFile {
-    lastModified: String
-    name: String
-    size: Int
-    type: String
-    uid: String    
-  }
-`;
+// export const MediaFileInput = gql`
+//   input MediaFile {
+//     lastModified: String
+//     name: String
+//     size: Int
+//     type: String
+//     uid: String    
+//   }
+// `;

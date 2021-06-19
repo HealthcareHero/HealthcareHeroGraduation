@@ -10,6 +10,5 @@ export const createFeedPost = async (parent: any, args: any): Promise<String> =>
   console.log("MESSAGE: ", message)
   console.log("MEDIA: ", media);
 
-  throw new Error("TEST")
   return message; // TODO: Return ID
 }

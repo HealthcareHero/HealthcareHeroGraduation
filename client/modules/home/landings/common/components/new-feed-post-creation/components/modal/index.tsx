@@ -6,6 +6,7 @@ import Footer from './components/footer'
 import { FORM_NAME, formFieldNames } from './configurations'
 import { STATUS_UPLOADING } from 'client/common/components/media-uploader/constants'
 import { useCreateFeedPost } from 'client/data-access/execute/feed/createFeedPost'
+import { getDisplayMessage } from 'client/common/errors'
 
 export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) {
   const [form] = AntdForm.useForm();
@@ -22,7 +23,7 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
     } else if (error) {
       setSubmitting(false);
       console.log(error)
-      message.error("Sorry, there are many patients ahead of you. Please try again later.")
+      message.error(getDisplayMessage(error))
     }
   }, [data, error])
 

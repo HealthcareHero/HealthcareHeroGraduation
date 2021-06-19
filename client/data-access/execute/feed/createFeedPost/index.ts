@@ -4,7 +4,7 @@ import { useGraphQL } from 'client/data-access/common/graphql'
 import { UseCreateFeedPostRequest, UseCreateFeedPostResponse } from './index.type'
 
 const mutation = gql`
-  mutation createFeedPost($author: String, $recipient: String!, $message: String!, $media: [MediaFile!], $tags: [String!], $enableComment: Boolean!) {
+  mutation createFeedPost($author: String, $recipient: String!, $message: String!, $media: [String!], $tags: [String!], $enableComment: Boolean!) {
     createFeedPost (
       author: $author,
       recipient: $recipient,

@@ -31,15 +31,6 @@ export const beforeUpload = (file: RcFile): boolean => {
   return isValidType && isValidSize;
 }
 
-export const getBase64 = (file: RcFile): Promise<any> => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
-}
-
 /* To prevent false negative upload failure due to missing action property in <Upload /> */
 export const placeholderRequest = ({ onSuccess }: UploadRequestOption) => {
   setTimeout (() => {

@@ -1,31 +1,33 @@
 import { useEffect, useState } from 'react';
-import { NewFeedPostModalProps } from './types/index.type'
+import { NewFeedPostModalProps, FormValues } from './types/index.type'
 import { Modal as AntdModal, Form as AntdForm, message } from 'antd';
 import Form from './components/form'
 import Footer from './components/footer'
 import { FORM_NAME, formFieldNames } from './configurations'
 import { STATUS_UPLOADING } from 'client/common/components/media-uploader/constants'
 import { useCreateFeedPost } from 'client/data-access/execute/feed/createFeedPost'
+import { useUploadMedia } from 'client/data-access/execute/feed/uploadMedia'
 import { getDisplayMessage } from 'client/common/errors'
+import { getBase64 } from 'client/common/utils/file-helpers'
 
 export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) {
   const [form] = AntdForm.useForm();
   const [isSubmitting, setSubmitting] = useState<boolean>(false);
   const [disableSubmit, setDisableSubmit] = useState<boolean>(false);
-  const { execute, data, error } = useCreateFeedPost(null);
+  const createFeedPost = useCreateFeedPost(null);
+  const uploadMedia = useUploadMedia(null);
 
   useEffect(() => {
-    if (data) {
+    if (createFeedPost.data) {
       setSubmitting(false);
       setVisible(false);
       form.resetFields();
       message.success("Thank you! We are sure to convey your message!")
-    } else if (error) {
+    } else if (createFeedPost.error) {
       setSubmitting(false);
-      console.log(error)
-      message.error(getDisplayMessage(error))
+      message.error(getDisplayMessage(createFeedPost.error))
     }
-  }, [data, error])
+  }, [createFeedPost.data, createFeedPost.error])
 
   const handleResetFields = (): void => {
     form.resetFields();
@@ -38,8 +40,28 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
   const handleSubmit = async (): Promise<void> => {
     try {
       setSubmitting(true);
-      const values = await form.validateFields();
-      const x = await execute(values);
+      const values = (await form.validateFields()) as FormValues;
+
+      const promiseMediaUrls = values.media.map(async (file) => {
+        const base64String = await getBase64(file.originFileObj) as string;
+        console.log("BASE 64:", base64String.substr(base64String.length-10))
+        const url = await uploadMedia.execute({base64String}) as string
+        console.log("URL:", url)
+        return url;
+      })
+
+      const mediaUrls = await Promise.all(promiseMediaUrls)
+      console.log("MEDIAURL:", mediaUrls)
+
+      await createFeedPost.execute({
+          author: values.author,
+          recipient: values.recipient,
+          message: values.message,
+          tags: values.tags,
+          enableComment: values.enableComment,
+          media: [...mediaUrls],
+        });
+
     } catch (error) {
       setSubmitting(false);
     }
@@ -65,9 +87,6 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
     <AntdModal
       title="Write a message"
       visible={isVisible}
-      // confirmLoading={isSubmitting}
-      // okText="Submit"
-      // onOk={handleSubmit}
       onCancel={handleCancel}
       footer={
         <Footer 

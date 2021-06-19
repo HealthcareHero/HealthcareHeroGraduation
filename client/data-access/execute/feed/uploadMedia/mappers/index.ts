@@ -2,5 +2,5 @@ import { GraphQLResponseData } from 'client/data-access/common/graphql/index.typ
 import { Data } from '../index.type'
 
 export const mapResponseData = (data: GraphQLResponseData): Data => {
-  return data?.feedPosts;
+  return data?.uploadMedia;
 }

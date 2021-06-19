@@ -17,5 +17,8 @@ export const Mutation = gql`
       tags: [String!]
       enableComment: Boolean!
     ): ID
+    uploadMedia(
+      base64String: String!
+    ): String!
   }
 `;

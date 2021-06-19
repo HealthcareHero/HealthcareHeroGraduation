@@ -4,7 +4,8 @@ import { MediaUploaderProps } from './types/index.type';
 import { Upload } from 'antd';
 import UploadButton from './components/upload-button'
 import PreviewModal from './components/preview-modal'
-import { beforeUpload, getBase64, placeholderRequest, showUploadButton } from './helpers'
+import { beforeUpload, placeholderRequest, showUploadButton } from './helpers'
+import { getBase64 } from 'client/common/utils/file-helpers'
 
 export default function MediaUploader({ onChange, fileListUpperLimit }: MediaUploaderProps) {
   const [fileList, setFileList] = useState<UploadFile[]>([] as UploadFile[]);

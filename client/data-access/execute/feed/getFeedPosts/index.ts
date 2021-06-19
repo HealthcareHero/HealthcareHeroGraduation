@@ -1,8 +1,7 @@
-import { API_URL } from 'client/data-access/common/constants'
 import { gql } from 'graphql-request'
 import { useGraphQL } from 'client/data-access/common/graphql'
 import { UseGetFeedPostsResponse } from './index.type'
-import { mapResponse } from './mappers'
+import { mapResponseData } from './mappers'
 
 const query = gql`
   {
@@ -22,6 +21,8 @@ const query = gql`
 
 
 export const useGetFeedPosts = (): UseGetFeedPostsResponse => {
-  const response = useGraphQL(API_URL, query);
-  return mapResponse(response);
+  return useGraphQL({
+    graphqlRequest: query,
+    mapResponseData
+  });
 };

@@ -1,4 +1,3 @@
-import { API_URL } from 'client/data-access/common/constants'
 import { gql } from 'graphql-request'
 import { useGraphQL } from 'client/data-access/common/graphql'
 import { UseCreateFeedPostRequest, UseCreateFeedPostResponse } from './index.type'
@@ -17,5 +16,9 @@ const mutation = gql`
 `;
 
 export const useCreateFeedPost = (request: UseCreateFeedPostRequest): UseCreateFeedPostResponse => {
-  return useGraphQL(API_URL, mutation, request, false);
+  return useGraphQL({
+    immediate: false,
+    graphqlRequest: mutation,
+    graphqlVariables: request,
+  });
 };

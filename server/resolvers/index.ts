@@ -3,6 +3,7 @@ import { getFeedPost } from './feeds/getFeedPost'
 import { getFeedPosts } from './feeds/getFeedPosts'
 import { getComments } from './comments/getComments'
 import { createFeedPost } from './feeds/createFeedPost'
+import { uploadMedia } from './feeds/uploadMedia'
 
 export const resolvers: GraphqlResolver = {
   Query: {
@@ -10,6 +11,7 @@ export const resolvers: GraphqlResolver = {
     feedPosts: getFeedPosts,
   },
   Mutation: {
-    createFeedPost
+    createFeedPost,
+    uploadMedia,
   }
 };

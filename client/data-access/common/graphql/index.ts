@@ -1,29 +1,41 @@
-import { useState, useEffect, useCallback } from 'react'
-import { request } from 'graphql-request'
-import { UseGraphQLRequest, UseGraphQLResponse, UseGraphQLVariables } from './index.type'
-import { CommonError } from '../../../common/errors/index.type'
-import { mapError } from './mappers';
+import { useState, useEffect, useCallback } from "react";
+import { request } from "graphql-request";
+import {
+  GraphQLRequest,
+  UseGraphQLRequest,
+  UseGraphQLResponse,
+  GraphQLVariables,
+  GraphQLResponseData,
+} from "./index.type";
+import { CommonError } from "../../../common/errors/index.type";
+import { API_URL } from "./constants";
+import { mapError } from "./mappers";
 
-export const useGraphQL = (url: string, graphqlRequest: UseGraphQLRequest, variables?: UseGraphQLVariables, immediate = true): UseGraphQLResponse => {
-  const [data, setData] = useState<any>(null);
+export const useGraphQL = ({
+  graphqlRequest,
+  graphqlVariables: variables,
+  immediate = true,
+  mapResponseData: mapResponse = undefined,
+}: UseGraphQLRequest): UseGraphQLResponse => {
+  const [data, setData] = useState<GraphQLResponseData>(null);
   const [loading, setLoading] = useState<boolean>(null);
   const [error, setError] = useState<CommonError>(null);
 
   // The execute function wraps asyncFunction and
   // handles setting state for pending, value, and error.
   // useCallback ensures the below useEffect is not called
-  // on every render, but only if asyncFunction changes.
-  const execute = useCallback(async (variables?: UseGraphQLVariables) => {
-    console.log("CALL API")
+  const execute = useCallback(async (variables?: GraphQLVariables) => {
     setLoading(true);
     setData(null);
     setError(null);
     try {
-      const response = await request(url, graphqlRequest, variables);
-      setData(response);
+      const response = await request(API_URL, graphqlRequest, variables);
+      const responseData = mapResponse ? mapResponse?.(response) : response;
+      setData(responseData);
+      setLoading(false);
+      return responseData;
     } catch (error) {
       setError(mapError(error));
-    } finally {
       setLoading(false);
     }
   }, []);

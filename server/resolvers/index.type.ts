@@ -2,6 +2,7 @@ import { IResolvers } from 'graphql-tools'
 import { FeedPost } from '../models/feeds/index.type'
 import { GetFeedPostArgument } from './feeds/getFeedPost/index.type'
 import { CreateFeedPostArgument } from './feeds/createFeedPost/index.type'
+import { UploadMediaArgument } from './feeds/uploadMedia/index.type'
 
 export interface GraphqlResolver extends IResolvers{
   Query: QueryResolver;
@@ -14,6 +15,7 @@ export interface QueryResolver {
 
 export interface MutationResolver {
   createFeedPost: (request: CreateFeedPostArgument) => string;
+  uploadMedia: (request: UploadMediaArgument) => string;
 }
 
 

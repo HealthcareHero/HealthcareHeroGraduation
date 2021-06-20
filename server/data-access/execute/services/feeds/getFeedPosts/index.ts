@@ -1,5 +1,5 @@
-import { GetFeedPosts, GetFeedPostsResponse } from './index.type'
+import { GetFeedPostsResponse } from './index.type'
 
-export const getFeedPosts: GetFeedPosts = (): GetFeedPostsResponse => {
-  return null;
+export const getFeedPosts = (): GetFeedPostsResponse => {
+  return null; // TODO: return actual
 };

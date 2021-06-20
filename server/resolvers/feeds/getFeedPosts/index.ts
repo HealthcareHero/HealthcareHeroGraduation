@@ -1,9 +1,10 @@
-import { FeedPost } from 'server/models/feeds/index.type'
+import { GetFeedPostsResult } from './index.type'
 import { execute } from 'server/data-access/execute'
 import { getFeedPosts as service} from 'server/data-access/execute/services/feeds/getFeedPosts'
 import { mock_getFeedPosts as mockService} from 'server/data-access/execute/mocks/services/feeds/getFeedPosts'
 
-export const getFeedPosts = async (): Promise<FeedPost[]> => {
-  const result = execute(service(), mockService());
+export const getFeedPosts = async (): Promise<GetFeedPostsResult> => {
+  const result = execute<GetFeedPostsResult>(() => mockService(), () => mockService());
+  // TODO: Change to real service
   return result;
 }

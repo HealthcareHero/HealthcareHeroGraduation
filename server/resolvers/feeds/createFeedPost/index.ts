@@ -1,12 +1,10 @@
-import { CreateFeedPostArgument } from './index.type'
-import { FeedPost } from 'server/models/feeds/index.type'
+import { CreateFeedPostArgument, CreateFeedPostResult } from './index.type'
 import { execute } from 'server/data-access/execute'
-import { getFeedPost as service} from 'server/data-access/execute/services/feeds/getFeedPost'
-import { mock_getFeedPost as mockService} from 'server/data-access/execute/mocks/services/feeds/getFeedPost'
-import { UnknownError } from 'server/errors/UnknownError'
+import { createFeedPost as service} from 'server/data-access/execute/services/feeds/createFeedPost'
+import { mock_createFeedPost as mockService} from 'server/data-access/execute/mocks/services/feeds/createFeedPost'
 
-export const createFeedPost = async (parent: any, args: any): Promise<String> => {
-  // console.log("IN SERVER HERE", args)
-  const { author, recipient, message, media, tags, enableComment } = args as CreateFeedPostArgument;
-  return message; // TODO: Return ID
+export const createFeedPost = async (parent: any, args: any): Promise<CreateFeedPostResult> => {
+  const request = args as CreateFeedPostArgument;
+  const result = execute<CreateFeedPostResult>(() => mockService(request), () => mockService(request));
+  return result; // TODO: Use real service
 }

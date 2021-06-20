@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { request } from "graphql-request";
 import {
-  GraphQLRequest,
   UseGraphQLRequest,
   UseGraphQLResponse,
+  UseGraphQLImmediateResponse,
   GraphQLVariables,
   GraphQLResponseData,
 } from "./index.type";
@@ -24,7 +24,7 @@ export const useGraphQL = ({
   // The execute function wraps asyncFunction and
   // handles setting state for pending, value, and error.
   // useCallback ensures the below useEffect is not called
-  const execute = useCallback(async (variables?: GraphQLVariables) => {
+  const execute = useCallback(async (variables?: GraphQLVariables): Promise<UseGraphQLImmediateResponse> => {
     setLoading(true);
     setData(null);
     setError(null);
@@ -33,10 +33,18 @@ export const useGraphQL = ({
       const responseData = mapResponse ? mapResponse?.(response) : response;
       setData(responseData);
       setLoading(false);
-      return responseData;
+      return {
+        data: responseData,
+        error: null
+      };
     } catch (error) {
-      setError(mapError(error));
+      const customError = mapError(error);
+      setError(customError);
       setLoading(false);
+      return {
+        data: null,
+        error: customError
+      }
     }
   }, []);
 

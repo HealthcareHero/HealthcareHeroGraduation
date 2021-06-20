@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { NewFeedPostModalProps, FormValues } from './types/index.type'
+import { UseGraphQLImmediateResponse } from 'client/data-access/common/graphql/index.type'
 import { Modal as AntdModal, Form as AntdForm, message } from 'antd';
 import Form from './components/form'
 import Footer from './components/footer'
@@ -17,18 +18,6 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
   const createFeedPost = useCreateFeedPost(null);
   const uploadMedia = useUploadMedia(null);
 
-  useEffect(() => {
-    if (createFeedPost.data) {
-      setSubmitting(false);
-      setVisible(false);
-      form.resetFields();
-      message.success("Thank you! We are sure to convey your message!")
-    } else if (createFeedPost.error) {
-      setSubmitting(false);
-      message.error(getDisplayMessage(createFeedPost.error))
-    }
-  }, [createFeedPost.data, createFeedPost.error])
-
   const handleResetFields = (): void => {
     form.resetFields();
   }
@@ -38,29 +27,53 @@ export default function Modal({ isVisible, setVisible }: NewFeedPostModalProps) 
   }
 
   const handleSubmit = async (): Promise<void> => {
+    let hasPassedValidation = false;
+    let values = null as FormValues;
+    
+    setSubmitting(true);
+
     try {
-      setSubmitting(true);
-      const values = (await form.validateFields()) as FormValues;
+      values = (await form.validateFields()) as FormValues;
+      hasPassedValidation = true;
+    } catch {
+      setSubmitting(false);
+    }
 
-      const promiseMediaUrls = values.media.map(async (file) => {
-        const base64String = await getBase64(file.originFileObj) as string;
-        const url = await uploadMedia.execute({base64String}) as string
-        return url;
-      })
+    if (hasPassedValidation && values) {
+      try {
+        let mediaUrls = undefined;
 
-      const mediaUrls = await Promise.all(promiseMediaUrls)
-
-      await createFeedPost.execute({
+        if (values.media?.length > 0) {
+          const promiseMediaUrls = values.media.map(async (file) => {
+            const base64String = await getBase64(file.originFileObj) as string;
+            const response = await uploadMedia.execute({base64String}) as UseGraphQLImmediateResponse
+            return response.data;
+            // TODO: error handling
+          })
+          mediaUrls = await Promise.all(promiseMediaUrls)
+        }
+  
+        const submissionResponse = await createFeedPost.execute({
           author: values.author,
           recipient: values.recipient,
           message: values.message,
           tags: values.tags,
           enableComment: values.enableComment,
-          media: [...mediaUrls],
-        });
-
-    } catch (error) {
-      setSubmitting(false);
+          media: mediaUrls
+        }) as UseGraphQLImmediateResponse;
+  
+        if (submissionResponse.data) {
+          setSubmitting(false);
+          setVisible(false);
+          form.resetFields();
+          message.success("Thank you! We are sure to convey your message!")
+        } else if (submissionResponse.error) {
+          setSubmitting(false);
+          message.error(getDisplayMessage(submissionResponse.error))
+        }
+      } catch (error) {
+        setSubmitting(false);
+      }
     }
   }
 

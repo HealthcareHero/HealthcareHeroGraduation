@@ -8,11 +8,14 @@ export interface UseGraphQLRequest {
   mapResponseData?: (response: GraphQLResponseData) => any;
 }
 
-export interface UseGraphQLResponse {
+export interface UseGraphQLResponse extends UseGraphQLImmediateResponse{
   execute: any;
+  isLoading: boolean;
+}
+
+export interface UseGraphQLImmediateResponse {
   data: GraphQLResponseData;
   error: CommonError | null;
-  isLoading: boolean;
 }
 
 export type GraphQLRequest = RequestDocument; 

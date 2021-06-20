@@ -1,8 +1,7 @@
 import { ApolloServer } from 'apollo-server-micro'
+import { API_URL } from 'common/constants'
 import { schema } from 'server'
 import { formatError } from 'server/errors'
-
-const API_PATH = '/api/graphql'
 
 const apolloServer = new ApolloServer({
   schema: schema,
@@ -27,4 +26,4 @@ export const config = {
   },
 };
 
-export default apolloServer.createHandler({ path: API_PATH });
+export default apolloServer.createHandler({ path: API_URL });

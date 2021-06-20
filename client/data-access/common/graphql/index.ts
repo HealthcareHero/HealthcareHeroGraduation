@@ -8,7 +8,7 @@ import {
   GraphQLResponseData,
 } from "./index.type";
 import { CommonError } from "../../../common/errors/index.type";
-import { API_URL } from "./constants";
+import { API_URL } from "common/constants";
 import { mapError } from "./mappers";
 
 export const useGraphQL = ({

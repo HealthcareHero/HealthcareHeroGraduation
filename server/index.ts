@@ -6,7 +6,6 @@ import { FeedPost } from './schemas/feed.graphql'
 import { Comment } from './schemas/comment.graphql'
 
 const types = [ FeedPost, Comment ];
-// const inputs = [ MediaFileInput ];
 
 export const schema = makeExecutableSchema({
   typeDefs: [ Query, Mutation, ...types ],

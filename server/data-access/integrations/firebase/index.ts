@@ -1,6 +1,18 @@
-import * as admin from 'firebase-admin';
+import * as admin from "firebase-admin";
+import { getFirebaseConfig, getFirebaseServiceAccount } from "server/configurations";
 
-admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL: 'https://<DATABASE_NAME>.firebaseio.com'
-});
+const firebaseConfig = getFirebaseConfig();
+const firebaseServiceAccount = getFirebaseServiceAccount();
+
+const settings = {
+  ...firebaseConfig,
+  credential: admin.credential.cert(firebaseServiceAccount),
+};
+
+if (!admin.apps.length) {
+  admin.initializeApp(settings);
+}else {
+  admin.app(); // if already initialized, use that one
+}
+
+export const storage = admin.storage();

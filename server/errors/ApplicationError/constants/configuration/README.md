@@ -1,0 +1,1 @@
+Contains all errors related to configurations

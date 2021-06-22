@@ -4,4 +4,4 @@ export const ENV_TEST = "test";
 
 /** Environment variables **/
 export const ENV_KEY_FIREBASE_CONFIG = "FIREBASE_CONFIG";
-export const ENV_KEY_FIREBASE_SERVICE_ACCOUNT = "FIREBASE_SERVICE_ACCOUNT";
+export const ENV_KEY_FIREBASE_SERVICE_ACCOUNT = "GCLOUD_CREDENTIALS";

@@ -1,6 +1,9 @@
 import { UploadMediaRequest, UploadMediaResponse } from './index.type'
 import { storage } from 'server/data-access/integrations/firebase'
 import { FIREBASE_STORAGE_UPLOAD_DIRECTORY } from './constants'
+import { ApplicationError } from 'server/errors/ApplicationError'
+import { SUBMISSION_UPLOAD_MEDIA_ERROR } from 'server/errors/ApplicationError/constants/submission'
+import { logger } from 'server/loggers'
 
 import { v4 as generateUuid } from 'uuid';
 import mimeLookup from 'mime-types';
@@ -27,7 +30,8 @@ export const uploadMedia = async ({ base64String }: UploadMediaRequest): Promise
   }).then(() => {
     return file.publicUrl();
   }).catch((error) => {
-    throw new Error("TEST ERRROR");
+    logger.error(error);
+    throw new ApplicationError(SUBMISSION_UPLOAD_MEDIA_ERROR);
   });
 
   return publicPathToFile;

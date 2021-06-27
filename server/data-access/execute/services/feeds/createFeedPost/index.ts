@@ -7,6 +7,7 @@ import {
   getTags,
   getMedia,
 } from './helpers'
+import { getNow } from 'common/utils/datetime'
 import { executeCreateFeedPost } from 'server/data-access/integrations/interface/feeds'
 import { ApplicationError } from 'server/errors/ApplicationError'
 import { SUBMISSION_NEW_POST_CREATION_ERROR } from 'server/errors/ApplicationError/constants/submission'
@@ -21,7 +22,7 @@ export const createFeedPost = async ({ author, recipient, message, media, tags, 
     tags: getTags(tags),
     enableComment,
     likeCount: 0,
-    timestamp: Date.now.toString(),
+    timestamp: getNow(),
   } 
 
   try {

@@ -6,7 +6,7 @@ export interface NewFeedPost {
   tags?: string[] | null;
   enableComment: boolean;
   likeCount: number;
-  timestamp: string;
+  timestamp: Date;
 }
 
 export interface ExecuteCreateFeedPostResult {

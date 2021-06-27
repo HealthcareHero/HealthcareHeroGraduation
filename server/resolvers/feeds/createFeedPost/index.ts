@@ -5,6 +5,6 @@ import { mock_createFeedPost as mockService} from 'server/data-access/execute/mo
 
 export const createFeedPost = async (parent: any, args: any): Promise<CreateFeedPostResult> => {
   const request = args as CreateFeedPostArgument;
-  const result = execute<CreateFeedPostResult>(() => mockService(request), () => mockService(request));
+  const result = await execute<CreateFeedPostResult>(() => mockService(request), () => mockService(request));
   return result; // TODO: Use real service
 }

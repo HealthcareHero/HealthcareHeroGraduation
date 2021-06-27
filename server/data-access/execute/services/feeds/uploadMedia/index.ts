@@ -5,7 +5,7 @@ import { FIREBASE_STORAGE_UPLOAD_DIRECTORY } from './constants'
 import { v4 as generateUuid } from 'uuid';
 import mimeLookup from 'mime-types';
 
-export const uploadMedia = ({ base64String }: UploadMediaRequest): UploadMediaResponse => {
+export const uploadMedia = async ({ base64String }: UploadMediaRequest): Promise<UploadMediaResponse> => {
   const mimeType = base64String.match(/data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+).*,.*/)[1];
   const fileExtension = mimeLookup.extension(mimeType)
   const fileName = `${generateUuid()}.${fileExtension}`;
@@ -14,7 +14,8 @@ export const uploadMedia = ({ base64String }: UploadMediaRequest): UploadMediaRe
 
   let bucket = storage.bucket();
   const file = bucket.file(`${FIREBASE_STORAGE_UPLOAD_DIRECTORY}/${fileName}`);
-  file.save(imageBuffer, {
+
+  const publicPathToFile = await file.save(imageBuffer, {
     metadata: { 
       metadata: {
         contentType: mimeType,
@@ -23,11 +24,11 @@ export const uploadMedia = ({ base64String }: UploadMediaRequest): UploadMediaRe
     },
     public: true,
     validation: 'md5'
-  }, (error) => {
-      if (error) {
-          console.log(error)
-      }
+  }).then(() => {
+    return file.publicUrl();
+  }).catch((error) => {
+    throw new Error("TEST ERRROR");
   });
 
-  return file.publicUrl();
+  return publicPathToFile;
 }

@@ -5,7 +5,7 @@ import { uploadMedia as service} from 'server/data-access/execute/services/feeds
 
 export const uploadMedia = async (parent: any, args: any): Promise<UploadMediaResult> => {
   const request = args as UploadMediaArgument;
-  const result = execute<UploadMediaResult>(() => service(request), () => service(request));
+  const result = await execute<UploadMediaResult>(() => service(request), () => service(request));
   // TODO: Replace with mock service
   return result;
 }

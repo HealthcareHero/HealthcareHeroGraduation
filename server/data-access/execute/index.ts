@@ -1,13 +1,13 @@
 import { ENV_PRD } from "server/constants";
 
-export const execute = <Response>(
-  executeService: () => void,
-  executeMockService: () => void
-): Response => {
+export const execute = async <Response>(
+  executeService: () => Promise<any>,
+  executeMockService: () => Promise<any>
+): Promise<Response> => {
   if (process.env.NODE_ENV === ENV_PRD) {
-    return executeService() as unknown as Response;
+    return await executeService() as unknown as Response;
   }
   else {
-    return executeMockService() as unknown as Response;
+    return await executeMockService() as unknown as Response;
   }
 }

@@ -1,7 +1,7 @@
 import { GetFeedPostRequest, GetFeedPostResponse } from 'server/data-access/execute/services/feeds/getFeedPost/index.type'
 import { feed1, feed2, feed3, feed4, feed5 } from '../../../data/feeds'
 
-export const mock_getFeedPost = (request: GetFeedPostRequest): GetFeedPostResponse => {
+export const mock_getFeedPost = async (request: GetFeedPostRequest): Promise<GetFeedPostResponse> => {
   switch (request.id) {
     case feed1.id:
       return feed1;

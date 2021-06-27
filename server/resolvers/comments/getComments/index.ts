@@ -6,7 +6,7 @@ import { mock_getComments as mockService} from 'server/data-access/execute/mocks
 export const getComments = async (parent: any, args: any): Promise<GetCommentsResult> => {
   const { id } = parent as GetCommentsParent;
   const request: GetCommentsRequest = { feedPostId: id }
-  const result = execute<GetCommentsResult>(() => mockService(request), () => mockService(request));
+  const result = await execute<GetCommentsResult>(() => mockService(request), () => mockService(request));
   console.log(result)
 
   return result;

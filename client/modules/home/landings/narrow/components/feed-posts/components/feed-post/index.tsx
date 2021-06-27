@@ -41,8 +41,7 @@ export default function FeedPost({
             <b>{author}</b>
           </div>
           <div className={styles.timestamp}>
-            {/* { moment(timestamp).fromNow() } */}
-            TIME
+            {timestamp}
           </div>
         </div>
         { message && <div><ExpandableText text={message} displayLength={FEED_POST_MESSAGE_DISPLAY_LENGTH} /></div> }

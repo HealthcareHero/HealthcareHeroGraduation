@@ -4,6 +4,6 @@ import { getFeedPosts as service} from 'server/data-access/execute/services/feed
 import { mock_getFeedPosts as mockService} from 'server/data-access/execute/mocks/services/feeds/getFeedPosts'
 
 export const getFeedPosts = async (): Promise<GetFeedPostsResult> => {
-  const result = await execute<GetFeedPostsResult>(async () => await service(), async () => await mockService());
+  const result = await execute<GetFeedPostsResult>(async () => await service(), async () => await service());
   return result;
 }

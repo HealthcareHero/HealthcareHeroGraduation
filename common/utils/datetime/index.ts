@@ -8,5 +8,5 @@ export const getNow = (): Date => {
 }
 
 export const getDurationFromNow = (timestamp: Date): string => {
-  return dayjs(timestamp).fromNow()
+  return dayjs(timestamp).fromNow();
 }

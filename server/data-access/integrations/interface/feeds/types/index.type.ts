@@ -9,6 +9,14 @@ export interface NewFeedPost {
   timestamp: Date;
 }
 
+export interface FeedPost extends NewFeedPost {
+  id: string;
+}
+
 export interface ExecuteCreateFeedPostResult {
   id: string;
+}
+
+export interface ExecuteGetFeedPostsResult {
+  feedPosts: FeedPost[] | null;
 }

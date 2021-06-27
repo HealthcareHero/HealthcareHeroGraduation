@@ -1,3 +1,8 @@
 import { FeedPost } from 'server/data-access/execute/common/types/feeds/index.type'
 
-export type GetFeedPostsResponse = FeedPost[];
+type GetFeedPostsResponse = FeedPost[];
+
+export type { 
+  GetFeedPostsResponse,
+  FeedPost
+}

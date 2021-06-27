@@ -7,6 +7,6 @@ export const getNow = (): Date => {
   return dayjs().toDate();
 }
 
-export const getDurationFromNow = (timestamp: string): string => {
+export const getDurationFromNow = (timestamp: Date): string => {
   return dayjs(timestamp).fromNow()
 }

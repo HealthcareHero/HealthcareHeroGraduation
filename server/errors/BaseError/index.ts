@@ -9,6 +9,10 @@ export class BaseError extends ApolloError {
     Object.defineProperty(this, ERROR_PROPERTY.isCustomError, { value: isCustomError });
     Object.defineProperty(this, ERROR_PROPERTY.technicalMessage, { value: technicalMessage });
 
-    logger.error(originalError);
+    logger.error(`[Original Error] ${originalError}`);
+  }
+
+  public toString = (): string => {
+    return `[${this.code}] ${this.technicalMessage}`;
   }
 }

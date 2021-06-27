@@ -4,7 +4,6 @@ import { TABLE_FEEDPOSTS, FIELD_TIMESTAMP } from 'server/data-access/execute/com
 import { getDurationFromNow } from 'common/utils/datetime'
 import { ApplicationError } from 'server/errors/ApplicationError'
 import { FAILURE_TO_RETRIEVE_FEEDS_ERROR } from 'server/errors/ApplicationError/constants/feeds'
-import { logger } from 'server/loggers'
 
 export const getFeedPosts = async (): Promise<GetFeedPostsResponse> => {
   try {
@@ -26,7 +25,6 @@ export const getFeedPosts = async (): Promise<GetFeedPostsResponse> => {
 
     return mappedResult;
   } catch (error) {
-    logger.error(error)
-    throw new ApplicationError(FAILURE_TO_RETRIEVE_FEEDS_ERROR);
+    throw new ApplicationError(FAILURE_TO_RETRIEVE_FEEDS_ERROR, error);
   }
 };

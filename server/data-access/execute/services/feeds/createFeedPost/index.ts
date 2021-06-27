@@ -11,7 +11,6 @@ import { getNow } from 'common/utils/datetime'
 import { TABLE_FEEDPOSTS } from 'server/data-access/execute/common/constants'
 import { ApplicationError } from 'server/errors/ApplicationError'
 import { SUBMISSION_NEW_POST_CREATION_ERROR } from 'server/errors/ApplicationError/constants/submission'
-import { logger } from 'server/loggers'
 
 export const createFeedPost = async ({ author, recipient, message, media, tags, enableComment }: CreateFeedPostRequest): Promise<CreateFeedPostResponse> => {
   const newPost: NewFeedPost = {
@@ -29,7 +28,6 @@ export const createFeedPost = async ({ author, recipient, message, media, tags, 
     const result = await addNewRecord(TABLE_FEEDPOSTS, newPost);
     return result.id;
   } catch (error) {
-    logger.error(error)
-    throw new ApplicationError(SUBMISSION_NEW_POST_CREATION_ERROR);
+    throw new ApplicationError(SUBMISSION_NEW_POST_CREATION_ERROR, error);
   }
 }

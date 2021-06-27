@@ -1,5 +1,4 @@
-import { CreateFeedPostRequest, CreateFeedPostResponse } from './index.type'
-import { NewFeedPost } from 'server/data-access/integrations/interface/feeds/types/index.type'
+import { CreateFeedPostRequest, CreateFeedPostResponse, NewFeedPost } from './index.type'
 import {
   getAuthor,
   getRecipient,
@@ -7,8 +6,9 @@ import {
   getTags,
   getMedia,
 } from './helpers'
+import { addNewRecord } from 'server/data-access/integrations/firebase/actions'
 import { getNow } from 'common/utils/datetime'
-import { executeCreateFeedPost } from 'server/data-access/integrations/interface/feeds'
+import { TABLE_FEEDPOSTS } from 'server/data-access/execute/common/constants'
 import { ApplicationError } from 'server/errors/ApplicationError'
 import { SUBMISSION_NEW_POST_CREATION_ERROR } from 'server/errors/ApplicationError/constants/submission'
 import { logger } from 'server/loggers'
@@ -26,8 +26,8 @@ export const createFeedPost = async ({ author, recipient, message, media, tags, 
   } 
 
   try {
-    const response = await executeCreateFeedPost(newPost);
-    return response.id;
+    const result = await addNewRecord(TABLE_FEEDPOSTS, newPost);
+    return result.id;
   } catch (error) {
     logger.error(error)
     throw new ApplicationError(SUBMISSION_NEW_POST_CREATION_ERROR);

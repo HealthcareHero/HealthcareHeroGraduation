@@ -8,3 +8,8 @@ export interface CreateFeedPostRequest {
 }
 
 export type CreateFeedPostResponse = String | null;
+
+export interface NewFeedPost extends CreateFeedPostRequest {
+  likeCount: number;
+  timestamp: Date;
+}

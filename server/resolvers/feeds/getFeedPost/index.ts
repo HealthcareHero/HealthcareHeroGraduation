@@ -5,7 +5,7 @@ import { mock_getFeedPost as mockService} from 'server/data-access/execute/mocks
 
 export const getFeedPost = async (parent: any, args: any): Promise<GetFeedPostResult> => {
   const request = args as GetFeedPostArgument;
-  const result = await execute<GetFeedPostResult>(() => mockService(request), () => mockService(request));
+  const result = await execute<GetFeedPostResult>(async () => await mockService(request), async () => await mockService(request));
   // TODO: Change to real service
   return result;
 }

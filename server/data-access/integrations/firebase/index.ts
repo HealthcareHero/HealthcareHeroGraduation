@@ -15,4 +15,10 @@ if (!admin.apps.length) {
   admin.app(); // if already initialized, use that one
 }
 
-export const storage = admin.storage();
+const storage = admin.storage();
+const firestore = admin.firestore();
+
+export {
+  storage,
+  firestore
+}

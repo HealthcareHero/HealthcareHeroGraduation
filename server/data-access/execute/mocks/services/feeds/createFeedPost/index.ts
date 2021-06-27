@@ -1,5 +1,6 @@
 import { CreateFeedPostRequest, CreateFeedPostResponse } from 'server/data-access/execute/services/feeds/createFeedPost/index.type'
+import { feed1 } from '../../../data/feeds'
 
 export const mock_createFeedPost = async (request: CreateFeedPostRequest): Promise<CreateFeedPostResponse> => {
-  return "MOCK_FEED_POST_ID";
+  return feed1.id;
 }

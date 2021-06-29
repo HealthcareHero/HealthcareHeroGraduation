@@ -11,7 +11,9 @@ const raiseBodyLimit: (handler: NextApiHandler) => NextApiHandler = (
   if (req.headers["content-type"] !== "application/json") {
     return handler(req, res)
   }
-  await json(req, { limit: `${IMAGE_MAX_SIZE_IN_MB}mb` }) // This is the trick to raise body limit
+
+  const payloadMaxSize = IMAGE_MAX_SIZE_IN_MB + 1;
+  await json(req, { limit: `${payloadMaxSize}mb` }) // This is the trick to raise body limit
   return handler(req, res)
 }
 

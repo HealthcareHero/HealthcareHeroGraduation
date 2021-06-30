@@ -1,0 +1,26 @@
+.text-section-xs {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+
+.text-section-sm {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+
+.text-section {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+
+.text-section-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #fa8c16;
+}

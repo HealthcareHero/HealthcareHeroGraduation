@@ -1,0 +1,12 @@
+.comment {
+  margin-bottom: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timestamp {
+  font-size: 0.7em;
+}

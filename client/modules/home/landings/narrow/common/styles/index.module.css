@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author { 
+  font-size: 1.1em;
+}
+
+.timestamp {
+  font-size: 0.7em;
+}
+
+.content {
+  margin-top: 1px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+}

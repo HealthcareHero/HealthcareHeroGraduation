@@ -1,0 +1,12 @@
+.wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  background-color: #fff;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+}

@@ -1,4 +1,4 @@
-import { parseEnvJson, parseEnvBase64Json } from './helpers'
+import { parseEnvJson } from './helpers'
 import { ENV_KEY_FIREBASE_CONFIG, ENV_KEY_FIREBASE_SERVICE_ACCOUNT } from './constants'
 
 export const getFirebaseConfig = () => {
@@ -6,5 +6,5 @@ export const getFirebaseConfig = () => {
 }
 
 export const getFirebaseServiceAccount = () => {
-  return parseEnvBase64Json(ENV_KEY_FIREBASE_SERVICE_ACCOUNT);
+  return parseEnvJson(ENV_KEY_FIREBASE_SERVICE_ACCOUNT);
 }

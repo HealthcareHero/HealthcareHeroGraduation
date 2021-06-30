@@ -37,8 +37,7 @@ export default function Content({ id,
             <b>{author}</b>
           </div>
           <div className={styles.timestamp}>
-            {/* { moment(timestamp).fromNow() } */}
-            TIME
+            {timestamp}
           </div>
         </div>
         { message && <div>{message}</div> }

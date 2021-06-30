@@ -7,3 +7,9 @@ export const FAILURE_TO_RETRIEVE_FEEDS_ERROR: ErrorFeedback = {
   technicalMessage: "An error occurred when retrieving feeds",
   message: COMMON_ERROR_MESSAGE,
 }
+
+export const MISSING_FEED_ID_ERROR: ErrorFeedback = {
+  code: "SFEED002",
+  technicalMessage: "Feed id is missing",
+  message: COMMON_ERROR_MESSAGE,
+}

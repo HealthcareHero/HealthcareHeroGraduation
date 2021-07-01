@@ -18,7 +18,10 @@ if (!admin.apps.length) {
 const storage = admin.storage();
 const firestore = admin.firestore();
 
+const fieldValue = admin.firestore.FieldValue;
+
 export {
   storage,
-  firestore
+  firestore,
+  fieldValue
 }

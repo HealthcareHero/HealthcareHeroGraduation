@@ -1,5 +1,5 @@
 import { GetFeedPostsResponse, FeedPost } from './index.type'
-import { getRecords } from 'server/data-access/integrations/firebase/actions'
+import { getCollection } from 'server/data-access/integrations/firebase/actions'
 import { TABLE_FEEDPOSTS, FIELD_TIMESTAMP } from 'server/data-access/execute/common/constants'
 import { getDurationFromNow } from 'common/utils/datetime'
 import { ApplicationError } from 'server/errors/ApplicationError'
@@ -7,7 +7,7 @@ import { FAILURE_TO_RETRIEVE_FEEDS_ERROR } from 'server/errors/ApplicationError/
 
 export const getFeedPosts = async (): Promise<GetFeedPostsResponse> => {
   try {
-    const result = await getRecords(TABLE_FEEDPOSTS, FIELD_TIMESTAMP, false);
+    const result = await getCollection(TABLE_FEEDPOSTS, FIELD_TIMESTAMP, false);
     const mappedResult = result.docs.map((feedPost) => {
       const data = feedPost.data();
       return <FeedPost>{

@@ -27,6 +27,7 @@ export default function Form({ name, form }: FormProps) {
           <Option value="ALL">ALL</Option>
           <Option value="BERNARD">Bernard</Option>
           <Option value="JEANIE">Jeanie</Option>
+          <Option value="PRIYANKA">Priyankadarshni</Option>
         </Select>
       </AntdForm.Item>
 

@@ -6,7 +6,7 @@ import {
   getTags,
   getMedia,
 } from './helpers'
-import { addNewRecord } from 'server/data-access/integrations/firebase/actions'
+import { addDocument } from 'server/data-access/integrations/firebase/actions'
 import { getNow } from 'common/utils/datetime'
 import { TABLE_FEEDPOSTS } from 'server/data-access/execute/common/constants'
 import { ApplicationError } from 'server/errors/ApplicationError'
@@ -25,7 +25,7 @@ export const createFeedPost = async ({ author, recipient, message, media, tags, 
   } 
 
   try {
-    const result = await addNewRecord(TABLE_FEEDPOSTS, newPost);
+    const result = await addDocument(TABLE_FEEDPOSTS, newPost);
     return result.id;
   } catch (error) {
     throw new ApplicationError(SUBMISSION_NEW_POST_CREATION_ERROR, error);

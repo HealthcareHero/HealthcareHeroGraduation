@@ -14,6 +14,6 @@ interface RouteMeta {
 interface ProfilesRouteMeta extends RouteMeta{
   bernard: RouteMeta,
   jeanie: RouteMeta,
-  yanka: RouteMeta,
+  priyanka: RouteMeta,
   yikSiong: RouteMeta
 }

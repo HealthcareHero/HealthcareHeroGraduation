@@ -5,6 +5,8 @@ import { useMediaQuery } from 'client/common/utils/media-query'
 
 export const styles: Css = {
   textSectionTitle: css["text-section-title"],
+  blockquoteSection: css.blockquoteSection,
+  blockquoteImage: css.blockquoteImage
 };
 
 export const useStyleTextSection = (): string => {

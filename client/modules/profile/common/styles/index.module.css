@@ -24,3 +24,19 @@
   font-weight: 600;
   color: #fa8c16;
 }
+
+.blockquote-section {
+  margin-top: 2em;
+}
+
+.blockquote-image {
+  width: 100%;
+  max-Width: 300px;
+  display: block;
+  margin-left: "auto";
+  margin-right: "auto";
+  margin-top: 53px;
+  position: "relative";
+  bottom: 53px;
+  z-Index: "12";
+}

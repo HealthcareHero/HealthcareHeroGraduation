@@ -1,7 +1,10 @@
 
 import { styles, useStyleTextSection } from '../../common/styles/index.style'
+import Image from 'next/image'
 import ProfileSelection from '../../common/layout'
+import Blockquote from 'client/common/components/blockquote'
 import { bernard } from '../../common/models/index'
+import { IMAGE_PATH_INVOLVEMENT, IMAGE_PATH_PEACE } from './constants'
 
 export default function Bernard() {
   const styleTextSection = useStyleTextSection();
@@ -37,7 +40,7 @@ export default function Bernard() {
         <div className={styles.textSectionTitle}>
           Contributing To Society
         </div>
-        {/* <img src={involvementImg} alt="involvement"  /> */}
+        <Image src={IMAGE_PATH_INVOLVEMENT} alt="involvement" height="100%" width="100%" />
         <div>
           Basic academic studies, projects and skill trainings are nothing out of the ordinary.
           Community work is what interests Bernard the most.
@@ -82,13 +85,13 @@ export default function Bernard() {
         </div>
       </div>
 
-      <div>
-        {/* <img src={bernardPeaceImg} alt="bernard-peace"  /> */}
+      <div className={styles.blockquoteSection}>
+        <img src={IMAGE_PATH_PEACE} alt="bernard-peace" className={styles.blockquoteImage} />
         <div>
           <div>
-            {/* <BlockQuote cite="Bernard"> */}
+            <Blockquote cite="Bernard">
               Accept that the journey will be tough, but you will be strong enough to see it through. 
-            {/* </BlockQuote> */}
+            </Blockquote>
           </div>
         </div>
       </div>

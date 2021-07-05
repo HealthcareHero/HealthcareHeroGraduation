@@ -1,1 +1,1 @@
-export const AVATAR_BASE_PATH = "/assets/img/profile-avatar";
+export const AVATAR_BASE_PATH = "/assets/img/profile/avatars";

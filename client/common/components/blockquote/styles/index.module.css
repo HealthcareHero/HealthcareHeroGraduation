@@ -1,0 +1,7 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

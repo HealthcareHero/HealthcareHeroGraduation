@@ -1,5 +1,5 @@
 import { Routes } from './routes.type'
-import { bernard, jeanie, yanka, yikSiong } from 'client/modules/profile/common/models'
+import { bernard, jeanie, priyanka, yikSiong } from 'client/modules/profile/common/models'
 
 const profileRouteRoot = "/profile";
 
@@ -28,10 +28,10 @@ export const routes: Routes = {
       pageTitle: jeanie.pageTitle,
       pageDescription: jeanie.pageDescription,
     },
-    yanka: {
-      path: `${profileRouteRoot}/${yanka.pagePathSuffix}`,
-      pageTitle: yanka.pageTitle,
-      pageDescription: yanka.pageDescription,
+    priyanka: {
+      path: `${profileRouteRoot}/${priyanka.pagePathSuffix}`,
+      pageTitle: priyanka.pageTitle,
+      pageDescription: priyanka.pageDescription,
     },
     yikSiong: {
       path: `${profileRouteRoot}/${yikSiong.pagePathSuffix}`,

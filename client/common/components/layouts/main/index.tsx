@@ -15,7 +15,7 @@ export default function LayoutMain({ children }: LayoutMainProps) {
       <Content>
         <div className={styles.siteLayoutContent}>{children}</div>
       </Content>
-      <Footer className={styles.footer}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer className={styles.footer}>Disclaimer: This is a non-incentive private initiative with no relation to any specific organisation.</Footer>
     </Layout>
   )
 }

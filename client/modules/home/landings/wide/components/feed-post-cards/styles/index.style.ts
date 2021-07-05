@@ -3,5 +3,4 @@ import { Css } from './index.type'
 
 export const styles: Css = {
   container: css.container,
-  content: css.content
 };

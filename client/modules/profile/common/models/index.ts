@@ -22,11 +22,11 @@ export const jeanie: Profile = {
   pageDescription: "A Medical Hero",
 }
 
-export const yanka: Profile = {
-  name: "Yanka",
-  avatar: `${AVATAR_BASE_PATH}/avatar_yanka.png`,
-  pagePathSuffix: "yanka",
-  pageTitle: getProfileRouteTitle("Yanka"),
+export const priyanka: Profile = {
+  name: "Priyankadarshni",
+  avatar: `${AVATAR_BASE_PATH}/avatar_priyanka.png`,
+  pagePathSuffix: "priyankadarshni",
+  pageTitle: getProfileRouteTitle("Priyankadarshni"),
   pageDescription: "A Medical Hero",
 }
 

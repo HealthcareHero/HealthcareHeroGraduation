@@ -4,10 +4,10 @@ import CommentDisable from './components/comment-disable'
 import CommentEmpty from './components/comment-empty'
 import Comment from './components/comment'
 
-export default function CommentSection({ enable, comments }: CommentSectionProps) {
+export default function CommentSection({ enable, comments, showTopDivider }: CommentSectionProps) {
   return (
     <>
-      <Divider />
+      { showTopDivider && <Divider /> }
       {
         !enable ? <CommentDisable />
         : (!comments || comments?.length <=0) ? <CommentEmpty />

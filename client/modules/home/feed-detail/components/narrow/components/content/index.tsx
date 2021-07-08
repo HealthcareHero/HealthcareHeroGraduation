@@ -5,7 +5,7 @@ import TagGroup from 'client/common/components/tags/tag-group'
 import LikeButton from 'client/common/components/buttons/like-button'
 import ShareButton from 'client/common/components/buttons/share-button'
 import MediaViewer from '../../components/media-viewer'
-import CommentSection from '../comment-section'
+import CommentSection from '../../../comment-section'
 import InputComments from '../../components/input-comment'
 import { 
   enableMediaVisualViewer,
@@ -40,7 +40,7 @@ export default function Content({ id,
             {timestamp}
           </div>
         </div>
-        { message && <div>{message}</div> }
+        { message && <div className={styles.message}>{message}</div> }
         { tags?.length > 0 && <TagGroup texts={tags} /> }
         <div className={styles.footer}>
           <div className={styles.buttons}>
@@ -50,21 +50,10 @@ export default function Content({ id,
           <div>{numLikes} {numLikes === 1 ? "Like" : "Likes"}</div>
         </div>
 
-        <CommentSection enable={enableComment} comments={comments} />
+        <CommentSection enable={enableComment} comments={comments} showTopDivider />
       </div>
 
       { enableComment && <InputComments /> }
-
-
-      {/* 
-
-      {
-        commenting && (
-          <div style={{ paddingLeft: "8px", paddingRight: "8px", marginTop: "24px", position: "sticky", bottom: "8px" }} >
-            <InputWithSubmit text={inputText} setText={updateInputText} loading={submitting} onSubmit={submitComment} />
-          </div>
-        )
-      } */}
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function FeedDetail({ id }: FeedDetailProps) {
     <div>
       <HtmlHead title={routes.feed.pageTitle} description={routes.feed.pageDescription} />
 
-      { isMdOrLarger ? <Wide /> : <Narrow {...response}/> }
+      { isMdOrLarger ? <Wide {...response} /> : <Narrow {...response} /> }
     </div>
   );
 }

@@ -6,6 +6,7 @@ export const styles: Css = {
   header: css.header,
   author: css.author,
   timestamp: css.timestamp,
+  message: css.message,
   footer: css.footer,
   buttons: css.buttons,
 }

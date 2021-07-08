@@ -1,10 +1,10 @@
-import { NarrowProps } from './types/index.type'
+import { FeedPostProps } from 'client/modules/home/feed-detail/common/types/index.type'
 import PageNotFound from 'client/modules/page-not-found'
 import Skeletons from 'client/common/components/skeletons'
 import { SKELETON_PARAGRAPH_ROWS } from './constants'
 import Content from './components/content'
 
-export default function Narrow({ data, isLoading, error }: NarrowProps) {
+export default function Narrow({ data, isLoading, error }: FeedPostProps) {
 
   return (
     <>

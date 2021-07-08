@@ -1,0 +1,17 @@
+.container {
+  background-color: black;
+}
+
+.media-container {
+  background-color: black;
+  width: 100%;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  align-items: center;
+}
+
+.media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

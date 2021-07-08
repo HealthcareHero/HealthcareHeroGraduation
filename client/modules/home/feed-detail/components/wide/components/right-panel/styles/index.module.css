@@ -1,0 +1,31 @@
+.container {
+  padding: 8px;
+}
+
+.action-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.author { 
+  font-size: 1.1em;
+}
+
+.meta {
+  font-size: 0.7em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message {
+  margin: 16px 0px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.divider {
+  margin: 12px 0px;
+}

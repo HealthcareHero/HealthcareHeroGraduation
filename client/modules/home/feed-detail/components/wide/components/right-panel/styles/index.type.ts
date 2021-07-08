@@ -1,8 +1,9 @@
 export interface Css {
-  header: string;
+  container: string;
+  actionSection: string;
   author: string;
-  timestamp: string;
+  meta: string;
   message: string;
-  footer: string;
   buttons: string;
+  divider: string;
 }

@@ -3,4 +3,5 @@ import { FeedDetailComment } from 'client/modules/home/feed-detail/common/types/
 export interface CommentSectionProps {
   enable: boolean;
   comments: FeedDetailComment[];
+  showTopDivider: boolean;
 }
